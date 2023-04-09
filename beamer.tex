@@ -1,0 +1,129 @@
+\documentclass{beamer}
+\usefonttheme[onlylarge]{structuresmallcapsserif}
+\usefonttheme[onlysmall]{structurebold}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+%-----------------------------------------Paquetes y comandos personales-------------------------------%
+\usepackage{fancybox,color,tcolorbox}
+\usepackage{verbatim}
+\usepackage[english,spanish,activeacute]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{multimedia}
+\usepackage{pifont,pgfcore}
+\usepackage{tcolorbox}
+\usepackage{animate}
+\usepackage{ucs}
+%-----------------------------------------------------Nuevos Ambientes----------------------------------%
+
+\newtheorem*{Theorem*}{Teorema}
+\newtheorem*{Definition*}{Definici'on}
+\newtheorem*{Example*}{Ejemplo}
+
+%-----------------------------------------------------Nuevos Comandos-----------------------------------%
+%-----------------------------------------------------Titulo--------------------------------------------%
+
+\vspace*{-0.8cm}
+\title[Título del trabajo]{Título de la presentación del trabajo}
+\author[Machado, Toledo, Moreno, Concepción, Navarro]
+		{
+			Daniel Machado \\
+			Daniel Toledo \\
+			Osvaldo Moreno \\
+			José A. Concepción \\
+			Adrián Navarro \\
+			{\small C211}
+		}
+			
+\date{Mayo 2023}
+
+\begin{document}
+%-----Redefiniendo colores----------%
+\definecolor{green}{rgb}{0.1,0.5,0.3}
+\definecolor{vio}{rgb}{0.8,0.5,0.2}
+\definecolor{g}{rgb}{0.93,0.93,0.93}
+\begin{frame}
+    
+    \titlepage
+    \vspace*{-0.65cm}
+    \begin{center}
+        \colorbox{black}{\textbf{\begin{large}\textcolor{white}{Defensa del proyecto final.}\end{large}}}\\\ \\
+        \vspace*{-0.3cm}
+        \scriptsize \textbf{\textcolor{blue}{Facultad Matem\'atica Computaci\'on}}\\
+        \textbf{\textcolor{blue}{Universidad de La Habana}}
+    \end{center}
+\end{frame}
+%-----------------------------------------------
+
+%-------------------------------------------------
+\begin{frame}
+	\frametitle{Temas a tratar} 
+	\tableofcontents 
+\end{frame}
+%------------------------------------
+
+%-------------------------------------
+\section{Introducci\'on}
+\begin{frame}
+\begin{minipage}{10cm}
+	Los m\'etodos de Taylor tienen la propiedad de un error local de truncamiento de orden superior, pero la desventaja de requerir el c\'alculo y la evaluaci\'on de las derivadas de f.
+\end{minipage}
+\end{frame}
+
+\section{Desarrollo}
+\begin{frame}
+\begin{minipage}{10cm}
+	Aqui iria el comienzo del desarrollo con el tema a tratar
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivaci\'on}
+\begin{minipage}{10cm}
+Esto resulta algo lento y complicado, en la mayor\'ia de los problemas, raz\'on por la cual, en la pr\'actica casi no se utilizan. El método de Euler, lamentablemente requiere de un paso muy pequeño para una precisi\'on razonable. 
+\end{minipage}
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Modelado matem\'atico }
+\begin{alertblock}{\begin{dinglist}{45}
+			\item Postulados
+	\end{dinglist}}
+    \begin{minipage}{10cm}
+	Los m\'etodos de Runge-Kutta tienen el error local de truncamiento del mismo orden que los m\'etodos de Taylor, pero prescinden del c\'alculo y evaluaci\'on de las derivadas de la funci\'on f
+     \end{minipage}
+\end{alertblock}
+\end{frame}
+
+\section{Formulaci\'on matem\'atica.}
+%----------------------------------
+\begin{frame}
+	\frametitle{Conclusiones}
+	\begin{minipage}{10cm}
+	Se ha demostrado para el sistema 
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Recomendaciones}
+	\begin{minipage}{10cm}
+		Se puede extender los resultados a modelos... 
+	\end{minipage}
+\end{frame}
+%----------------------------------
+\section{Bibliograf\'ia del tema}
+\begin{frame}
+\frametitle{Bibliograf\'ia}
+\begin{thebibliography}{99}
+
+\bibitem[Sanjuan,2016]{sanjuan2016} M. A. Fern\'andez Sanju\'an (2016). Din\'amica No Lineal, Teor\'ia del Caos y Sistemas Complejos: una perspectiva hist\'orica. {\em Rev. R. Acad. Cienc. Exact. F\'is .Nat.} \textbf{Vol}. 109, N. 1?2, pp. 107-126.
+\end{thebibliography}	
+\end{frame}
+
+\end{document}
+
