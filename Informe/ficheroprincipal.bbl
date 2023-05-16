@@ -7,4 +7,12 @@ Banks, J., J.~S. Carson, B.~L. Nelson, and D.~M. Nicol. 2000.
 \newblock Upper Saddle River, New Jersey: Prentice-Hall, Inc.
 
 
+\bibitem[\protect\citeauthoryear{Bechhofer, Hayter, and Tamhane}{Bechhofer
+  et~al.}{1991}]{bechhofer:heteroscedastic}
+Bechhofer, R.~E., A.~J. Hayter, and A.~C. Tamhane. 1991.
+\newblock ``Designing experiments for selecting the largest normal mean when
+  the variances are known and unequal: {O}ptimal sample size allocation''.
+\newblock {\em Journal of Statistical Planning and Inference\/}~28:271--289.
+
+
 \end{thebibliography}
