@@ -20,6 +20,8 @@
 \usepackage{graphicx}
 \usepackage{mathptmx}
 \usepackage[T1]{fontenc}
+\usepackage[style=apa]{biblatex}
+\addbibresource{demobib.bib}
 
 %
 %****************************************************************************
@@ -29,6 +31,8 @@
 \usepackage{amssymb}
 \usepackage{amsbsy}
 \usepackage{amsthm}
+% \usepackage{natbib}
+% \usepackage{hyperref}
 %****************************************************************************
 
 
@@ -41,8 +45,7 @@
 %% cannot use ps or eps files for graphics, but pdf, jpeg, png etc are fine.
 
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=black,anchorcolor=black,linkcolor=red]{hyperref}
-%\usepackage{hyperref}
-
+\usepackage{hyperref}
 %% The next versions of the hyperref command are used if you adopt the
 %% outdated latex-dvips-ps2pdf route in generating your pdf file. In
 %% this case you can use ps or eps files for graphics, but not pdf, jpeg, png etc.
@@ -153,7 +156,7 @@ condiciones iniciales y los valores de parámetros.
 
 \section{INTRODUCCI\'ON}
 \label{sec:intro}
-El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling 
+El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling \cite{holling_functional_1965}
 Type Functional Responses" por A. Rizali, D. Adriyanto, A. Hussainy y B. Pramuji fue publicado en 2019 
 en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.21 en el 
 período 2022-2023. El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura 
@@ -201,10 +204,10 @@ y_{n+1}=y_n+hf(x_n,y_n}
 
 
 \begin{itemize}
-	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc. \cite{bechhofer:heteroscedastic}
+	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc.
 \end{itemize}
 \begin{enumerate}
-	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis, \cite{simulation}
+	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis,
 \end{enumerate}
 
 
@@ -257,10 +260,13 @@ depredadores en diferentes entornos y para comprender mejor los efectos del camb
 en estas interacciones. FALTA Añadir una valoración de lo que usted ha aprendido con este trabajo, como valora la
 posibilidad de que se pueda continuar esta línea de investigación.
 
-\bibliographystyle{wsc}
-\bibliography{demobib}
 
-\section*{Bibliograf\'ia}
+\defbibheading{Referencias}{\section*{Referencias}}
+\defbibheading{Bibliografía}{\section*{Bibliografía}}
+ 
+\printbibliography[heading=Referencias, nottype=book]
+\printbibliography[heading=Bibliografía, nottype=article]
+\nocite{edwards_differential_2008}
 
 
 \section*{Agradeciemientos}
