@@ -16,7 +16,8 @@
 \documentclass{wscpaperproc}
 \usepackage[spanish]{babel}
 \usepackage{latexsym}
-%\usepackage{caption}
+\usepackage{caption}
+\usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{mathptmx}
 \usepackage[T1]{fontenc}
@@ -31,8 +32,8 @@
 \usepackage{amssymb}
 \usepackage{amsbsy}
 \usepackage{amsthm}
-% \usepackage{natbib}
-% \usepackage{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,anchorcolor=black,linkcolor=red]{hyperref}
+\usepackage{hyperref}
 %****************************************************************************
 
 
@@ -44,8 +45,6 @@
 %% This version of the command is used if you use pdflatex. In this case you
 %% cannot use ps or eps files for graphics, but pdf, jpeg, png etc are fine.
 
-\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,anchorcolor=black,linkcolor=red]{hyperref}
-\usepackage{hyperref}
 %% The next versions of the hyperref command are used if you adopt the
 %% outdated latex-dvips-ps2pdf route in generating your pdf file. In
 %% this case you can use ps or eps files for graphics, but not pdf, jpeg, png etc.
@@ -174,7 +173,8 @@ cuarto orden y un análisis de bifurcación para estudiar la posible existencia 
 
 \section{Resultados fundamentales.}
 
-Muestre s\'olo las ecuaciones m\'as importantes y numere \'unicamente las ecuaciones mostradas a las que se hace referencia expl\'icita en el texto. \\
+Muestre s\'olo las ecuaciones m\'as importantes y
+numere \'unicamente las ecuaciones mostradas a las que se hace referencia expl\'icita en el texto. \\
 
 $\bar Y = n^{-1} \sum_{i=1}^n Y_i$\\
 $$s^2 = \frac 1 {n-1} \sum_{i=1}^n (Y_i - \bar Y)^2.$$
@@ -187,7 +187,7 @@ $$s^2 = \frac 1 {n-1} \sum_{i=1}^n (Y_i - \bar Y)^2.$$
 	ax^2 + bx + c = 0, \mbox{ donde } a \ne 0.
 \end{equation}
 
-En el texto, cada referencia a un n\'umero de ecuaci\'on debe ir tambi\'en entre par\'entesis. Por ejemplo, la soluci\'on de (\ref{eq:quadratic}) est\'a dada por  (\ref{eq:quadraticsol}) en los Axenos \ref{app:quadratic}.
+En el texto, cada referencia a un n\'umero de ecuaci\'on debe ir tambi\'en entre par\'entesis. Por ejemplo, la soluci\'on de (\ref{eq:quadratic}) est\'a dada por (\ref{eq:quadratic_second}) en los Anexos (\ref{eq:quadraticsol}).
 
 
 \begin{equation} \label{eq:quadratic_second}
@@ -263,7 +263,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 \section*{F\'ORMULAS A UTILIZAR DESPU\'ES} 
 % aqui ya estan la mayoria de las formulas
 
-\begin{equation}
+\begin{equation} \label{JacobianoEstability}
 	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
 			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
@@ -271,15 +271,15 @@ posibilidad de que se pueda continuar esta línea de investigación.
 		\end{array}\right]
 \end{equation}
 
-\begin{equation}
-	\begin{array}{r}
+\begin{equation} \label{twoPreyonePredator_Falconi}
+	\begin{gathered}
 		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\frac{\beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2} \\
 		\frac{d x_2}{d t}=\beta x_1-\frac{\beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_1 x_2                           \\
 		\frac{d y}{d t}=\frac{\alpha_1 \beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2}+\frac{\alpha_2 \beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_2 y
-	\end{array}
+	\end{gathered}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{Holling1y2_Abadi}
 	\begin{gathered}
 		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\alpha x_1 y \\
 		\frac{d x_2}{d t}=\beta x_1-\frac{\varepsilon x_2 y}{1+m x_2}-\mu_1 x_2 \\
@@ -287,7 +287,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 	\end{gathered}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{Holling1y2_Castellanos}
 	\begin{gathered}
 		\frac{d x}{d t}=\rho x\left(1-\frac{x}{k}\right)-a_1 x \\
 		\frac{d y}{d t}=c a_1 x y-d y-\frac{a_2 y z}{y+b_2} \\
@@ -295,7 +295,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 	\end{gathered}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{twoPreyonePredatorEDO}
 	\begin{gathered}
 		\frac{d x}{d t}=r x\left(1-\frac{x}{k}\right)-\beta x-\alpha x z \\
 		\frac{d y}{d t}=\beta x-\frac{\eta y z}{y+m}-\mu y \\
@@ -303,7 +303,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 	\end{gathered}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{Characteristic000}
 	\left|\begin{array}{ccc}
 		(-1+r)-\lambda & 0            & 0         \\
 		\beta          & -\mu-\lambda & 0         \\
@@ -311,7 +311,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 	\end{array}\right|=0
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{Equilibrium}
 	\begin{aligned}
 		 & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
 		 & J\left(E_2\right)=\left|\begin{array}{ccc}
@@ -322,7 +322,7 @@ posibilidad de que se pueda continuar esta línea de investigación.
 	\end{aligned}
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{CharacteristicPolynomial}
 	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                     \\
 			\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                         \\
