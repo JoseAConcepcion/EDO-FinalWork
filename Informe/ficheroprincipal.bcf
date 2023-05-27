@@ -2792,9 +2792,10 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">holling_functional_1965</bcf:citekey>
-    <bcf:citekey order="2" nocite="1">edwards_differential_2008</bcf:citekey>
-    <bcf:citekey order="3">holling_functional_1965</bcf:citekey>
-    <bcf:citekey order="4">edwards_differential_2008</bcf:citekey>
+    <bcf:citekey order="2">holling_functional_1965</bcf:citekey>
+    <bcf:citekey order="3" nocite="1">edwards_differential_2008</bcf:citekey>
+    <bcf:citekey order="4">holling_functional_1965</bcf:citekey>
+    <bcf:citekey order="5">edwards_differential_2008</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

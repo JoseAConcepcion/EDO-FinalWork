@@ -112,27 +112,27 @@
 	Ciencia de la Computaci\'on\\
 	Facultad de Matem\'atica y Computaci\'on\\
 	Universidad de La Habana. Cuba\\
-% Multiple authors are entered as follows.
-% You may also need to adjust the titlevbox size in the preamble - search for titlevboxsize
-\and
+	% Multiple authors are entered as follows.
+	% You may also need to adjust the titlevbox size in the preamble - search for titlevboxsize
+	\and
 	Daniel Toledo\\[12pt]
 	Grupo C211\\
 	Ciencia de la Computaci\'on\\
 	Facultad de Matem\'atica y Computaci\'on\\
 	Universidad de La Habana. Cuba\\
-\and
+	\and
 	Osvaldo Moreno\\[12pt]
 	Grupo C211\\
-    Ciencia de la Computaci\'on\\
+	Ciencia de la Computaci\'on\\
 	Facultad de Matem\'atica y Computaci\'on\\
 	Universidad de La Habana. Cuba\\
-\and
+	\and
 	Jos\'e Antonio Concepci\'on\\[12pt]
 	Grupo C211\\
 	Ciencia de la Computaci\'on\\
 	Facultad de Matem\'atica y Computaci\'on\\
 	Universidad de La Habana. Cuba\\
-\and
+	\and
 	Adri\'an Navarro\\[12pt]
 	Grupo C211\\
 	Ciencia de la Computaci\'on\\
@@ -145,30 +145,30 @@
 \maketitle
 
 \section*{Resumen}
-Este documento presenta un análisis local exhaustivo del modelo depredador-presa con estructura de 
-etapas en la población de presa y respuestas funcionales de Holling de tipo II y I. Los autores determinan 
-los tres posibles equilibrios, analizan la estabilidad local a través de la matriz jacobiana, realizan 
-simulaciones numéricas y obtienen varios resultados clave. El equilibrio trivial siempre es inestable, 
-el equilibrio con predadores extintos es estable bajo ciertas condiciones y el equilibrio interior puede 
-ser estable o inestable dependiendo de los parámetros. Las simulaciones numéricas corroboran estos resultados 
-y muestran cómo las poblaciones evolucionan hacia uno de los tres puntos de equilibrio dependiendo de las 
-condiciones iniciales y los valores de parámetros.  
+Este documento presenta un análisis local exhaustivo del modelo depredador-presa con estructura de
+etapas en la población de presa y respuestas funcionales de Holling de tipo II y I. Los autores determinan
+los tres posibles equilibrios, analizan la estabilidad local a través de la matriz jacobiana, realizan
+simulaciones numéricas y obtienen varios resultados clave. El equilibrio trivial siempre es inestable,
+el equilibrio con predadores extintos es estable bajo ciertas condiciones y el equilibrio interior puede
+ser estable o inestable dependiendo de los parámetros. Las simulaciones numéricas corroboran estos resultados
+y muestran cómo las poblaciones evolucionan hacia uno de los tres puntos de equilibrio dependiendo de las
+condiciones iniciales y los valores de parámetros.
 
 \section{INTRODUCCI\'ON}
 \label{sec:intro}
 El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling \cite{holling_functional_1965}
-Type Functional Responses" por A. Rizali, D. Adriyanto, A. Hussainy y B. Pramuji fue publicado en 2019 
-en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.21 en el 
-período 2022-2023. El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura 
-de etapas y un solo depredador. La población de presas se divide en adultos y juveniles. El depredador 
-exhibe diferentes tasas de depredación para adultos e inmaduros. Se utilizan respuestas funcionales de 
-Holling tipo II para adultos y tipo I para juveniles. El estudio tuvo los siguientes objetivos:
-determinar los puntos de equilibrio del modelo, analizar la estabilidad local de los puntos de equilibrio 
-utilizando la matriz jacobiana y autovalores y observar el comportamiento dinámico del modelo mediante 
+Type Functional Responses" por A. Rizali, D. Adriyanto, A. Hussainy y B. Pramuji fue publicado en 2019
+en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.21 en el
+período 2022-2023. El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura
+de etapas y un solo depredador. La población de presas se divide en adultos y juveniles. El depredador
+exhibe diferentes tasas de depredación para adultos e inmaduros. Se utilizan respuestas funcionales de
+Holling tipo II \cite{holling_functional_1965}para adultos y tipo I para juveniles. El estudio tuvo los siguientes objetivos:
+determinar los puntos de equilibrio del modelo, analizar la estabilidad local de los puntos de equilibrio
+utilizando la matriz jacobiana y autovalores y observar el comportamiento dinámico del modelo mediante
 simulaciones numéricas y diagramas de fase. Además utilizaron las siguientes técnicas para obtener resultados
-más rigurosos: análisis matemático para determinar los puntos de equilibrio y condiciones de estabilidad, 
-cálculo de la matriz jacobiana y autovalores en cada punto de equilibrio, aplicación del Criterio de Routh-Hurwitz 
-para analizar la estabilidad del equilibrio interior, simulaciones numéricas utilizando el método Runge-Kutta de 
+más rigurosos: análisis matemático para determinar los puntos de equilibrio y condiciones de estabilidad,
+cálculo de la matriz jacobiana y autovalores en cada punto de equilibrio, aplicación del Criterio de Routh-Hurwitz
+para analizar la estabilidad del equilibrio interior, simulaciones numéricas utilizando el método Runge-Kutta de
 cuarto orden y un análisis de bifurcación para estudiar la posible existencia de ciclos límite. (no estoy seguro de esta traduccion revisar despues)
 \subsection{Estructura del trabajo}
 
@@ -180,18 +180,18 @@ $\bar Y = n^{-1} \sum_{i=1}^n Y_i$\\
 $$s^2 = \frac 1 {n-1} \sum_{i=1}^n (Y_i - \bar Y)^2.$$
 
 \[
- c^2=a^2+b^2
+	c^2=a^2+b^2
 \]
 
 \begin{equation}\label{eq:quadratic}
-ax^2 + bx + c = 0, \mbox{ donde } a \ne 0.
+	ax^2 + bx + c = 0, \mbox{ donde } a \ne 0.
 \end{equation}
 
 En el texto, cada referencia a un n\'umero de ecuaci\'on debe ir tambi\'en entre par\'entesis. Por ejemplo, la soluci\'on de (\ref{eq:quadratic}) est\'a dada por  (\ref{eq:quadraticsol}) en los Axenos \ref{app:quadratic}.
 
 
 \begin{equation} \label{eq:quadratic_second}
-ax^2 + bx + c = 0
+	ax^2 + bx + c = 0
 \end{equation}
 
 
@@ -212,15 +212,15 @@ y_{n+1}=y_n+hf(x_n,y_n}
 
 
 \begin{table}[htb]
-\centering
-\caption{Uso de tabla\label{tab: first}}
-\begin{tabular}{rll}
-\hline
--& IQ & Dieta\\ \hline
-- & 70 & Cualquier cosa\\
-- & 60 &- \\
-\hline
-\end{tabular}
+	\centering
+	\caption{Uso de tabla\label{tab: first}}
+	\begin{tabular}{rll}
+		\hline
+		- & IQ & Dieta          \\ \hline
+		- & 70 & Cualquier cosa \\
+		- & 60 & -              \\
+		\hline
+	\end{tabular}
 \end{table}
 
 
@@ -243,7 +243,7 @@ y_{n+1}=y_n+hf(x_n,y_n}
 \end{theorem}
 
 \begin{corollary}
-aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
+	aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
 \end{corollary}
 
 % no tocar por si hace falta despues pero esta bien feo
@@ -254,16 +254,85 @@ aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
 % }
 
 \section*{Conclusiones}
-Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en 
-los ecosistemas naturales. Los resultados obtenidos pueden ser \'utiles para predecir y manejar las poblaciones de presas y 
-depredadores en diferentes entornos y para comprender mejor los efectos del cambio clim\'atico y otros factores ambientales 
+Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
+los ecosistemas naturales. Los resultados obtenidos pueden ser \'utiles para predecir y manejar las poblaciones de presas y
+depredadores en diferentes entornos y para comprender mejor los efectos del cambio clim\'atico y otros factores ambientales
 en estas interacciones. FALTA Añadir una valoración de lo que usted ha aprendido con este trabajo, como valora la
 posibilidad de que se pueda continuar esta línea de investigación.
 
+\section*{F\'ORMULAS A UTILIZAR DESPU\'ES} 
+% aqui ya estan la mayoria de las formulas
+
+\begin{equation}
+	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
+			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
+			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
+			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+		\end{array}\right]
+\end{equation}
+
+\begin{equation}
+	\begin{array}{r}
+		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\frac{\beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2} \\
+		\frac{d x_2}{d t}=\beta x_1-\frac{\beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_1 x_2                           \\
+		\frac{d y}{d t}=\frac{\alpha_1 \beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2}+\frac{\alpha_2 \beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_2 y
+	\end{array}
+\end{equation}
+
+\begin{equation}
+	\begin{gathered}
+		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\alpha x_1 y \\
+		\frac{d x_2}{d t}=\beta x_1-\frac{\varepsilon x_2 y}{1+m x_2}-\mu_1 x_2 \\
+		\frac{d y}{d t}=\frac{\gamma \varepsilon x_2 y}{1+m x_2}-\mu_2 y
+	\end{gathered}
+\end{equation}
+
+\begin{equation}
+	\begin{gathered}
+		\frac{d x}{d t}=\rho x\left(1-\frac{x}{k}\right)-a_1 x \\
+		\frac{d y}{d t}=c a_1 x y-d y-\frac{a_2 y z}{y+b_2} \\
+		\frac{d z}{d t}=\alpha z^2-\frac{\beta z^2}{y+b_2}
+	\end{gathered}
+\end{equation}
+
+\begin{equation}
+	\begin{gathered}
+		\frac{d x}{d t}=r x\left(1-\frac{x}{k}\right)-\beta x-\alpha x z \\
+		\frac{d y}{d t}=\beta x-\frac{\eta y z}{y+m}-\mu y \\
+		\frac{d z}{d t}=\alpha_1 x z+\rho z^2-\frac{\eta_1 y z}{y+m}
+	\end{gathered}
+\end{equation}
+
+\begin{equation}
+	\left|\begin{array}{ccc}
+		(-1+r)-\lambda & 0            & 0         \\
+		\beta          & -\mu-\lambda & 0         \\
+		0              & 0            & 0-\lambda
+	\end{array}\right|=0
+\end{equation}
+
+\begin{equation}
+	\begin{aligned}
+		 & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+		 & J\left(E_2\right)=\left|\begin{array}{ccc}
+			                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
+			                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
+			                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r}
+		                           \end{array}\right|=0
+	\end{aligned}
+\end{equation}
+
+\begin{equation}
+	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
+			\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                     \\
+			\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                         \\
+			\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 p z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
+		\end{array}\right]
+\end{equation}
 
 \defbibheading{Referencias}{\section*{Referencias}}
 \defbibheading{Bibliografía}{\section*{Bibliografía}}
- 
+
 \printbibliography[heading=Referencias, nottype=book]
 \printbibliography[heading=Bibliografía, nottype=article]
 \nocite{edwards_differential_2008}
@@ -277,7 +346,7 @@ Agradecemos a nuestros queridos profesores por lograr que entendieramos de que v
 \section{Anexos} \label{app:quadratic}
 
 \begin{equation} \label{eq:quadraticsol}
-x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \mbox{ si } a \ne 0.
+	x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \mbox{ si } a \ne 0.
 \end{equation}
 
 aqui podemos ir poniendo las ecuaciones que se usan el paper
