@@ -18,27 +18,24 @@
 
 
 \refsection{0}
-  \datalist[entry]{apa/global//global/global}
+  \datalist[entry]{nty/global//global/global}
     \entry{edwards_differential_2008}{book}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=3e6c797eae21f6cff0edbb98a5c99102}{%
+        {{hash=3e6c797eae21f6cff0edbb98a5c99102}{%
            family={Edwards},
            familyi={E\bibinitperiod},
            given={C.\bibnamedelimi Henry},
-           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3b8706e1b683870b4ffc80c2fe47a506}{%
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=3b8706e1b683870b4ffc80c2fe47a506}{%
            family={Penney},
            familyi={P\bibinitperiod},
            given={David\bibnamedelima E.},
-           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d477e98172313fb6bec655691fd4fb8e}{%
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=d477e98172313fb6bec655691fd4fb8e}{%
            family={Calvis},
            familyi={C\bibinitperiod},
            given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{location}{1}{%
         {Upper Saddle River, NJ}%
@@ -46,17 +43,14 @@
       \list{publisher}{1}{%
         {Pearson Education}%
       }
-      \strng{namehash}{42258a2702aa9e8597efcb34f2640637}
+      \strng{namehash}{e141281696a9640480527e0d46ae5f57}
       \strng{fullhash}{e141281696a9640480527e0d46ae5f57}
       \strng{bibnamehash}{e141281696a9640480527e0d46ae5f57}
       \strng{authorbibnamehash}{e141281696a9640480527e0d46ae5f57}
-      \strng{authornamehash}{42258a2702aa9e8597efcb34f2640637}
+      \strng{authornamehash}{e141281696a9640480527e0d46ae5f57}
       \strng{authorfullhash}{e141281696a9640480527e0d46ae5f57}
       \field{sortinit}{E}
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{edition}{4th ed}
@@ -67,12 +61,11 @@
     \endentry
     \entry{holling_functional_1965}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=b9c24232241f1d914c44897497ec62e8}{%
+        {{hash=b9c24232241f1d914c44897497ec62e8}{%
            family={Holling},
            familyi={H\bibinitperiod},
            given={C.\bibnamedelimi S.},
-           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
       }
       \list{language}{1}{%
         {en}%
@@ -85,9 +78,6 @@
       \strng{authorfullhash}{b9c24232241f1d914c44897497ec62e8}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0071-075X}

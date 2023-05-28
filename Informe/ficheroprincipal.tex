@@ -21,7 +21,7 @@
 \usepackage{graphicx}
 \usepackage{mathptmx}
 \usepackage[T1]{fontenc}
-\usepackage[style=apa]{biblatex}
+\usepackage[style=numeric,backend=biber,defernumbers=true]{biblatex}
 \addbibresource{demobib.bib}
 
 %
@@ -260,7 +260,7 @@ depredadores en diferentes entornos y para comprender mejor los efectos del camb
 en estas interacciones. FALTA Añadir una valoración de lo que usted ha aprendido con este trabajo, como valora la
 posibilidad de que se pueda continuar esta línea de investigación.
 
-\section*{F\'ORMULAS A UTILIZAR DESPU\'ES} 
+\section*{F\'ORMULAS A UTILIZAR DESPU\'ES}
 % aqui ya estan la mayoria de las formulas
 
 \begin{equation} \label{JacobianoEstability}
@@ -333,9 +333,12 @@ posibilidad de que se pueda continuar esta línea de investigación.
 \defbibheading{Referencias}{\section*{Referencias}}
 \defbibheading{Bibliografía}{\section*{Bibliografía}}
 
-\printbibliography[heading=Referencias, nottype=book]
-\printbibliography[heading=Bibliografía, nottype=article]
+\printbibliography[heading=Referencias, type=article]
+\renewcommand{\theenumiv}{}
+\DeclareFieldFormat{labelnumberwidth}{}
+\printbibliography[heading=Bibliografía, type=book, resetnumbers=true]
 \nocite{edwards_differential_2008}
+
 
 
 \section*{Agradeciemientos}

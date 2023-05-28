@@ -1,14 +1,14 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'ficheroprincipal.blg'
-[61] biber:340> INFO - === sáb may 27, 2023, 18:37:57
-[73] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
-[139] Biber.pm:972> INFO - Found 2 citekeys in bib section 0
-[151] Biber.pm:4383> INFO - Processing section 0
-[161] Biber.pm:4574> INFO - Looking for bibtex file 'demobib.bib' for section 0
-[162] bibtex.pm:1713> INFO - LaTeX decoding ...
-[176] bibtex.pm:1518> INFO - Found BibTeX data source 'demobib.bib'
-[224] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[224] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[224] Biber.pm:4203> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[232] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
-[234] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
+[59] biber:340> INFO - === dom may 28, 2023, 10:15:29
+[71] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
+[138] Biber.pm:972> INFO - Found 2 citekeys in bib section 0
+[150] Biber.pm:4383> INFO - Processing section 0
+[159] Biber.pm:4574> INFO - Looking for bibtex file 'demobib.bib' for section 0
+[160] bibtex.pm:1713> INFO - LaTeX decoding ...
+[174] bibtex.pm:1518> INFO - Found BibTeX data source 'demobib.bib'
+[219] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[220] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[220] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[227] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
+[229] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
