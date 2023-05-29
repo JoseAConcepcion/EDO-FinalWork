@@ -79,7 +79,7 @@
       <file>ficheroprincipal.bcf</file>
     </requires>
     <requires type="editable">
-      <file>demobib.bib</file>
+      <file>EDO Final Work.bib</file>
     </requires>
   </external>
 </requests>
