@@ -1,46 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: ficheroprincipal.aux
-The style file: wsc.bst
-Database file #1: demobib.bib
-You've used 1 entry,
-            2956 wiz_defined-function locations,
-            636 strings with 5148 characters,
-and the built_in function-call counts, 761 in all, are:
-= -- 47
-> -- 78
-< -- 0
-+ -- 24
-- -- 24
-* -- 80
-:= -- 151
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 8
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 17
-empty$ -- 39
-format.name$ -- 28
-if$ -- 136
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 2
-newline$ -- 9
-num.names$ -- 10
-pop$ -- 9
-preamble$ -- 1
-purify$ -- 15
-quote$ -- 0
-skip$ -- 19
-stack$ -- 0
-substring$ -- 20
-swap$ -- 4
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 10
-warning$ -- 0
-while$ -- 6
-width$ -- 0
-write$ -- 17
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'ficheroprincipal.blg'
+[68] biber:340> INFO - === lun may 29, 2023, 17:31:58
+[81] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
+[149] Biber.pm:972> INFO - Found 2 citekeys in bib section 0
+[161] Biber.pm:4383> INFO - Processing section 0
+[171] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
+[173] bibtex.pm:1713> INFO - LaTeX decoding ...
+[189] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
+[240] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[241] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[241] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[248] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
+[250] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
