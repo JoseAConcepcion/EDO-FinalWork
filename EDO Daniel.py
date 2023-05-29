@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec 16 05:06:01 2022
+
+@author: Sofia
+"""
+
 import numpy as np
 from math import *
 import matplotlib.pyplot as plt
@@ -17,20 +24,21 @@ eta1=1.83
 k=12
 
 #Condiciones iniciales del sistema
-xpob_inicial=300 #población inicial de presas jóvenes
-ypob_inicial=30 #población inicial de presas adultas
-zpob_inicial=108 #población inicial de depredadores
-duracion=5 #tiempo de es<<<tudio de las poblaciones
-cortes=12 #candidad de valores requeridos por unidad de tiempo
+# Condiciones iniciales del sistema
+xpob_inicial = 4  # población inicial de presas jóvenes
+ypob_inicial = 2  # población inicial de presas adultas
+zpob_inicial = 6  # población inicial de depredadores
+duracion = 2  # tiempo de estudio de las poblaciones
+cortes = 3  # candidad de valores requeridos por unidad de tiempo
 
 def f1(x,y,z):
-    return r*x*(1-x/k)-beta*x-alpha*x*z
+    return x*(r*(k-x)/k-beta-alpha*z)
 
 def f2(x,y,z):
-    return beta*x-((eta*y*z)/(y+m))-mu*y
+    return beta*x-y*((eta*z)/(y+m)-mu)
 
 def f3(x,y,z):
-    return alpha1*x*z+rho*(z**2)-((eta1*y*z)/(y+m))
+    return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
 
 def Runge_Kutta(stop,N,c1,c2,c3):
     h = 1/N
@@ -58,9 +66,9 @@ def Runge_Kutta(stop,N,c1,c2,c3):
         l4 = h*f2(x[i]+k3,y[i]+l3,z[i]+m3)
         m4 = h*f3(x[i]+k3,y[i]+l3,z[i]+m3)
         #
-        x[i+1]=x[i]+(k1+2*k2+2*k3+k4)/6
-        y[i+1]=y[i]+(l1+2*l2+2*l3+l4)/6
-        z[i+1]=z[i]+(m1+2*m2+2*m3+m4)/6
+        x[i+1]=max(0,x[i]+(k1+2*k2+2*k3+k4)/6)
+        y[i+1]=max(0,y[i]+(l1+2*l2+2*l3+l4)/6)
+        z[i+1]=max(0,z[i]+(m1+2*m2+2*m3+m4)/6)
     return t,x,y,z
 
 #=================================================================================
@@ -72,7 +80,10 @@ presas_joven = S[1]
 presas_adult = S[2]
 depredadores = S[3]
 
-print(S)
+for i in range(len(presas_joven)):
+    print("{0} {1} {2}".format(presas_joven[i], presas_adult[i], depredadores[i]))
+
+#print(S)
 #=================================================================================
 #=================================================================================
 
