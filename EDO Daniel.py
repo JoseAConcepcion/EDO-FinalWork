@@ -10,6 +10,10 @@ from math import *
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.patches as mpatches
+from colorama import Fore, Style
+from prettytable import PrettyTable  #! sudo pip install prettytable
+
+
 
 #Parámetros del sistema (positivos)
 r=0.82
@@ -25,11 +29,11 @@ k=12
 
 #Condiciones iniciales del sistema
 # Condiciones iniciales del sistema
-xpob_inicial = 4  # población inicial de presas jóvenes
+xpob_inicial = 1  # población inicial de presas jóvenes
 ypob_inicial = 2  # población inicial de presas adultas
-zpob_inicial = 6  # población inicial de depredadores
+zpob_inicial = 1  # población inicial de depredadores
 duracion = 2  # tiempo de estudio de las poblaciones
-cortes = 3  # candidad de valores requeridos por unidad de tiempo
+cortes = 50  # candidad de valores requeridos por unidad de tiempo
 
 def f1(x,y,z):
     return x*(r*(k-x)/k-beta-alpha*z)
@@ -38,7 +42,7 @@ def f2(x,y,z):
     return beta*x-y*((eta*z)/(y+m)-mu)
 
 def f3(x,y,z):
-    return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
+    return z*(alpha1*x+rho*z*z-(eta1*y)/(y+m))
 
 def Runge_Kutta(stop,N,c1,c2,c3):
     h = 1/N
@@ -80,9 +84,19 @@ presas_joven = S[1]
 presas_adult = S[2]
 depredadores = S[3]
 
-for i in range(len(presas_joven)):
-    print("{0} {1} {2}".format(presas_joven[i], presas_adult[i], depredadores[i]))
+# Crear la tabla
+tabla = PrettyTable()
+tabla.field_names = ["i", "Presas Joven", "Presas Adultas", "Depredadores"]
 
+# Agregar los datos a la tabla
+for i in range(len(presas_joven)):
+    tabla.add_row([Fore.YELLOW + str(i+1) + Style.RESET_ALL,
+                   Fore.BLUE + str(presas_joven[i]) + Style.RESET_ALL,
+                   Fore.GREEN + str(presas_adult[i]) + Style.RESET_ALL,
+                   Fore.RED + str(depredadores[i]) + Style.RESET_ALL])
+
+# Imprimir la tabla
+print(tabla)
 #print(S)
 #=================================================================================
 #=================================================================================
