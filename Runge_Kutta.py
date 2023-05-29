@@ -70,7 +70,7 @@ def f2(x, y, z):
 
 
 def f3(x, y, z):
-    return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
+    return z*(alpha1*x+rho-(eta1*y)/(y+m))
 
 
 (x, y, z) = runge_kutta(f1, f2, f3, 0, duracion,
