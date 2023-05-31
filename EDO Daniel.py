@@ -30,10 +30,10 @@ k=12
 #Condiciones iniciales del sistema
 # Condiciones iniciales del sistema
 xpob_inicial = 1  # población inicial de presas jóvenes
-ypob_inicial = 2  # población inicial de presas adultas
-zpob_inicial = 1  # población inicial de depredadores
+ypob_inicial = 4  # población inicial de presas adultas
+zpob_inicial = 6  # población inicial de depredadores
 duracion = 2  # tiempo de estudio de las poblaciones
-cortes = 50  # candidad de valores requeridos por unidad de tiempo
+cortes = 5  # candidad de valores requeridos por unidad de tiempo
 
 def f1(x,y,z):
     return x*(r*(k-x)/k-beta-alpha*z)
