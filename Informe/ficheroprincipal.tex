@@ -21,7 +21,7 @@
 \usepackage{graphicx}
 \usepackage{mathptmx}
 \usepackage[T1]{fontenc}
-\usepackage[style=numeric,backend=biber,defernumbers=true]{biblatex}
+\usepackage[style=numeric,backend=biber,defernumbers=true, sorting=none]{biblatex}
 \addbibresource{EDO Final Work.bib}
 
 %
@@ -169,31 +169,49 @@ más rigurosos: análisis matemático para determinar los puntos de equilibrio y
 cálculo de la matriz jacobiana y autovalores en cada punto de equilibrio, aplicación del Criterio de Routh-Hurwitz
 para analizar la estabilidad del equilibrio interior, simulaciones numéricas utilizando el método Runge-Kutta de
 cuarto orden y un análisis de bifurcación para estudiar la posible existencia de ciclos límite. (no estoy seguro de esta traduccion revisar despues)
-\subsection{Estructura del trabajo}
 
-\section{Resultados fundamentales.}
+\section{Modelo Propuesto}
 
-Muestre s\'olo las ecuaciones m\'as importantes y
-numere \'unicamente las ecuaciones mostradas a las que se hace referencia expl\'icita en el texto. \\
+El artículo analiza previamente tres modelos matemáticos que abordan las interacciones presa-depredador con diferentes enfoques. El 
+primer modelo propuesto por Huenchucona considera dos presas y un depredador, utilizando una 
+función de respuesta de tipo Beddington-DeAngelis \cite{falconi_stability_2015}. El modelo de Savitri y Abadi tiene en cuenta la estructura 
+por etapas de la presa, utilizando funciones de respuesta diferentes para presas inmaduras y maduras \cite{savitri_dynamics_2018}. Luego, el 
+modelo de Castellanos y Chan-López estudia una cadena trófica de tres niveles, donde la presencia del depredador 
+superior afecta la estabilidad del sistema \cite{castellanos_existence_2017}. Los sistemas de ecuaciones de dichos modelos (\ref{twoPreyonePredator_Falconi}, \ref{Holling1y2_Abadi}, 
+\ref{Holling1y2_Castellanos} respectivamente) pueden ser consultadas en los Anexos \ref{app:Anexos}.\par
 
-$\bar Y = n^{-1} \sum_{i=1}^n Y_i$\\
-$$s^2 = \frac 1 {n-1} \sum_{i=1}^n (Y_i - \bar Y)^2.$$
+Estos modelos constituyen una base para el análisis 
+del sistema propuesto que está dado por los siguientes sistemas de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la 
+densidad de la poblaci\'on de presas j\'ovenes, presas adultas y depredadores respectivamente.
+La primera ecuación describe las presas juveniles crece con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente la tasa de crecimiento de la población de 
+presas juveniles. La tasa de depredación para ambas poblaciones de presas es diferente. Se asume que el depredador puede asechar 
+tanto a las presas juveniles como a las presas adultas en el modelo estructurado. La tasa de depredación del depredador utiliza el Holling tipo II
+para la especie de presa adulta y el Holling tipo I para la presa juvenil. La tasa de depredación se da en la forma original de la respuesta funcional 
+de tipo II de Holling, donde $\eta$  y \emph{m} son el valor máximo de la tasa de reducción per cápita de \emph{y} debido a \emph{z} y el coeficiente 
+de protección ambiental para la presa adulta, respectivamente. La tasa de cambio en las densidades de población de presas juveniles por las tasas de crecimiento intrínsecas se 
+reducen por la tasa a la que las presas juveniles son consumidas por los depredadores. Las poblaciones de presas juveniles crecen con ecuaciones logísticas 
+que se ven limitadas por la capacidad de carga \emph{(k)} para mantener sus poblaciones.\par
 
-\[
-	c^2=a^2+b^2
-\]
-
-\begin{equation}\label{eq:quadratic}
-	ax^2 + bx + c = 0, \mbox{ donde } a \ne 0.
+\begin{equation} \label{twoPreyonePredatorEDO}
+	\begin{gathered}
+		\frac{d x}{d t}=r x\left(1-\frac{x}{k}\right)-\beta x-\alpha x z \\
+		\frac{d y}{d t}=\beta x-\frac{\eta y z}{y+m}-\mu y \\
+		\frac{d z}{d t}=\alpha_1 x z+\rho z^2-\frac{\eta_1 y z}{y+m}
+	\end{gathered}
 \end{equation}
-
-En el texto, cada referencia a un n\'umero de ecuaci\'on debe ir tambi\'en entre par\'entesis. Por ejemplo, la soluci\'on de (\ref{eq:quadratic}) est\'a dada por (\ref{eq:quadratic_second}) en los Anexos (\ref{app:quadratic}).
-
-
-\begin{equation} \label{eq:quadratic_second}
-	ax^2 + bx + c = 0
-\end{equation}
-
+\par
+El índice de depredación de presas juveniles es proporcional a la tasa a la cual los depredadores 
+y las presas juveniles se encuentran, también conocido como la ecuación de Lotka-Volterra. Los parámetros $r, \beta, \alpha, \alpha, \rho, m, \mu, \nu, \alpha_1, \nu_1$ son positivos. 
+Los cambios en la densidad de población de las presas adultas representan el crecimiento de las presas adultas debido al factor de conversión de presas 
+juveniles a presas adultas. 
+El parámetro $\eta$ en el proceso de depredación provoca una disminución en la población de presas adultas, lo que se interpreta 
+como la tasa de encuentros con presas adultas por unidad de densidad de presas adultas. Sin depredación, las presas adultas experimentan un proceso natural 
+de muerte. La tasa de depredación de los depredadores sigue la respuesta funcional del tipo II de Holling. La relación $\frac{m}{\nu}$ es el tiempo promedio de 
+procesamiento de alimentos para el depredador. El parámetro $\rho$ es la tasa de crecimiento de la población de depredadores. Se asume que la tasa de cambio 
+en la población de depredadores disminuye siguiendo el modelo de Leslie-Gower {citar}, donde \emph{m} representa la pérdida de residuos de depredadores debido a la 
+falta de su alimento favorito. El parámetro $\eta_1$ es la relación del crecimiento intrínseco dividido por el factor de conversión de depredación a presas adultas. 
+Esto afecta la disponibilidad de alimentos favoritos por individuo, que está determinada por la capacidad de los recursos ambientales y es proporcional a la 
+abundancia de sus alimentos favoritos.
 
 \subsection{M\'etodos y algoritmos utilizados}
 Esta  subsecci\'on se describen los c\'odigos de programas utilizados en el trabajo mediante las siguiente instrucciones.
@@ -271,38 +289,6 @@ posibilidad de que se pueda continuar esta línea de investigación.
 		\end{array}\right]
 \end{equation}
 
-\begin{equation} \label{twoPreyonePredator_Falconi}
-	\begin{gathered}
-		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\frac{\beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2} \\
-		\frac{d x_2}{d t}=\beta x_1-\frac{\beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_1 x_2                           \\
-		\frac{d y}{d t}=\frac{\alpha_1 \beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2}+\frac{\alpha_2 \beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_2 y
-	\end{gathered}
-\end{equation}
-
-\begin{equation} \label{Holling1y2_Abadi}
-	\begin{gathered}
-		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\alpha x_1 y \\
-		\frac{d x_2}{d t}=\beta x_1-\frac{\varepsilon x_2 y}{1+m x_2}-\mu_1 x_2 \\
-		\frac{d y}{d t}=\frac{\gamma \varepsilon x_2 y}{1+m x_2}-\mu_2 y
-	\end{gathered}
-\end{equation}
-
-\begin{equation} \label{Holling1y2_Castellanos}
-	\begin{gathered}
-		\frac{d x}{d t}=\rho x\left(1-\frac{x}{k}\right)-a_1 x \\
-		\frac{d y}{d t}=c a_1 x y-d y-\frac{a_2 y z}{y+b_2} \\
-		\frac{d z}{d t}=\alpha z^2-\frac{\beta z^2}{y+b_2}
-	\end{gathered}
-\end{equation}
-
-\begin{equation} \label{twoPreyonePredatorEDO}
-	\begin{gathered}
-		\frac{d x}{d t}=r x\left(1-\frac{x}{k}\right)-\beta x-\alpha x z \\
-		\frac{d y}{d t}=\beta x-\frac{\eta y z}{y+m}-\mu y \\
-		\frac{d z}{d t}=\alpha_1 x z+\rho z^2-\frac{\eta_1 y z}{y+m}
-	\end{gathered}
-\end{equation}
-
 \begin{equation} \label{Characteristic000}
 	\left|\begin{array}{ccc}
 		(-1+r)-\lambda & 0            & 0         \\
@@ -342,17 +328,52 @@ posibilidad de que se pueda continuar esta línea de investigación.
 
 
 \section*{Agradeciemientos}
-Agradecemos a nuestros queridos profesores por lograr que entendieramos de que van las ecuaciones diferenciales
+Agradecemos a nuestros queridos profesores por lograr que entendieramos de que van las ecuaciones diferenciales :D
 
 \appendix
 
-\section{Anexos} \label{app:quadratic}
+\section{Anexos} \label{app:Anexos}
+
+\begin{center}
+	Modelo propuesto por Huenchucona, Falconi y Vidal
+	\\
+\end{center}
+
+\begin{equation} \label{twoPreyonePredator_Falconi}
+	\begin{gathered}
+		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\frac{\beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2} \\
+		\frac{d x_2}{d t}=\beta x_1-\frac{\beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_1 x_2                           \\
+		\frac{d y}{d t}=\frac{\alpha_1 \beta_1 x_1 y}{1+m_1 x_1^2+n_1 x_2}+\frac{\alpha_2 \beta_2 x_2 y}{1+m_2 x_1+n_2 x_2}-\mu_2 y
+	\end{gathered}
+\end{equation}
+\\
+\begin{center}
+	Modelo propuesto por Savitri y Abadi
+	\\
+\end{center}
+\begin{equation} \label{Holling1y2_Abadi}
+	\begin{gathered}
+		\frac{d x_1}{d t}=r x_1\left(1-\frac{x_1}{K}\right)-\beta x_1-\alpha x_1 y \\
+		\frac{d x_2}{d t}=\beta x_1-\frac{\varepsilon x_2 y}{1+m x_2}-\mu_1 x_2 \\
+		\frac{d y}{d t}=\frac{\gamma \varepsilon x_2 y}{1+m x_2}-\mu_2 y
+	\end{gathered}
+\end{equation}
+
+\begin{center}
+	Modelo propuesto por Castellanos y Chan-López
+\end{center}
+\begin{equation} \label{Holling1y2_Castellanos}
+	\begin{gathered}
+		\frac{d x}{d t}=\rho x\left(1-\frac{x}{k}\right)-a_1 x \\
+		\frac{d y}{d t}=c a_1 x y-d y-\frac{a_2 y z}{y+b_2} \\
+		\frac{d z}{d t}=\alpha z^2-\frac{\beta z^2}{y+b_2}
+	\end{gathered}
+\end{equation}
+
 
 \begin{equation} \label{eq:quadraticsol}
 	x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \mbox{ si } a \ne 0.
 \end{equation}
-
-aqui podemos ir poniendo las ecuaciones que se usan el paper
 
 \end{document}
 
