@@ -44,12 +44,8 @@
       \field{journaltitle}{Memoirs of the Entomological Society of Canada}
       \field{number}{S45}
       \field{title}{The {Functional} {Response} of {Predators} to {Prey} {Density} and its {Role} in {Mimicry} and {Population} {Regulation}}
-      \field{urlday}{18}
-      \field{urlmonth}{5}
-      \field{urlyear}{2023}
       \field{volume}{97}
       \field{year}{1965}
-      \field{urldateera}{ce}
       \field{pages}{5\bibrangedash 60}
       \range{pages}{56}
       \verb{doi}
@@ -97,12 +93,8 @@
       \field{journaltitle}{Applied Mathematics and Computation}
       \field{month}{11}
       \field{title}{Stability and global dynamic of a stage-structured predator–prey model with group defense mechanism of the prey}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
-      \field{urlyear}{2023}
       \field{volume}{270}
       \field{year}{2015}
-      \field{urldateera}{ce}
       \field{pages}{47\bibrangedash 61}
       \range{pages}{15}
       \verb{doi}
@@ -115,7 +107,7 @@
       \verb https://linkinghub.elsevier.com/retrieve/pii/S0096300315010310
       \endverb
     \endentry
-    \entry{savitri_dynamics_2018}{inproceedings}{}
+    \entry{savitri_dynamics_2018}{article}{}
       \name{author}{2}{}{%
         {{hash=8a17f417953f3b77b9d08436272a23c1}{%
            family={Savitri},
@@ -150,11 +142,7 @@
       \field{booktitle}{Proceedings of the {International} {Conference} on {Science} and {Technology} ({ICST} 2018)}
       \field{isbn}{978-94-6252-650-1}
       \field{title}{Dynamics and {Numerical} {Simulation} of {Stage} {Structure} {Prey}-{Predator} {Models}}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
-      \field{urlyear}{2023}
       \field{year}{2018}
-      \field{urldateera}{ce}
       \verb{doi}
       \verb 10.2991/icst-18.2018.168
       \endverb
@@ -198,12 +186,8 @@
       \field{journaltitle}{Chaos, Solitons \& Fractals}
       \field{month}{2}
       \field{title}{Existence of limit cycles in a three level trophic chain with {Lotka}–{Volterra} and {Holling} type {II} functional responses}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
-      \field{urlyear}{2023}
       \field{volume}{95}
       \field{year}{2017}
-      \field{urldateera}{ce}
       \field{pages}{157\bibrangedash 167}
       \range{pages}{11}
       \verb{doi}
