@@ -22,7 +22,7 @@ def main() -> None:
 
     limit = 50
 
-    for i in range(limit):
+    for i in range(limit): # tiempo , x, y, z
         print(t[i], x[i], y[i], z[i])
 
     return
