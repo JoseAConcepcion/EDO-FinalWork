@@ -83,8 +83,8 @@ duracion = 2  # tiempo de estudio de las poblaciones
 cortes = 5  # candidad de valores requeridos por unidad de tiempo
 
 # (x, y, z) = euler(f1, f2, f3, xpob_inicial, ypob_inicial, zpob_inicial, 1e-8, 10000)
-(x, y, z) = Runge_Kutta(f1, f2, f3, xpob_inicial, ypob_inicial, zpob_inicial, 1e-8, 10000)
-for i in range(len(x)):
+(x, y, z) = Runge_Kutta(f1, f2, f3, xpob_inicial, ypob_inicial, zpob_inicial, 1e-8, 1000)
+for i in range(20):
     print("{0} {1} {2}".format(x[i], y[i], z[i]))
 
 ###############################################################################################
