@@ -43,16 +43,15 @@ def f3(x, y, z):
     return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
 
 
-def Runge_Kutta(stop, N, c1, c2, c3):
-    h = stop/N
-    t = np.linspace(0, stop, stop*N+1)
-    x = np.zeros(stop*N+1)
-    y = np.zeros(stop*N+1)
-    z = np.zeros(stop*N+1)
+def Runge_Kutta(f1, f2, f3, c1, c2, c3, h ,N):
+    t = np.linspace(0,N)
+    x = np.zeros(N)
+    y = np.zeros(N)
+    z = np.zeros(N)
     x[0] = c1
     y[0] = c2
     z[0] = c3
-    for i in range(stop*N):
+    for i in range(N-1):
         k1 = h*f1(x[i], y[i], z[i])
         l1 = h*f2(x[i], y[i], z[i])
         m1 = h*f3(x[i], y[i], z[i])
@@ -75,50 +74,50 @@ def Runge_Kutta(stop, N, c1, c2, c3):
     return t, x, y, z
 
 
-# =================================================================================
-# =================================================================================
-# Solución del sistema
-S = Runge_Kutta(duracion, cortes, xpob_inicial, ypob_inicial, zpob_inicial)
-t_discreto = S[0]
-presas_joven = S[1]
-presas_adult = S[2]
-depredadores = S[3]
+# # =================================================================================
+# # =================================================================================
+# # Solución del sistema
+# S = Runge_Kutta(f1, f2, f3, xpob_inicial, ypob_inicial, zpob_inicial,1e-6, 9997)
+# t_discreto = S[0]
+# presas_joven = S[1]
+# presas_adult = S[2]
+# depredadores = S[3]
 
-for i in range(len(presas_joven)):
-    print("{0} {1} {2}".format(
-        presas_joven[i], presas_adult[i], depredadores[i]))
+# for i in range(len(presas_joven)):
+#     print("{0} {1} {2}".format(
+#         presas_joven[i], presas_adult[i], depredadores[i]))
 
-# print(S)
-# =================================================================================
-# =================================================================================
+# # print(S)
+# # =================================================================================
+# # =================================================================================
 
-# Gráficos
-# Leyendas genéricas
-colores = ['#9B2D1A', '#606099', '#000099']
-texto = ['Depredadores', 'Presas jóvenes', 'Presas adultas']
-leyenda = []
-for i in range(3):
-    leyenda.append(mpatches.Patch(color=colores[i], label=texto[i]))
-leyenda1 = []
-leyenda1.append(mpatches.Patch(color=colores[0], label=texto[0]))
-leyenda2 = []
-leyenda2.append(mpatches.Patch(color=colores[1], label=texto[1]))
-leyenda3 = []
-leyenda3.append(mpatches.Patch(color=colores[2], label=texto[2]))
+# # Gráficos
+# # Leyendas genéricas
+# colores = ['#9B2D1A', '#606099', '#000099']
+# texto = ['Depredadores', 'Presas jóvenes', 'Presas adultas']
+# leyenda = []
+# for i in range(3):
+#     leyenda.append(mpatches.Patch(color=colores[i], label=texto[i]))
+# leyenda1 = []
+# leyenda1.append(mpatches.Patch(color=colores[0], label=texto[0]))
+# leyenda2 = []
+# leyenda2.append(mpatches.Patch(color=colores[1], label=texto[1]))
+# leyenda3 = []
+# leyenda3.append(mpatches.Patch(color=colores[2], label=texto[2]))
 
-# Gráfico de variación de los ángulo
-fig0 = plt.figure(figsize=(12, 6))
-ax0 = fig0.add_subplot(111)
-bx0 = fig0.add_subplot(111)
-cx0 = fig0.add_subplot(111)
-ax0.plot(t_discreto, presas_joven, color='#606099')
-bx0.plot(t_discreto, presas_adult, color='#000099')
-cx0.plot(t_discreto, depredadores, color='#9B2D1A')
-plt.ylabel('Poblaciones')
-plt.xlabel('Tiempo')
-plt.legend(handles=leyenda, loc='upper left')
-plt.show()
-# fig0.savefig('angulos.jpg')
+# # Gráfico de variación de los ángulo
+# fig0 = plt.figure(figsize=(12, 6))
+# ax0 = fig0.add_subplot(111)
+# bx0 = fig0.add_subplot(111)
+# cx0 = fig0.add_subplot(111)
+# ax0.plot(t_discreto, presas_joven, color='#606099')
+# bx0.plot(t_discreto, presas_adult, color='#000099')
+# cx0.plot(t_discreto, depredadores, color='#9B2D1A')
+# plt.ylabel('Poblaciones')
+# plt.xlabel('Tiempo')
+# plt.legend(handles=leyenda, loc='upper left')
+# plt.show()
+# # fig0.savefig('angulos.jpg')
 
 # Gráfico de trayectoria de los péndulos
 #fig1 = plt.figure(figsize =(12,6))
