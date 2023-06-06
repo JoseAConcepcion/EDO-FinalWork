@@ -30,7 +30,7 @@ def main() -> None:
     for i in range(limit): # tiempo , x, y, z
             index = i*50
             print(t[index], x[index], y[index], z[index])
-    return 0
+    return
 
 
 main()
