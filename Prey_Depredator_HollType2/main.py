@@ -1,6 +1,7 @@
-import Prey_Depredator_HollType2.modules.metodos_numericos as edo
+import modules.metodos_numericos as edo
 import modules.odes as odes
 import os
+from math import *
 
 
 def main() -> None:
@@ -16,16 +17,20 @@ def main() -> None:
 
     s1 = odes.prey_depredator_hollingTypeII(data[0])
 
+    
+    iteraciones = 100000
+    h = 1e-2
     c1, c2, c3 = data[1]
+    
     t, x, y, z = edo.runge_kutta_4(
-        s1.f1, s1.f2, s1.f3, 0, c1, c2, c3, 1e-8, 10000)
+        s1.f1, s1.f2, s1.f3, 0, c1, c2, c3, h , iteraciones)
 
-    limit = 50
+    limit = min(iteraciones, floor((iteraciones)/50)) 
 
     for i in range(limit): # tiempo , x, y, z
-        print(t[i], x[i], y[i], z[i])
-
-    return
+            index = i*50
+            print(t[index], x[index], y[index], z[index])
+    return 0
 
 
 main()
