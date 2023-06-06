@@ -43,14 +43,20 @@ class prey_depredator_hollingTypeII:
         return self.alpha1*x*z - self.rho*z*z - self.eta1*y*z/(self.m + y)
 
     def jacobi_matrix() -> np.ndarray:
-
-        params = [ sy.Symbol('r'), sy.Symbol('beta'), sy.Symbol('alpha'), sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'), sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
-        system = prey_depredator_hollingTypeII(params)
-        t,x,y,z = sy.Symbol('t'), sy.Symbol('x'), sy.Symbol('y'), sy.Symbol('z')
-
-        matrix = sy.Matrix([system.f1(t,x,y,z), system.f2(t,x,y,z), system.f3(t,x,y,z)])
         
-        return sy.simplify(matrix.jacobian([x,y,z]))
+        params = [sy.Symbol('r'), sy.Symbol('beta'), sy.Symbol('alpha'), 
+                  sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'), 
+                  sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
+        
+        system = prey_depredator_hollingTypeII(params)
+
+        t, x, y, z = sy.symbols('t x y z')
+
+        matrix = sy.Matrix([system.f1(t, x, y, z), system.f2(t, x, y, z), system.f3(t, x, y, z)])
+        matrix = sy.simplify(matrix.jacobian([x, y, z]))
+        eigvalues = sy.simplify(matrix)
+        a = matrix.eigenvals()
+        return a ,matrix
 
     def __str__(self) -> str:
         string = "Parametros\n"

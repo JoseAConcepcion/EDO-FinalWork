@@ -97,17 +97,21 @@ def main3() -> None:
 
 
 def print_jacobian() -> None:
-    jacobian = odes.prey_depredator_hollingTypeII.jacobi_matrix()
-    representation = ""
     
-    cont = 0
-    for x in jacobian:
-        if(cont%3 == 0):
-            representation +='\n'
-        representation += str(x) + '          '
-        cont+=1
-
-    print(representation)
+    eigvalues, jacobian = odes.prey_depredator_hollingTypeII.jacobi_matrix()
+    
+    representation = ""
+    for i in range(3):
+        for j in range(3):
+            representation += str(jacobian[i*3+j]) + '  '*8
+        representation += '\n'
+    
+    print(representation) # para visualizar la matriz
+    
+    print('- - '*30 ) # separador
+    
+    # print('Eigenvalues: ', eigvalues)
+    
     return
 
 
