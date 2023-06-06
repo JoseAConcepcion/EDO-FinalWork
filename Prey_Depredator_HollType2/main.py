@@ -1,4 +1,4 @@
-import modules.RK4 as rk4
+import Prey_Depredator_HollType2.modules.metodos_numericos as edo
 import modules.odes as odes
 import os
 
@@ -14,10 +14,10 @@ def main() -> None:
             if(line != "\n"):
                 data.append([float(x) for x in line.split()])
 
-    s1 = odes.Prey_Depredator_HollingTypeII(data[0])
+    s1 = odes.prey_depredator_hollingTypeII(data[0])
 
     c1, c2, c3 = data[1]
-    t, x, y, z = rk4.runge_kutta_4(
+    t, x, y, z = edo.runge_kutta_4(
         s1.f1, s1.f2, s1.f3, 0, c1, c2, c3, 1e-8, 10000)
 
     limit = 50

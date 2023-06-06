@@ -1,4 +1,4 @@
-class Prey_Depredator_HollingTypeII:
+class prey_depredator_hollingTypeII:
 
     # Parametros
     r = 0
