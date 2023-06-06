@@ -1,0 +1,14 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'ficheroprincipal.blg'
+[61] biber:340> INFO - === mar jun  6, 2023, 11:08:13
+[74] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
+[138] Biber.pm:972> INFO - Found 2 citekeys in bib section 0
+[149] Biber.pm:4383> INFO - Processing section 0
+[158] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
+[160] bibtex.pm:1713> INFO - LaTeX decoding ...
+[175] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
+[224] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[224] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[224] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[230] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
+[231] bbl.pm:757> INFO - Output to ficheroprincipal.bbl

@@ -1,3 +1,108 @@
-\begin{thebibliography}{}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\end{thebibliography}
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{edwards_differential_2008}{book}{}
+      \name{author}{3}{}{%
+        {{hash=3e6c797eae21f6cff0edbb98a5c99102}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={C.\bibnamedelimi Henry},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=3b8706e1b683870b4ffc80c2fe47a506}{%
+           family={Penney},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=d477e98172313fb6bec655691fd4fb8e}{%
+           family={Calvis},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{fullhash}{e141281696a9640480527e0d46ae5f57}
+      \strng{bibnamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authorbibnamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authornamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authorfullhash}{e141281696a9640480527e0d46ae5f57}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{4th ed}
+      \field{isbn}{978-0-13-156107-6}
+      \field{shorttitle}{Differential equations and boundary value problems}
+      \field{title}{Differential equations and boundary value problems: computing and modeling}
+      \field{year}{2008}
+    \endentry
+    \entry{holling_functional_1965}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b9c24232241f1d914c44897497ec62e8}{%
+           family={Holling},
+           familyi={H\bibinitperiod},
+           given={C.\bibnamedelimi S.},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{fullhash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{bibnamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authorbibnamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authornamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authorfullhash}{b9c24232241f1d914c44897497ec62e8}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0071-075X}
+      \field{journaltitle}{Memoirs of the Entomological Society of Canada}
+      \field{number}{S45}
+      \field{title}{The {Functional} {Response} of {Predators} to {Prey} {Density} and its {Role} in {Mimicry} and {Population} {Regulation}}
+      \field{urlday}{18}
+      \field{urlmonth}{5}
+      \field{urlyear}{2023}
+      \field{volume}{97}
+      \field{year}{1965}
+      \field{urldateera}{ce}
+      \field{pages}{5\bibrangedash 60}
+      \range{pages}{56}
+      \verb{doi}
+      \verb 10.4039/entm9745fv
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/S0071075X00000862/type/journal_article
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/S0071075X00000862/type/journal_article
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
