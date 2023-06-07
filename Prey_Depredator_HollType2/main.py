@@ -116,5 +116,5 @@ def print_jacobian(eig = False) -> None:
 
 #main() # -> Ejecutar el metodo de Runge-Kutta 4,(normal)
 #main2() # -> Ejecutar el metodo de Runge-Kutta 4,(python)
-main3() # -> Ejecutar el metodo de Runge-Kutta 4,(vectorizado)
-# print_jacobian() # -> imprimir la matriz jacobiana, true para mostrar los valores propios
+#main3() # -> Ejecutar el metodo de Runge-Kutta 4,(vectorizado)
+print_jacobian(True) # -> imprimir la matriz jacobiana, true para mostrar los valores propios
