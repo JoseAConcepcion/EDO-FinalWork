@@ -15,8 +15,10 @@ class prey_depredator_hollingTypeII:
     rho = 0
     m = 0
     mu = 0
+    tol = 1e-8 # tol para las comparaciones aritmeticas
+    isSymbolic = False # para los calculos simbolicos
 
-    def __init__(self, params):
+    def __init__(self, params, isSimbolic = False):
         # [r, alpha, beta, rho, m, mu, eta, alpha1, eta1, k]
         # lo ideal era hacer el vector con los parametros pero es ilegible en las formulas
         self.r = params[0]
@@ -29,9 +31,8 @@ class prey_depredator_hollingTypeII:
         self.rho = params[7]
         self.m = params[8]
         self.mu = params[9]
-        #make params as symbols
-        
-        
+        self.isSymbolic = isSimbolic
+
     # EDO
     def f1(self, t: float, x: float, y: float, z: float) -> float:
         return self.r*x * (1 - x/self.k) - self.beta*x - self.alpha*x*z
@@ -40,7 +41,8 @@ class prey_depredator_hollingTypeII:
         return self.beta*x - self.eta*y*z/(self.m + y) - self.mu*y
 
     def f3(self, t: float, x: float, y: float, z: float) -> float:
-        return self.alpha1*x*z - self.rho*z*z - self.eta1*y*z/(self.m + y)
+        factor = -1 if not self.isSymbolic and np.isclose(x,y) and np.isclose(x,0) else 1
+        return self.alpha1*x*z + factor*(self.rho*z*z - self.eta1*y*z*z/(self.m + y))
 
     def jacobi_matrix() -> np.ndarray:
         
@@ -48,7 +50,7 @@ class prey_depredator_hollingTypeII:
                   sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'), 
                   sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
         
-        system = prey_depredator_hollingTypeII(params)
+        system = prey_depredator_hollingTypeII(params, True)
 
         t, x, y, z = sy.symbols('t x y z')
 

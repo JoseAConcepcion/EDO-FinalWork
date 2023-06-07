@@ -99,7 +99,7 @@ def main3() -> None:
 def print_jacobian() -> None:
     
     eigvalues, jacobian = odes.prey_depredator_hollingTypeII.jacobi_matrix()
-    
+    print('- - '*30 ) # separador
     representation = ""
     for i in range(3):
         for j in range(3):
@@ -107,7 +107,6 @@ def print_jacobian() -> None:
         representation += '\n'
     
     print(representation) # para visualizar la matriz
-    
     print('- - '*30 ) # separador
     
     # print('Eigenvalues: ', eigvalues)
@@ -115,7 +114,7 @@ def print_jacobian() -> None:
     return
 
 
-# main() # -> Ejecutar el metodo de Runge-Kutta 4,(old)
-# main2() # -> Ejecutar el metodo de Runge-Kutta 4,(python)
-# main3()
-print_jacobian()
+#main() # -> Ejecutar el metodo de Runge-Kutta 4,(old)
+#main2() # -> Ejecutar el metodo de Runge-Kutta 4,(python)
+main3()
+# print_jacobian()
