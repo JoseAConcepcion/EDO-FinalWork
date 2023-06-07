@@ -56,9 +56,8 @@ class prey_depredator_hollingTypeII:
 
         matrix = sy.Matrix([system.f1(t, x, y, z), system.f2(t, x, y, z), system.f3(t, x, y, z)])
         matrix = sy.simplify(matrix.jacobian([x, y, z]))
-        eigvalues = sy.simplify(matrix)
-        a = matrix.eigenvals()
-        return a ,matrix
+        eigvalues = sy.simplify(matrix.eigenvals())
+        return eigvalues ,matrix
 
     def __str__(self) -> str:
         string = "Parametros\n"
