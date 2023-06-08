@@ -61,21 +61,22 @@ class prey_depredator_hollingTypeII:
         return eigvalues ,matrix
 
     def __str__(self) -> str:
-        string = "Parametros\n"
-        string += "r = " + str(self.r) + "\n"
-        string += "alpha = " + str(self.alpha) + "\n"
-        string += "beta = " + str(self.beta) + "\n"
-        string += "rho = " + str(self.rho) + "\n"
-        string += "m = " + str(self.m) + "\n"
-        string += "mu = " + str(self.mu) + "\n"
-        string += "eta = " + str(self.eta) + "\n"
-        string += "alpha1 = " + str(self.alpha1) + "\n"
-        string += "eta1 = " + str(self.eta1) + "\n"
-        string += "k = " + str(self.k) + "\n"
+        string = ""
+        # string = "Parametros\n"
+        # string += "r = " + str(self.r) + "\n"
+        # string += "alpha = " + str(self.alpha) + "\n"
+        # string += "beta = " + str(self.beta) + "\n"
+        # string += "rho = " + str(self.rho) + "\n"
+        # string += "m = " + str(self.m) + "\n"
+        # string += "mu = " + str(self.mu) + "\n"
+        # string += "eta = " + str(self.eta) + "\n"
+        # string += "alpha1 = " + str(self.alpha1) + "\n"
+        # string += "eta1 = " + str(self.eta1) + "\n"
+        # string += "k = " + str(self.k) + "\n"
 
-        string += "\nEDO\n"
+        # string += "\nEDO\n"
         string += "dx/dt = " + "{0}*x*(1-x/{1}) - {2}*x - {3}*x*z".format(self.r,self.k,self.beta,self.alpha) + "\n"
         string += "dy/dt = " + "{0}*x - {1}*y*z/({2} + y) - {3}*y".format(self.beta,self.rho,self.rho,self.mu) + "\n"
-        string += "dz/dt = " + "{0}*x*z - {1}*z^2 - {2}*y*z/(y + {3})".format(self.alpha1,self.rho,self.eta1, self.m) + "\n"
+        string += "dz/dt = " + "{0}*x*z + {1}*z^2 - {2}*z^2/(y + {3})".format(self.alpha1,self.rho,self.eta1, self.m) + "\n"
 
         return string
