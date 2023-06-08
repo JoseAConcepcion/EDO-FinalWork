@@ -62,7 +62,7 @@ def main2() -> None:
         t = time
         return s1.f1(t, x, y, z), s1.f2(t, x, y, z), s1.f3(t, x, y, z)
 
-    t = np.arange(0, 100, 0.1)
+    t = np.arange(0, 2, 0.01)
     sol = odeint(system, c, t)
 
     plotting(t, sol[:, 0], sol[:, 1], sol[:, 2])
