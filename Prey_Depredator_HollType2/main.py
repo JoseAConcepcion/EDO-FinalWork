@@ -20,6 +20,16 @@ def read_data() -> list:
     return data
 
 
+def plotting(t: list, x: list, y: list, z: list, tilte="") -> None:
+    plt.title(tilte)
+    plt.plot(t, x, label='presas jovenes', color='green')
+    plt.plot(t, y, label='presas jovenes', color='blue')
+    plt.plot(t, z, label='depredadores', color='red')
+    plt.legend()
+    plt.show()
+    return
+
+
 def main() -> None:
     data = read_data()
 
@@ -37,12 +47,8 @@ def main() -> None:
         index = i*50
         print(t[index], x[index], y[index], z[index])
 
-    #plt.title(str(s1))
-    plt.plot(t, x, label='presas1')
-    plt.plot(t, y, label='presas2')
-    plt.plot(t, z, label='depredadores')
-    plt.legend()
-    plt.show()
+    plotting(x, y, z)
+
     return
 
 
@@ -58,11 +64,8 @@ def main2() -> None:
 
     t = np.arange(0, 100, 0.1)
     sol = odeint(system, c, t)
-    plt.plot(t, sol[:, 0], label='presas1')
-    plt.plot(t, sol[:, 1], label='presas2')
-    plt.plot(t, sol[:, 2], label='depredadores')
-    plt.legend()
-    plt.show()
+
+    plotting(t, sol[:, 0], sol[:, 1], sol[:, 2])
 
     return
 
@@ -87,34 +90,32 @@ def main3() -> None:
         prey2.append(sol[i][1])
         depredator.append(sol[i][2])
 
-    plt.plot(t, prey1, label='presas1')
-    plt.plot(t, prey2, label='presas2')
-    plt.plot(t, depredator, label='depredadores')
-    plt.legend()
-    plt.show()
+    plotting(prey1, prey2, depredator)
 
     return
 
 
-def print_jacobian(eig = False) -> None:
-    
+def print_jacobian(eig=False) -> None:
+
     eigvalues, jacobian = odes.prey_depredator_hollingTypeII.jacobi_matrix()
-    print('- - '*30 ) # separador
+    print('- - '*30)  # separador
     representation = ""
     for i in range(3):
         for j in range(3):
             representation += str(jacobian[i*3+j]) + '  '*8
         representation += '\n'
-    
-    print(representation) # para visualizar la matriz
-    print('- - '*30 ) # separador
-    
-    if (eig): print('Eigenvalues: ', eigvalues)
-    
+
+    print(representation)  # para visualizar la matriz
+    print('- - '*30)  # separador
+
+    if (eig):
+        print('Eigenvalues: ', eigvalues)
+
     return
 
 
-#main() # -> Ejecutar el metodo de Runge-Kutta 4,(normal)
-#main2() # -> Ejecutar el metodo de Runge-Kutta 4,(python)
-#main3() # -> Ejecutar el metodo de Runge-Kutta 4,(vectorizado)
-print_jacobian(True) # -> imprimir la matriz jacobiana, true para mostrar los valores propios
+# main() # -> Ejecutar el metodo de Runge-Kutta 4,(normal)
+main2() # -> Ejecutar el metodo de Runge-Kutta 4,(python)
+# main3() # -> Ejecutar el metodo de Runge-Kutta 4,(vectorizado)
+# -> imprimir la matriz jacobiana, true para mostrar los valores propios
+#print_jacobian(True)

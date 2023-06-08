@@ -42,7 +42,7 @@ class prey_depredator_hollingTypeII:
 
     def f3(self, t: float, x: float, y: float, z: float) -> float:
         factor = -1 if not self.isSymbolic and np.isclose(x,y) and np.isclose(x,0) else 1
-        return self.alpha1*x*z + factor*(self.rho*z*z - self.eta1*y*z*z/(self.m + y))
+        return self.alpha1*x*z + factor*z*z*(self.rho - self.eta1*y/(self.m + y))
 
     def jacobi_matrix() -> np.ndarray:
         
