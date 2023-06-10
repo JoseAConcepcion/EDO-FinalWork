@@ -1,13 +1,10 @@
 import modules.metodos_numericos as edo
 import modules.odes as odes
-import os
-from math import *
 import numpy as np
-from scipy.integrate import odeint
-import matplotlib.pyplot as plt
-from time import time
+from math import *
 from matplotlib.animation import FuncAnimation
-from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import os
 
 
 def read_data() -> list:
@@ -65,50 +62,12 @@ def dynamic_behaviour(x: list, y: list, z: list) -> None:
     
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
+    ax.set_xlabel('presas jovenes')
+    ax.set_ylabel('presas adultas')
+    ax.set_zlabel('depredadores')
     ax.plot(X, Y, Z) 
     plt.show()
 
-    return
-
-
-def main() -> None:
-    data = read_data()
-
-    s1 = odes.prey_depredator_hollingTypeII(data[0])
-    iteraciones = 1000
-    h = 0.1
-    c1, c2, c3 = data[1]
-
-    t, x, y, z = edo.runge_kutta_4(
-        s1.f1, s1.f2, s1.f3, 0, c1, c2, c3, h, iteraciones)
-
-    limit = min(iteraciones, floor((iteraciones)/50))
-
-    for i in range(limit):  # tiempo , x, y, z
-        index = i*50
-        print(t[index], x[index], y[index], z[index])
-
-    plotting(x, y, z)
-
-    return
-
-
-def main2() -> None:
-    data = read_data()
-    s1 = odes.prey_depredator_hollingTypeII(data[0])
-    c = data[1]
-
-    def system(vector, time):
-        x, y, z = vector
-        t = time
-        return s1.f1(t, x, y, z), s1.f2(t, x, y, z), s1.f3(t, x, y, z)
-
-    t = np.arange(0, 2, 0.01)
-    sol = odeint(system, c, t)
-
-    plotting(t, sol[:, 0], sol[:, 1], sol[:, 2])
-    animation(t, sol[:, 0], sol[:, 1], sol[:, 2], str(s1))
-    dynamic_behaviour(sol[:, 0], sol[:, 1], sol[:, 2])
     return
 
 
@@ -157,7 +116,7 @@ def print_jacobian(eig=False) -> None:
 
 
 # main() # -> Ejecutar el metodo de Runge-Kutta 4,(normal)
-main2()  # -> Ejecutar el metodo de Runge-Kutta 4,(python)
+main3()  # -> Ejecutar el metodo de Runge-Kutta 4,(python)
 # main3() # -> Ejecutar el metodo de Runge-Kutta 4,(vectorizado)
 # -> imprimir la matriz jacobiana, true para mostrar los valores propios
 # print_jacobian(True)
