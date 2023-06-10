@@ -7,7 +7,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from time import time
 from matplotlib.animation import FuncAnimation
-from mpl_toolkits import mplot3d
+from mpl_toolkits.mplot3d import Axes3D
 
 
 def read_data() -> list:
@@ -58,25 +58,18 @@ def animation(t: list, y1: list, y2: list, y3: list, title="") -> None:
 
 
 def dynamic_behaviour(x: list, y: list, z: list) -> None:
+    
     X = np.array(x)
     Y = np.array(y)
     Z = np.array(z)
-       
-    for i in range(len(x)):
-        x[i] = max(0,x[i])
-        y[i] = max(0,x[i])
-        z[i] = max(0,x[i])        
-
+    
     fig = plt.figure()
-    ax = plt.axes(projection='3d')
-
-    ax.set_xlabel('young prey')
-    ax.set_ylabel('old prey')
-    ax.set_zlabel('predators')
-
-    ax.plot(X, Y, Z, 'gray')
+    ax = fig.add_subplot(projection='3d')
+    ax.plot(X, Y, Z) 
     plt.show()
+
     return
+
 
 def main() -> None:
     data = read_data()
@@ -114,7 +107,7 @@ def main2() -> None:
     sol = odeint(system, c, t)
 
     plotting(t, sol[:, 0], sol[:, 1], sol[:, 2])
-    animation(t, sol[:, 0], sol[:, 1], sol[:, 2] ,str(s1))
+    animation(t, sol[:, 0], sol[:, 1], sol[:, 2], str(s1))
     dynamic_behaviour(sol[:, 0], sol[:, 1], sol[:, 2])
     return
 
