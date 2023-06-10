@@ -30,28 +30,35 @@ def main() -> None:
         os.getcwd() + "/Prey_Depredator_HollType2/Simulations/", "txt")
 
     for simulation in data:
-        simulation_data = []
+       
         system = prey_depredator_hollingTypeII(simulation[0])
        
         def f(t,v):
             x,y,z = v
             return np.array([system.f1(t,x,y,z), system.f2(t,x,y,z), system.f3(t,x,y,z)])
-       
+
+        simulation_kutta = []
+        simulation_euler = []
+
         for icondition in simulation[1:]:
+           
             euler = edo.euler(f, np.array([icondition[0], icondition[1], icondition[2]]), h, n)
             runge_kutta = edo.runge_kutta(f, np.array([icondition[0], icondition[1], icondition[2]]), h, n)
-            simulation_data.append([euler, runge_kutta])
-        
+
+            simulation_euler.append([euler, runge_kutta])
+            simulation_kutta.append(runge_kutta)
+            break
+
         # Plotting Simulations
         title = str(system)
-
-
+        plot_simulations(title, simulation_kutta) 
+        break
     return
 
 
 def print_jacobian_symbolic() -> None:
 
-    jacobian = odes.prey_depredator_hollingTypeII.jacobi_matrix_symbolic
+    jacobian = prey_depredator_hollingTypeII.jacobi_matrix_symbolic
     print('- - '*30)  # separador
     representation = "\n"
     for i in range(3):
