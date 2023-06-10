@@ -1,6 +1,7 @@
 import numpy as np
 import sympy as sy
 
+
 class prey_depredator_hollingTypeII:
 
     # Parametros
@@ -46,7 +47,7 @@ class prey_depredator_hollingTypeII:
             else 1
         return self.alpha1*x*z + factor*z*z*(self.rho - self.eta1/(self.m + y))
 
-    def jacobi_matrix(self) -> tuple(np.array, np.ndarray):
+    def jacobi_matrix(self) -> np.ndarray:
         t, x, y, z = sy.symbols('t x y z')
         matrix = sy.Matrix(
             [self.f1(t, x, y, z), self.f2(t, x, y, z), self.f3(t, x, y, z)])
@@ -60,7 +61,7 @@ class prey_depredator_hollingTypeII:
     def eigvalues(self, jacobian: np.ndarray) -> np.array:
         return jacobian.eigenvals()
 
-    def jacobi_matrix_symbolic(eigvalues=False) -> tuple(np.array, np.ndarray):
+    def jacobi_matrix_symbolic(eigvalues=False) -> np.ndarray:
         params = [sy.Symbol('r'), sy.Symbol('beta'), sy.Symbol('alpha'),
                   sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'),
                   sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
