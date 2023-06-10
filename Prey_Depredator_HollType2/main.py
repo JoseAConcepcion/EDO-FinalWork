@@ -1,10 +1,13 @@
 import modules.metodos_numericos as edo
-import modules.odes as odes
+from modules.odes import *
+from modules.plot import *
 import numpy as np
 from math import *
 import glob
 import os
 
+h = 0.01
+n = 1000
 
 def read_data(folder_path: str, extension: str) -> list:
     data = []
@@ -22,10 +25,26 @@ def read_data(folder_path: str, extension: str) -> list:
 
     return data
 
-
 def main() -> None:
     data = read_data(
         os.getcwd() + "/Prey_Depredator_HollType2/Simulations/", "txt")
+
+    for simulation in data:
+        simulation_data = []
+        system = prey_depredator_hollingTypeII(simulation[0])
+       
+        def f(t,v):
+            x,y,z = v
+            return np.array([system.f1(t,x,y,z), system.f2(t,x,y,z), system.f3(t,x,y,z)])
+       
+        for icondition in simulation[1:]:
+            euler = edo.euler(f, np.array([icondition[0], icondition[1], icondition[2]]), h, n)
+            runge_kutta = edo.runge_kutta(f, np.array([icondition[0], icondition[1], icondition[2]]), h, n)
+            simulation_data.append([euler, runge_kutta])
+        
+        # Plotting Simulations
+        title = str(system)
+
 
     return
 
