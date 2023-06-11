@@ -36,16 +36,14 @@ class prey_depredator_hollingTypeII:
 
     # EDO
     def f1(self, t: float, x: float, y: float, z: float) -> float:
-        return x*(self.r*(1 - x/self.k) - self.beta - self.alpha*z)
+        return self.r*x*(1 - x/self.k) - x*self.beta - self.alpha*x*z
 
     def f2(self, t: float, x: float, y: float, z: float) -> float:
-        return self.beta*x - y * (self.eta*z/(self.m + y) - self.mu)
+        return self.beta*x - self.eta*y*z/(self.m + y) - self.mu*y
 
     def f3(self, t: float, x: float, y: float, z: float) -> float:
-        factor = -1 \
-            if not self.isSymbolic and np.isclose(x, y) and np.isclose(x, 0)\
-            else 1
-        return self.alpha1*x*z + factor*z*z*(self.rho - self.eta1/(self.m + y))
+        factor = -1 if not self.isSymbolic and np.isclose(x, y) and np.isclose(x, 0) else 1
+        return self.alpha1*x*z + factor*(self.rho*z - self.eta1*y*z/(self.m + y))
 
     def jacobi_matrix(self) -> np.ndarray:
         t, x, y, z = sy.symbols('t x y z')

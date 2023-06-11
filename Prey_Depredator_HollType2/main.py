@@ -2,7 +2,7 @@ import modules.metodos_numericos as edo
 from modules.odes import *
 from modules.plot import *
 import numpy as np
-import scipy.integrate as ode1
+from scipy.integrate import odeint  
 from math import *
 import glob
 import os
@@ -29,7 +29,7 @@ def main() -> None:
 
     system = prey_depredator_hollingTypeII(data[0])
 
-    def f(t, v):
+    def f(v, t):
         x, y, z = v
         return np.array([system.f1(t, x, y, z), system.f2(t, x, y, z), system.f3(t, x, y, z)])
 
@@ -40,26 +40,28 @@ def main() -> None:
 
     for initial_value in initials_values:
 
-        euler = edo.euler(f, np.array(
-            [initial_value[0], initial_value[1], initial_value[2]]), h, n)
+        # euler = edo.euler(f, np.array(
+        #     [initial_value[0], initial_value[1], initial_value[2]]), h, n)
 
-        runge_kutta = edo.runge_kutta(f, np.array(
-            [initial_value[0], initial_value[1], initial_value[2]]), h, n)
+        # runge_kutta = edo.runge_kutta(f, np.array(
+        #     [initial_value[0], initial_value[1], initial_value[2]]), h, n)
+        t = np.arange(0, 2, 0.001)
+        runge_kutta = odeint(f , np.array(initial_value), t)
 
-        simulation_euler.append([euler, runge_kutta])
+        #simulation_euler.append([euler, runge_kutta])
         simulation_kutta.append(runge_kutta)
 
         # Plotting Simulations
         title = str(system)
-        t , v = runge_kutta
-        x, y, z = v[:,0], v[:,1], v[:,2]
-        plotting(t,x,y,z, title)
-        
+        x = runge_kutta[:, 0]
+        y = runge_kutta[:, 1]
+        z = runge_kutta[:, 2]
+        plotting(t, x, y, z, title)
         #animation(t,x,y,z, title)
     #plot3d_All(simulation_kutta, str(system))
     return
 
-
+'''
 def print_jacobian_symbolic() -> None:
 
     jacobian = prey_depredator_hollingTypeII.jacobi_matrix_symbolic
@@ -72,6 +74,6 @@ def print_jacobian_symbolic() -> None:
     print(representation + '\n')  # para visualizar la matriz
 
     return
-
+'''
 
 main()

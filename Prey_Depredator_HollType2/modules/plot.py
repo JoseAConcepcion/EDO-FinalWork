@@ -11,6 +11,7 @@ def plotting(t: list, x: list, y: list, z: list, tilte="") -> None:
     plt.plot(t, y, label='presas jovenes', color='brown')
     plt.plot(t, z, label='depredadores', color='red')
     plt.legend()
+    plt.show()
     return
 
 
