@@ -145,7 +145,7 @@
 
 \section*{Resumen}
 Este documento presenta un análisis local exhaustivo del modelo depredador-presa con estructura de
-etapas en la población de presa y respuestas funcionales de Holling de tipo II y I \cite{holling_functional_1965}. Los autores determinan
+etapas en la población de presa y respuestas funcionales de Holling de tipo II y I. Los autores determinan
 los tres posibles equilibrios, analizan la estabilidad local a través de la matriz jacobiana, realizan
 simulaciones numéricas y obtienen varios resultados clave. El equilibrio trivial siempre es inestable,
 el equilibrio con predadores extintos es estable bajo ciertas condiciones y el equilibrio interior puede
@@ -218,8 +218,70 @@ Holling tipo II: expresa un aumento en el consumo que se desacelera a medida que
 depredadores de forma asintótica. La respuesta funcional de Holling tipo II es monotóna creciente, lo que significa que la tasa de consumo 
 de los depredadores aumenta con la densidad de presas.
 
+\subsection{Puntos de Equilibrio y Estabilidad Local}
+Los puntos de equilibrio estan dados por aquellos que satisfagan la igualdad:
+\begin{center}
+	$\frac{dx}{dt} = \frac{dy}{dt} = \frac{dz}{dt} = 0$
+\end{center}
+Haciendo los c\'aculos peretinentes se obtienen como resultado los siguinetes valores.
+$E_1$ = (0,0,0), $E_2$ = $(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ y $E_3$ = ($x^*,y^*,z^*$) Que vamos a hacer con esto??
+
+Para realizar el analisis de los puntos de equilibrio hallamos la matriz Jacobina del modelo, la cual está dada por:
+
+\begin{equation} \label{JacobianoEstability}
+	J\left(x, y, z\right)=\left[\begin{array}{ccc}
+			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
+			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
+			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+		\end{array}\right]
+\end{equation}
+
+Dicha ecuación fue además verificada mediante la implementascion de un script en Python vease en los Anexos (poner).
+Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios 
+de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores 
+propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva, 
+entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa, 
+entonces se debe realizar un análisis más profundos para determinar la estabilidad de los puntos de equilibrio. \par
+Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio podemos observar lo siguiente.
+
+\begin{equation} \label{Characteristic000}
+	\left|\begin{array}{ccc}
+		(-1+r)-\lambda & 0            & 0         \\
+		\beta          & -\mu-\lambda & 0         \\
+		0              & 0            & 0-\lambda
+	\end{array}\right|=0
+\end{equation}
+Los valores propios de la matriz J(E1) son ((-1 + r) - $\lambda$)(-$\mu$ - $\lambda$)(0 - $\lambda$) = 0. Siempre se tiene que $\lambda_1$ = -$\mu$, 
+el otro valor propio es negativo si r < 1, y $\lambda_3$ = 0. Por lo tanto, el punto de equilibrio $E_1$ es inestable.\par
+
+Para el punto $E_2$ tenemos:
+\begin{equation} \label{Equilibrium}
+	\begin{aligned}
+		 & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+		 & J\left(E_2\right)=\left|\begin{array}{ccc}
+			                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
+			                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
+			                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r}
+		                           \end{array}\right|=0
+	\end{aligned}
+\end{equation}
+aqui arreglar el paper esta mal itle \par
+Finalmente para $E_3$:
+
+\begin{equation} \label{CharacteristicPolynomial}
+	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
+			\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                     \\
+			\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                         \\
+			\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 p z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
+		\end{array}\right]
+\end{equation}
+
+
+
+
+
 \subsection{M\'etodos y algoritmos utilizados}
-Esta  subsecci\'on se describen los c\'odigos de programas utilizados en el trabajo mediante las siguiente instrucciones.
+Aqui pseudo codigos explicacion de euler y Runge Kutta
 
 \begin{verbatim}
 y_{n+1}=y_n+hf(x_n,y_n}
@@ -227,7 +289,7 @@ y_{n+1}=y_n+hf(x_n,y_n}
 
 
 \begin{itemize}
-	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc.
+	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc
 \end{itemize}
 \begin{enumerate}
 	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis,
@@ -285,41 +347,6 @@ posibilidad de que se pueda continuar esta línea de investigación.
 
 \section*{F\'ORMULAS A UTILIZAR DESPU\'ES}
 % aqui ya estan la mayoria de las formulas
-
-\begin{equation} \label{JacobianoEstability}
-	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
-			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
-			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
-			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
-		\end{array}\right]
-\end{equation}
-
-\begin{equation} \label{Characteristic000}
-	\left|\begin{array}{ccc}
-		(-1+r)-\lambda & 0            & 0         \\
-		\beta          & -\mu-\lambda & 0         \\
-		0              & 0            & 0-\lambda
-	\end{array}\right|=0
-\end{equation}
-
-\begin{equation} \label{Equilibrium}
-	\begin{aligned}
-		 & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
-		 & J\left(E_2\right)=\left|\begin{array}{ccc}
-			                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
-			                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
-			                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r}
-		                           \end{array}\right|=0
-	\end{aligned}
-\end{equation}
-
-\begin{equation} \label{CharacteristicPolynomial}
-	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
-			\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                     \\
-			\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                         \\
-			\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 p z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
-		\end{array}\right]
-\end{equation}
 
 \defbibheading{Referencias}{\section*{Referencias}}
 \defbibheading{Bibliografía}{\section*{Bibliografía}}
