@@ -51,7 +51,9 @@ def main() -> None:
 
         # Plotting Simulations
         title = str(system)
-        x = 
+        t , v = runge_kutta
+        x, y, z = v[:,0], v[:,1], v[:,2]
+        plotting(t,x,y,z, title)
         
         #animation(t,x,y,z, title)
     #plot3d_All(simulation_kutta, str(system))

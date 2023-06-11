@@ -1,4 +1,6 @@
+import numpy as np
 # f-> sistema, c-> condiciones iniciales, h-> paso, n-> iteraciones
+
 def euler(f, c, h, n):
     x = [c]
     t = [0]
@@ -6,6 +8,8 @@ def euler(f, c, h, n):
     for i in range(n):
         x.append(x[i] + h*f(t, x[i]))
         t.append(t[i]+h)
+    
+    x = np.array(x)
     return t, x
 
 
@@ -21,4 +25,5 @@ def runge_kutta(f, c, h, n):
         t.append(t[i] + h)
         x.append(x[i] + h/6*(k1 + 2*k2 + 2*k3 + k4))
 
+    x = np.array(x)
     return t, x
