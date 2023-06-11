@@ -11,21 +11,14 @@ h = 0.01
 n = 200
 
 
-def read_data(file_path: str) -> list:
-    data = []
-    #files = glob.glob(folder_path + "*.{}".format(extension))
-    # Read
-    with open(file_path, "r") as f:
-        for line in f.readlines():
-            if(line != "\n"):
-                data.append([float(x) for x in line.split()])
-
-    return data
-
+def S1(): # first simulation
+    params = [0.82, 0.87, 1.56, 1.12, 2.41, 1.83, 12, 1.38, 0.13, 0.11]
+    first_values = [3.01, 5.05, 4.28]
+    second_values = [4.6  5.9  3.1]
+    return
 
 def main() -> None:
-    data = read_data(
-        os.getcwd() + "/Prey_Depredator_HollType2/Simulations/S1.txt")
+   
 
     system = prey_depredator_hollingTypeII(data[0])
 
