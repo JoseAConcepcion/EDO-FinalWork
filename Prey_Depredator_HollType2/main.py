@@ -8,7 +8,7 @@ import glob
 import os
 
 h = 0.01
-n = 1000
+n = 200
 
 
 def read_data(file_path: str) -> list:
@@ -30,33 +30,35 @@ def main() -> None:
     system = prey_depredator_hollingTypeII(data[0])
 
     def f(t, v):
-        x, y, z = v
+        x, y , z = v[0], v[1], v[2]
         return np.array([system.f1(t, x, y, z), system.f2(t, x, y, z), system.f3(t, x, y, z)])
 
-    initials_values = data[1:]
+    initials_values = data[1]
+    sol = edo.runge_kutta(f, np.array(initials_values), h, n)
+    t, v = sol
+    x, y, z = v[:,0], v[:,1], v[:,2]
+    plotting(t,x,y,z, str(system))
+
 
     simulation_kutta = []
     simulation_euler = []
 
-    for initial_value in initials_values:
+    # for initial_value in initials_values:
 
-        euler = edo.euler(f, np.array(
-            [initial_value[0], initial_value[1], initial_value[2]]), h, n)
+    #     #euler = edo.euler(f, np.array(initial_value), h, n)
+    #     runge_kutta = edo.runge_kutta(f, np.array(initial_value), h, n)
 
-        runge_kutta = edo.runge_kutta(f, np.array(
-            [initial_value[0], initial_value[1], initial_value[2]]), h, n)
+    #     #simulation_euler.append([euler, runge_kutta])
+    #     simulation_kutta.append(runge_kutta)
 
-        simulation_euler.append([euler, runge_kutta])
-        simulation_kutta.append(runge_kutta)
-
-        # Plotting Simulations
-        title = str(system)
-        t , v = runge_kutta
-        x, y, z = v[:,0], v[:,1], v[:,2]
-        plotting(t,x,y,z, title)
+    #     # Plotting Simulations
+    #     title = str(system)
+    #     t , v = runge_kutta
+    #     x, y, z = v[:,0], v[:,1], v[:,2]
+    #     plotting(t,x,y,z, title)
         
-        #animation(t,x,y,z, title)
-    #plot3d_All(simulation_kutta, str(system))
+    #     #animation(t,x,y,z, title)
+    # #plot3d_All(simulation_kutta, str(system))
     return
 
 
