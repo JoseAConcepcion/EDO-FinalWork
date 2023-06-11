@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import colorsys as c
 
-
 def plotting(t: list, x: list, y: list, z: list, tilte="") -> None:
     plt.figure()
     plt.title(tilte)
@@ -33,7 +32,7 @@ def animation(t: list, y1: list, y2: list, y3: list, title="") -> None:
         return line1, line2, line3
 
     plt.title(title)
-    ani = FuncAnimation(fig, update, frames=len(t), interval=75, repeat=False)
+    ani = FuncAnimation(fig, update, frames=len(t), interval=5, repeat=False)
     plt.show()
     return
 
@@ -49,10 +48,10 @@ def create_fig3d(xlabel: str, ylabel: str, zlabel: str) -> plt:
 
 def plot3d_All(datas, title="") -> None:
     ax = create_fig3d("Presas Jovenes", "Presas Adultas", "Depredadores")
-    color = ['r', 'y', 'b', 'g', 'k', 'm']
+    color = ['red', 'blue', 'black', 'green', 'yellow']
     for i in range(len(datas)):
-        x, y, z = datas[i]
-        plot3d(ax, x, y, z, color=color[i])
+        solution = datas[i]
+        plot3d(ax, solution[:, 0], solution[:, 1], solution[:, 2], color[i])
     plt.show()
     return
 
@@ -65,8 +64,5 @@ def dynamic_behaviour(x: list, y: list, z: list) -> None:
 
 
 def plot3d(ax: plt, x: list, y: list, z: list, color="blue") -> None:
-    X = np.array(x)
-    Y = np.array(y)
-    Z = np.array(z)
-    ax.plot(X, Y, Z, color=color)
+    ax.plot(x, y, z, color=color)
     return

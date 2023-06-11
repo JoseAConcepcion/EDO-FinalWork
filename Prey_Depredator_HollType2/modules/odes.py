@@ -44,30 +44,29 @@ class prey_depredator_hollingTypeII:
         return self.beta*x - y *(self.eta*z/(self.m + y) - self.mu)
 
     def f3(self, t: float, x: float, y: float, z: float) -> float:
-        factor = -1 if not self.isSymbolic and np.isclose(x,y) and np.isclose(x,0) else 1
+        factor = -1 if (type(x)!=sy.Symbol and type(y)!=sy.Symbol) \
+                        and (np.isclose(x,y) and np.isclose(x,0))  \
+                    else 1
+        
         return self.alpha1*x*z + factor*z*z*(self.rho - self.eta1/(self.m + y))
 
+    def jacobi_matrix(self) -> sy.Matrix:
+        t , x, y, z = sy.symbols('t x y z')
+        jacobian = sy.Matrix([self.f1(t, x, y, z),self.f2(t, x, y, z),self.f3(t, x, y, z)]).jacobian([x, y, z])
+        return jacobian
 
-    def jacobi_matrix(self) -> np.ndarray:
-        t, x, y, z = sy.symbols('t x y z')
-        matrix = sy.Matrix(
-            [self.f1(t, x, y, z), self.f2(t, x, y, z), self.f3(t, x, y, z)])
-        matrix = sy.simplify(matrix.jacobian([x, y, z]))
-        eigvalues = sy.simplify(matrix.eigenvals()) if eigvalues else -1
-        return matrix
-
-    def eigvalues(self) -> np.array:
-        return self.eigvalues(self.jacobi_matrix)
-
-    def eigvalues(self, jacobian: np.ndarray) -> np.array:
-        return jacobian.eigenvals()
-
-    def jacobi_matrix_symbolic(eigvalues=False) -> np.ndarray:
+    def eigvalues(self): # probleams en los valores propios
+        #x1, x2 , x3 = self.jacobi_matrix().eigenvals(multiple = False)
+        t ,x , y ,z = sy.symbols('t x y z')
+        J = self.jacobi_matrix()
+        return sy.Matrix.eigenvals(J)
+        
+    def jacobi_matrix_symbolic(eigvalues=False) -> sy.Matrix:
         params = [sy.Symbol('r'), sy.Symbol('beta'), sy.Symbol('alpha'),
                   sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'),
                   sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
         system = prey_depredator_hollingTypeII(params, True)
-        return system.jacobi_matrix(eigvalues)
+        return system.jacobi_matrix()
 
     def __str__(self) -> str:
         string = ""
