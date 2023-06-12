@@ -223,10 +223,10 @@ Los puntos de equilibrio estan dados por aquellos que satisfagan la igualdad:
 \begin{center}
 	$\frac{dx}{dt} = \frac{dy}{dt} = \frac{dz}{dt} = 0$
 \end{center}
-Haciendo los c\'aculos peretinentes se obtienen como resultado los siguinetes valores.
+Haciendo los c\'alculos pertinentes se obtienen como resultado los siguientes valores.
 $E_1$ = (0,0,0), $E_2$ = $(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ y $E_3$ = ($x^*,y^*,z^*$) Que vamos a hacer con esto??
 
-Para realizar el analisis de los puntos de equilibrio hallamos la matriz Jacobina del modelo, la cual está dada por:
+Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobina del modelo, la cual está dada por:
 
 \begin{equation} \label{JacobianoEstability}
 	J\left(x, y, z\right)=\left[\begin{array}{ccc}
@@ -242,16 +242,58 @@ de la matriz jacobiana. Estos valores propios son los que determinan la estabili
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva, 
 entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa, 
 entonces se debe realizar un análisis más profundos para determinar la estabilidad de los puntos de equilibrio. \par
-Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio podemos observar lo siguiente.
+Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri. Al evaluar la matriz jacobiana en $E_1$ obtuvimos:\\
 
-\begin{equation} \label{Characteristic000}
-	\left|\begin{array}{ccc}
+\begin{center}
+	\renewcommand{\arraystretch}{5}
+	\begin{tabular}{|c|c|c|} \hline
+		Resultados obtenidos & Resultados de Savitri\\ \hline
+		
+		$ J(E_1) = \label{Characteristic000t}
+		\left|\begin{array}{ccc}
+		r-\beta-\lambda & 0            & 0         \\
+		\beta          & -\mu-\lambda & 0         \\
+		0              & 0            & 0-\lambda
+		\end{array}\right|=0
+		$
+		&
+		$ J(E_1) = \label{Characteristic000f}
+		\begin{pmatrix}
 		(-1+r)-\lambda & 0            & 0         \\
 		\beta          & -\mu-\lambda & 0         \\
 		0              & 0            & 0-\lambda
-	\end{array}\right|=0
-\end{equation}
-Los valores propios de la matriz J(E1) son ((-1 + r) - $\lambda$)(-$\mu$ - $\lambda$)(0 - $\lambda$) = 0. Siempre se tiene que $\lambda_1$ = -$\mu$, 
+		\end{pmatrix}$\\
+	
+		\hline
+			
+	\end{tabular}
+\end{center}
+\hspace{1cm}
+
+\begin{table}[t]
+	\renewcommand{\arraystretch}{5}
+	\begin{center}
+		\begin{tabular}{ | l | c | }
+			\hline País & Ciudades \\ \hline
+			España & Madrid, Barcelona, Sevilla, Valencia, Málaga, Zaragoza, Granada, Córdoba, Bilbao, etc. \\ \hline
+			Francia & París, Lyon, Burdeos, Toulouse, Marsella, Estrasburgo, Niza, Nantes, Montpellier, etc. \\ \hline
+			Alemania & Berlín, Múnich, Hamburgo, Colonia, Stuttgart, Leipzig, Núremberg, Bremen, Hannover, etc. \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table} 
+\begin{table}[t]
+	\renewcommand{\arraystretch}{1.5} % Duplica el espacio entre los segmentos de la tabla
+	\begin{center}
+		\begin{tabular}{ | l | l | }
+			\hline País & Ciudades \ \hline
+			España & Madrid, Barcelona, Sevilla, Valencia, Málaga, Zaragoza, Granada, Córdoba, Bilbao, etc. \ \hline
+			Francia & París, Lyon, Burdeos, Toulouse, Marsella, Estrasburgo, Niza, Nantes, Montpellier, etc. \ \hline
+			Alemania & Berlín, Múnich, Hamburgo, Colonia, Stuttgart, Leipzig, Núremberg, Bremen, Hannover, etc. \ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Los valores propios de la matriz $J(E_1)$ son las raíces del polinomio característico (r - $\beta$ - $\lambda$)(-$\mu$ - $\lambda$)(0 - $\lambda$) = 0. Siempre se tiene que $\lambda_1$ = -$\mu$, 
 el otro valor propio es negativo si r < 1, y $\lambda_3$ = 0. Por lo tanto, el punto de equilibrio $E_1$ es inestable.\par
 
 Para el punto $E_2$ tenemos:
@@ -345,8 +387,6 @@ depredadores en diferentes entornos y para comprender mejor los efectos del camb
 en estas interacciones. FALTA Añadir una valoración de lo que usted ha aprendido con este trabajo, como valora la
 posibilidad de que se pueda continuar esta línea de investigación.
 
-\section*{F\'ORMULAS A UTILIZAR DESPU\'ES}
-% aqui ya estan la mayoria de las formulas
 
 \defbibheading{Referencias}{\section*{Referencias}}
 \defbibheading{Bibliografía}{\section*{Bibliografía}}
