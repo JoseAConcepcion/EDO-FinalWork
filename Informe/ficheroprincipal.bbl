@@ -230,8 +230,8 @@
       \strng{authorbibnamehash}{e141281696a9640480527e0d46ae5f57}
       \strng{authornamehash}{e141281696a9640480527e0d46ae5f57}
       \strng{authorfullhash}{e141281696a9640480527e0d46ae5f57}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{edition}{4th ed}
@@ -239,6 +239,36 @@
       \field{shorttitle}{Differential equations and boundary value problems}
       \field{title}{Differential equations and boundary value problems: computing and modeling}
       \field{year}{2008}
+    \endentry
+    \entry{upadhyay_introduction_2013}{book}{}
+      \name{author}{2}{}{%
+        {{hash=5cc25b77590cbae82a1965e4fb73355a}{%
+           family={Upadhyay},
+           familyi={U\bibinitperiod},
+           given={Ranjit\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=2ed964d0f73d59139688e70f7939ea35}{%
+           family={Iyengar},
+           familyi={I\bibinitperiod},
+           given={Satteluri\bibnamedelimb R.\bibnamedelimi K.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{381be5400de9029968db78ca1e151266}
+      \strng{fullhash}{381be5400de9029968db78ca1e151266}
+      \strng{bibnamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authorbibnamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authornamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authorfullhash}{381be5400de9029968db78ca1e151266}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4398-9887-1 978-1-4398-9886-4}
+      \field{title}{Introduction to mathematical modeling and chaotic dynamics}
+      \field{year}{2013}
     \endentry
   \enddatalist
 \endrefsection

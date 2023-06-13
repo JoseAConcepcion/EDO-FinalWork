@@ -1,14 +1,16 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'ficheroprincipal.blg'
-[57] biber:340> INFO - === dom jun 11, 2023, 02:45:58
-[68] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
-[123] Biber.pm:972> INFO - Found 5 citekeys in bib section 0
-[134] Biber.pm:4383> INFO - Processing section 0
-[143] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
-[144] bibtex.pm:1713> INFO - LaTeX decoding ...
-[157] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
-[215] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[215] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[216] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[221] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
-[224] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
+[106] biber:340> INFO - === mar jun 13, 2023, 18:35:02
+[128] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
+[240] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
+[263] Biber.pm:4383> INFO - Processing section 0
+[277] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
+[279] bibtex.pm:1713> INFO - LaTeX decoding ...
+[346] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
+[463] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[463] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[463] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[471] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
+[476] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
+[477] Biber.pm:130> WARN - ISBN '978-1-4398-9887-1 978-1-4398-9886-4' in entry 'upadhyay_introduction_2013' is invalid - run biber with '--validate_datamodel' for details.
+[477] Biber.pm:132> INFO - WARNINGS: 1
