@@ -17,9 +17,11 @@
 \usepackage[spanish]{babel}
 \usepackage{latexsym}
 \usepackage{caption}
+\usepackage{circledsteps}
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{mathptmx}
+\usepackage{booktabs}
 \usepackage[T1]{fontenc}
 \usepackage[style=numeric,backend=biber,defernumbers=true, sorting=none]{biblatex}
 \addbibresource{EDO Final Work.bib}
@@ -243,58 +245,48 @@ propios tienen parte real negativa, entonces el punto de equilibrio es estable. 
 entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa, 
 entonces se debe realizar un análisis más profundos para determinar la estabilidad de los puntos de equilibrio. \par
 Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri. Al evaluar la matriz jacobiana en $E_1$ obtuvimos:\\
-
 \begin{center}
-	\renewcommand{\arraystretch}{5}
-	\begin{tabular}{|c|c|c|} \hline
-		Resultados obtenidos & Resultados de Savitri\\ \hline
-		
-		$ J(E_1) = \label{Characteristic000t}
-		\left|\begin{array}{ccc}
-		r-\beta-\lambda & 0            & 0         \\
-		\beta          & -\mu-\lambda & 0         \\
-		0              & 0            & 0-\lambda
-		\end{array}\right|=0
-		$
-		&
-		$ J(E_1) = \label{Characteristic000f}
-		\begin{pmatrix}
-		(-1+r)-\lambda & 0            & 0         \\
-		\beta          & -\mu-\lambda & 0         \\
-		0              & 0            & 0-\lambda
-		\end{pmatrix}$\\
-	
-		\hline
-			
-	\end{tabular}
+\begin{tabular}{ c c }
+	\toprule
+	\textbf{Resultados obtenidos} & \textbf{Resultado de Savitri}\\
+	\midrule\\
+	\addlinespace[-2ex]
+	$J(E_1) =\label{Characteristic000t} \begin{bmatrix} 
+	\Circled[outer color=green]{r-\beta} & 0            & 0         \\
+	\beta          & -\mu         & 0         \\
+	0              & 0            & 0 
+    \end{bmatrix}$ &
+	$J(E_1) =\label{Characteristic000f} \begin{bmatrix} 
+	\Circled[outer color=red]{(-1+ r) } & 0            & 0         \\
+	\beta          & -\mu & 0         \\
+	0              & 0            & 0 
+	\end{bmatrix}$\\
+	\addlinespace[1.5ex]
+
+	\bottomrule
+\end{tabular}
 \end{center}
-\hspace{1cm}
 
-\begin{table}[t]
-	\renewcommand{\arraystretch}{5}
-	\begin{center}
-		\begin{tabular}{ | l | c | }
-			\hline País & Ciudades \\ \hline
-			España & Madrid, Barcelona, Sevilla, Valencia, Málaga, Zaragoza, Granada, Córdoba, Bilbao, etc. \\ \hline
-			Francia & París, Lyon, Burdeos, Toulouse, Marsella, Estrasburgo, Niza, Nantes, Montpellier, etc. \\ \hline
-			Alemania & Berlín, Múnich, Hamburgo, Colonia, Stuttgart, Leipzig, Núremberg, Bremen, Hannover, etc. \\ \hline
-		\end{tabular}
-	\end{center}
-\end{table} 
-\begin{table}[t]
-	\renewcommand{\arraystretch}{1.5} % Duplica el espacio entre los segmentos de la tabla
-	\begin{center}
-		\begin{tabular}{ | l | l | }
-			\hline País & Ciudades \ \hline
-			España & Madrid, Barcelona, Sevilla, Valencia, Málaga, Zaragoza, Granada, Córdoba, Bilbao, etc. \ \hline
-			Francia & París, Lyon, Burdeos, Toulouse, Marsella, Estrasburgo, Niza, Nantes, Montpellier, etc. \ \hline
-			Alemania & Berlín, Múnich, Hamburgo, Colonia, Stuttgart, Leipzig, Núremberg, Bremen, Hannover, etc. \ \hline
-		\end{tabular}
-	\end{center}
-\end{table}
 
-Los valores propios de la matriz $J(E_1)$ son las raíces del polinomio característico (r - $\beta$ - $\lambda$)(-$\mu$ - $\lambda$)(0 - $\lambda$) = 0. Siempre se tiene que $\lambda_1$ = -$\mu$, 
-el otro valor propio es negativo si r < 1, y $\lambda_3$ = 0. Por lo tanto, el punto de equilibrio $E_1$ es inestable.\par
+Luego calculamos las raíces del polinomio característico de  $J(E_1)$:\\
+\begin{center}
+	
+
+	$\left|\begin{array}{c c c} 
+	r-\beta-\lambda &  0  & 0 \\
+	\beta   & -\mu-\lambda& 0 \\
+	0  &  0   &  0-\lambda\\
+	
+	\end{array}	\right|
+	=
+	(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0
+	$
+\end{center}	
+
+Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual puede ser negativo si $\beta>r$), $\lambda_2= -\mu$ y $\lambda_3 = 0$. Por lo tanto, el punto de equilibrio $E_1$ es inestable.\par
+
+
+
 
 Para el punto $E_2$ tenemos:
 \begin{equation} \label{Equilibrium}
