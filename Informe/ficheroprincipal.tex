@@ -310,7 +310,7 @@ Para $E_3$ tenemos la siguiente matriz jacobiana:
 	J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                     \\
 			\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                         \\
-			\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 p z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
+			\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
 		\end{array}\right]
 \end{equation}
 
@@ -320,11 +320,12 @@ Hallando los coeficientes del polinomio característico aplicando el criterio de
 \begin{itemize}
 	\item[] $A_0 = 1$
 
-	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu + \frac{\eta y^*}{y^*+m} - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
+	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
 
-	\item[] $A_{2} = -\frac{2\eta z^*}{y^*+m} + \frac{\eta z^{2}}{(y^*+m)^{2}} + \frac{\eta z^* \alpha}{(y^*+m) x^*} - \frac{\eta y^*(y^*+m)^{2}}{(y^*+m)^{2}\alpha y^*z^*} - \frac{\eta y^*z^*}{\alpha y^*} + \frac{\eta y^*z^*}{\beta y^*+m\eta z^*} - \frac{\eta z^*}{\beta} - \frac{\eta(y^*+m)}{\mu y^*+m\eta z^*}$
+	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
 
-	\item[] $A_{3} = -2\rho\alpha z^{2} + 2\eta_{1} z^*\alpha z^*y^*+m + \frac{\alpha x^*\eta_{1} z^{2}}{(y^*+m)^{2}} - \frac{\alpha x^*\eta_{1} z^*y^*+m}{y^*+m} + \frac{\beta\eta z^*y^*+m\alpha x^*}{\eta_{1} z^*y^*+m\alpha x^*} - \frac{\beta y^*z^*\alpha x^*}{\eta_{1} (y^*+m)^{2}} + \frac{\alpha x^*y^*+m\eta y^*}{\eta y^*y^*+m\eta z^*}$
+	\item[] $A_3 = -\alpha x^* ((-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(\alpha_1 z^* ) - (\beta) (\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) ) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*) ((-\frac{\eta y^*}{y^*+m} )(\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) - (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*))	$
+	
 \end{itemize}
 donde $A_0$, $A_1$, $A_2$  y $A_3$ satisfacen:
 
