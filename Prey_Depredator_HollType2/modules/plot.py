@@ -1,0 +1,74 @@
+from matplotlib.animation import FuncAnimation
+import matplotlib.pyplot as plt
+import numpy as np
+import colorsys as c
+plt.style.use('bmh')
+
+def plotting(t: list, x: list, y: list, z: list, tilte="") -> None:
+    plt.figure()
+    plt.title(tilte, loc='center')
+    plt.plot(t, x, label='x(t)', color='green')
+    plt.plot(t, y, label='y(t)', color='brown')
+    plt.plot(t, z, label='z(t)', color='red')
+    plt.legend()
+    # plt.show()
+    plt.grid(1)
+    plt.savefig('Plotting.pdf')
+    return
+
+
+def animation(t: list, y1: list, y2: list, y3: list, title="") -> None:
+    fig = plt.figure()
+    line1, = plt.plot(t, y1, label='x(t)', color="green")
+    line2, = plt.plot(t, y2, label='y(t)', color="brown")
+    line3, = plt.plot(t, y3, label='Depredadores', color="red")
+    plt.legend()
+
+    def update(frame):
+        y1[:-1] = y1[1:]
+        y2[:-1] = y2[1:]
+        y3[:-1] = y3[1:]
+
+        line1.set_ydata(y1)
+        line2.set_ydata(y2)
+        line3.set_ydata(y3)
+        return line1, line2, line3
+
+    plt.title(title)
+    ani = FuncAnimation(fig, update, frames=len(t), interval=5, repeat=False)
+    # plt.show()
+    return
+
+
+def create_fig3d(xlabel: str, ylabel: str, zlabel: str) -> plt:
+    fig = plt.figure()
+    ax = fig.add_subplot(projection='3d')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_zlabel(zlabel)
+    return ax
+
+
+def plot3d_All(datas, title="") -> None:
+    ax = create_fig3d("x(t)", "y(t)", "z(t)")
+    color = ['red', 'blue', 'black', 'green', 'yellow']
+    for i in range(len(datas)):
+        solution = datas[i]
+        plot3d(ax, solution[:, 0], solution[:, 1], solution[:, 2], color[i])
+    plt.grid(1)
+    plt.show()
+    plt.savefig('3Dplot.pgf')
+    return
+
+
+def dynamic_behaviour(x: list, y: list, z: list) -> None:
+    ax = create_fig3d("x(t)", "y(t)", "Depredadores")
+    plot3d(ax, x, y, z)
+    # plt.show()
+    plt.savefig('DinamicBehaviour.pgf')
+    return
+
+
+def plot3d(ax: plt, x: list, y: list, z: list, color="blue") -> None:
+    ax.plot(x, y, z, color=color)
+    return

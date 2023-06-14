@@ -20,6 +20,7 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{mathptmx}
+\usepackage{pgf}
 \usepackage[T1]{fontenc}
 \usepackage[style=numeric,backend=biber,defernumbers=true]{biblatex}
 \addbibresource{EDO Final Work.bib}
@@ -32,6 +33,8 @@
 \usepackage{amssymb}
 \usepackage{amsbsy}
 \usepackage{amsthm}
+\usepackage{pgf}
+\usepackage{subcaption}
 \usepackage[colorlinks=true,urlcolor=blue,citecolor=black,anchorcolor=black,linkcolor=red]{hyperref}
 \usepackage{hyperref}
 %****************************************************************************
@@ -163,13 +166,31 @@ de etapas y un solo depredador. La población de presas se divide en adultos y j
 exhibe diferentes tasas de depredación para adultos e inmaduros. Se utilizan respuestas funcionales de
 Holling tipo II \cite{holling_functional_1965} para adultos y tipo I para juveniles. El estudio tuvo los siguientes objetivos:
 determinar los puntos de equilibrio del modelo, analizar la estabilidad local de los puntos de equilibrio
-utilizando la matriz jacobiana y autovalores y observar el comportamiento dinámico del modelo mediante
+utilizando la matriz jacobiaana y autovalores y observar el comportamiento dinámico del modelo mediante
 simulaciones numéricas y diagramas de fase. Además utilizaron las siguientes técnicas para obtener resultados
 más rigurosos: análisis matemático para determinar los puntos de equilibrio y condiciones de estabilidad,
 cálculo de la matriz jacobiana y autovalores en cada punto de equilibrio, aplicación del Criterio de Routh-Hurwitz
 para analizar la estabilidad del equilibrio interior, simulaciones numéricas utilizando el método Runge-Kutta de
 cuarto orden y un análisis de bifurcación para estudiar la posible existencia de ciclos límite. (no estoy seguro de esta traduccion revisar despues)
 \subsection{Estructura del trabajo}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Plotting.pdf}
+		\caption{Gráfica en formato PDF}
+		\label{fig:grafica1}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\resizebox{\textwidth}{!}{\input{Plotting.pgf}}
+		\caption{Gráfica en formato PGF}
+		\label{fig:grafica2}
+	\end{subfigure}
+	\caption{Comparación de gráficas en diferentes formatos}
+	\label{fig:comparacion}
+\end{figure}
 
 \section{Resultados fundamentales.}
 
