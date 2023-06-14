@@ -20,8 +20,11 @@
 \usepackage{circledsteps}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{mathptmx}
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pgfplots}
 \usepackage[T1]{fontenc}
 \usepackage[style=numeric,backend=biber,defernumbers=true, sorting=none]{biblatex}
 \addbibresource{EDO Final Work.bib}
@@ -226,7 +229,7 @@ Los puntos de equilibrio estan dados por aquellos que satisfagan la igualdad:
 	$\frac{dx}{dt} = \frac{dy}{dt} = \frac{dz}{dt} = 0$
 \end{center}
 Haciendo los c\'alculos pertinentes se obtienen como resultado los siguientes valores.
-$E_1$ = (0,0,0), $E_2$ = $(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ y $E_3$ = ($x^*,y^*,z^*$) Que vamos a hacer con esto??
+$E_1$ = (0,0,0), $E_2$ = $(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ y $E_3$ = ($x^*,y^*,z^*$).
 
 Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobina del modelo, la cual está dada por:
 
@@ -244,7 +247,8 @@ de la matriz jacobiana. Estos valores propios son los que determinan la estabili
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva, 
 entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa, 
 entonces se debe realizar un análisis más profundos para determinar la estabilidad de los puntos de equilibrio. \par
-Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri. Al evaluar la matriz jacobiana en $E_1$ obtuvimos:\\
+Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri. 
+Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
 \begin{center}
 \begin{tabular}{ c c }
 	\toprule
@@ -268,7 +272,7 @@ Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibr
 \end{center}
 
 
-Luego calculamos las raíces del polinomio característico de  $J(E_1)$:\\
+Luego calculamos las raíces del polinomio característico de  $J(E_1)$:
 \begin{center}
 	
 
@@ -291,7 +295,7 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 Para el punto $E_2$ tenemos:
 \begin{equation} \label{Equilibrium}
 	\begin{aligned}
-		 & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+		%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
 		 & J\left(E_2\right)=\left|\begin{array}{ccc}
 			                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
 			                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
@@ -330,89 +334,108 @@ y $A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$ son las c
 para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Aqui hay que explicar si en verdad 
 son mayores que ceros esos valores y arreglar A2 y A3.
 
-\subsection*{Simluaciones Numéricas}
+\section{Simluaciones Numéricas}
 Para las simulaciones numéricas se utilizaron los mismos parámetros propuestos por el artículo para comparar los resultados obtenidos. 
-Dichos valores están dados por la tabla \ref{tab:first}
-
-\begin{table}[htb]
-	\centering
-	\caption{Uso de tabla\label{tab:first}}
-	\begin{tabular}{rll}
-		\hline
-		   & 60 & -        \\\hline
-		S1 & IQ & Dieta          \\ 
-		S2 & 70 & Cualquier cosa \\
-		S3 & 60 & -              \\
-		S3 & 60 & -              \\
-		S3 & 60 & -              \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsection{M\'etodos y algoritmos utilizados}
-Aqui pseudo codigos explicacion de euler y Runge Kutta
-
-\begin{verbatim}
-y_{n+1}=y_n+hf(x_n,y_n}
-\end{verbatim}
+Dichos valores están dados por la Tabla \ref{tab:first}.
 
 
-\begin{itemize}
-	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc
-\end{itemize}
-\begin{enumerate}
-	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis,
-\end{enumerate}
+\begin{longtable}{rcccccccccc}
+	\caption{Par\'ametros\label{tab:first}} \\
+	\hline
+	& r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
+	\endfirsthead
+	\hline
+	& r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
+	\endhead
+	\hline
+	\multicolumn{11}{|r|}{{Continúa en la siguiente página}} \\ \hline
+	\endfoot
+	\hline
+	\endlastfoot
+	\textbf{S1} & 0.82 & 0.87    & 1.56     & 1.12       & 2.41   & 1.83     & 12  & 1.38   & 0.13 & 0.11 \\
+	\textbf{S2} & 1.32 & 0.87    & 1.16     & 0.72       & 1.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
+	\textbf{S3} & 1.32 & 0.87    & 0.76     & 0.72       & 0.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
+	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.12   & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
+	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.3095 & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
+\end{longtable}
+
+\subsection{Comparativas}
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{Imagenes/Figure_1.png}
+    \caption{i}
+    \label{fig:imagen1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{Imagenes/Figure_2.png}
+    \caption{Imagen 2}
+    \label{fig:imagen2}
+  \end{subfigure}
+  \caption{Comparativa entre imagen 1 y imagen 2}
+  \label{fig:comparativa}
+\end{figure}
 
 
-\begin{table}[htb]
-	\centering
-	\caption{Uso de tabla\label{tab: second}}
-	\begin{tabular}{rll}
-		\hline
-		- & IQ & Dieta          \\ \hline
-		- & 70 & Cualquier cosa \\
-		- & 60 & -              \\
-		\hline
-	\end{tabular}
-\end{table}
 
+% \subsection{M\'etodos y algoritmos utilizados}
+% Aqui pseudo codigos explicacion de euler y Runge Kutta
 
-% esto estaba en la plnatilla no tocar por ahora()
 % \begin{figure}[htb]
-% {
-% \centering
-% \includegraphics[width=0.50\textwidth]{alg_rk4}
-% \caption{Figura-I.\label{fig: tahi}}
-% }
-% \end{figure}
+% 	{
+% 	\centering
+% 	\includegraphics[width=0.50\textwidth]{alg_rk4}
+% 	\caption{Figura-I.\label{fig: tahi}}
+% 	}
+% 	\end{figure}
 
-.
-\begin{definition}
+% 	Poner implementacion en pseudo codigo
+% \begin{verbatim}
+% y_{n+1}=y_n+hf(x_n,y_n}
+% \end{verbatim}
 
-\end{definition}
+%*mausqueherramientas para mas tarde 
+% \begin{itemize}
+%! 	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc WTF???
+% \end{itemize}
+% \begin{enumerate}
+%! 	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis,
+% \end{enumerate}
 
-\begin{theorem}
+% \begin{definition}
 
-\end{theorem}
+% \end{definition}
 
-\begin{corollary}
-	aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
-\end{corollary}
+% \begin{theorem}
 
-% no tocar por si hace falta despues pero esta bien feo
-% {\footnotesize
-% \begin{hangref}
-% \item Banks, J., J. S. Carson, B. L. Nelson, and D. M. Nicol. 2000. \textit{Discrete-Event System Simulation}. 3rd ed. Upper Saddle River, New Jersey: Prentice-Hall, Inc.
-% \end{hangref}
-% }
+% \end{theorem}
+
+% \begin{corollary}
+% 	aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
+% \end{corollary}
+
 
 \section*{Conclusiones}
 Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
 los ecosistemas naturales. Los resultados obtenidos pueden ser \'utiles para predecir y manejar las poblaciones de presas y
 depredadores en diferentes entornos y para comprender mejor los efectos del cambio clim\'atico y otros factores ambientales
-en estas interacciones. FALTA Añadir una valoración de lo que usted ha aprendido con este trabajo, como valora la
-posibilidad de que se pueda continuar esta línea de investigación.
+en estas interacciones. \par
+Durante este trabajo hemos aprendido sobre varios temas relacionados con las ecuaciones diferenciales 
+y el modelado matemático. Hemos aprendido a resolver sistemas de ecuaciones diferenciales utilizando diferentes 
+métodos numéricos, como el método de Euler o el método de Runge-Kutta. Además, hemos aprendido a modelar la interacción entre 
+dos especies, analizando la dinámica de este modelo y estudiando su estabilidad. También hemos aprendido a utilizar las matemáticas 
+para modelar problemas del mundo real y la importancia de los modelos matemáticos en varias disciplinas. Hemos utilizado diferentes 
+programas de simulación numérica, como Python, para resolver ecuaciones diferenciales y visualizar los resultados, lo que 
+nos ha ayudado a entender mejor los modelos matemáticos y hacer predicciones sobre el comportamiento de los sistemas. Hemos estudiado 
+la estabilidad de sistemas dinámicos, utilizando técnicas como el análisis de estabilidad lineal y el método de Routh-Hurwitz, y hemos 
+desarrollado habilidades investigativas, como la capacidad de buscar y analizar información relevante, trabajar en equipo, elaborar y 
+presentar informes técnicos, y utilizar herramientas matemáticas y de programación para resolver problemas. \par
+Creemos que es importante seguir explorando los modelos matemáticos y las técnicas de simulación numérica para entender mejor 
+los sistemas dinámicos y predecir su comportamiento en diferentes áreas, como la biología, la física, la ingeniería y 
+la economía. Este trabajo nos ha dado una buena base para continuar explorando estos temas en el futuro y desarrollar
+nuevas investigaciones en este campo.
 
 
 \defbibheading{Referencias}{\section*{Referencias}}
@@ -428,11 +451,11 @@ posibilidad de que se pueda continuar esta línea de investigación.
 
 
 \section*{Agradeciemientos}
-Agradecemos a nuestros queridos profesores por lograr que entendieramos de que van las ecuaciones diferenciales :D
+Agradecemos al claustro de profesores de la asignatura por su esfuerzo y tiempo empleado en nosotros.
 
 \appendix
 
-\section{Anexos A} \label{app:Anexos}
+\section{Anexos} \label{app:Anexos}
 
 \begin{center}
 	Modelo propuesto por Huenchucona, Falconi y Vidal
