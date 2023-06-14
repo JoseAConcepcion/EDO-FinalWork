@@ -1,16 +1,16 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'ficheroprincipal.blg'
-[65] biber:340> INFO - === mié jun 14, 2023, 09:49:37
-[81] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
-[149] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
-[161] Biber.pm:4383> INFO - Processing section 0
-[172] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
-[174] bibtex.pm:1713> INFO - LaTeX decoding ...
-[190] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
-[256] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[256] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[256] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[264] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
-[268] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
-[268] Biber.pm:130> WARN - ISBN '978-1-4398-9887-1 978-1-4398-9886-4' in entry 'upadhyay_introduction_2013' is invalid - run biber with '--validate_datamodel' for details.
-[268] Biber.pm:132> INFO - WARNINGS: 1
+[106] biber:340> INFO - === mié jun 14, 2023, 10:03:29
+[126] Biber.pm:418> INFO - Reading 'ficheroprincipal.bcf'
+[217] Biber.pm:972> INFO - Found 6 citekeys in bib section 0
+[234] Biber.pm:4383> INFO - Processing section 0
+[248] Biber.pm:4574> INFO - Looking for bibtex file 'EDO Final Work.bib' for section 0
+[250] bibtex.pm:1713> INFO - LaTeX decoding ...
+[269] bibtex.pm:1518> INFO - Found BibTeX data source 'EDO Final Work.bib'
+[352] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[352] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[352] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[363] bbl.pm:654> INFO - Writing 'ficheroprincipal.bbl' with encoding 'UTF-8'
+[366] bbl.pm:757> INFO - Output to ficheroprincipal.bbl
+[367] Biber.pm:130> WARN - ISBN '978-1-4398-9887-1 978-1-4398-9886-4' in entry 'upadhyay_introduction_2013' is invalid - run biber with '--validate_datamodel' for details.
+[367] Biber.pm:132> INFO - WARNINGS: 1
