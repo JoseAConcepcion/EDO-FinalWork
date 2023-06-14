@@ -238,11 +238,11 @@ Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobi
 	J\left(x, y, z\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
 			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
-			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
 		\end{array}\right]
 \end{equation}
 
-Dicha ecuación fue además verificada mediante la implementascion de un script en Python vease en los Anexos (poner).
+Dicha ecuación fue además verificada mediante la implementación de un script en Python vease en los Anexos (poner).
 Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios
 de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva,
@@ -322,7 +322,7 @@ Hallando los coeficientes del polinomio característico aplicando el criterio de
 
 	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
 
-	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
+	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu +2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
 
 	\item[] $A_3 = -\alpha x^* ((-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(\alpha_1 z^* ) - (\beta) (\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) ) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*) ((-\frac{\eta y^*}{y^*+m} )(\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) - (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*))	$
 	
