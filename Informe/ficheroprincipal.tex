@@ -25,6 +25,7 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{pgfplots}
+\pgfplotsset{compat = 1.18}
 \usepackage[T1]{fontenc}
 \usepackage[style=numeric,backend=biber,defernumbers=true, sorting=none]{biblatex}
 \addbibresource{EDO Final Work.bib}
@@ -162,7 +163,7 @@ condiciones iniciales y los valores de parámetros.
 \label{sec:intro}
 El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling
 Type Functional Responses" por Dian Savitri fue publicado en 2019
-en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.227 en el año de 
+en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.227 en el año de
 publicación según el "SCImago Journal Rank". El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura
 de etapas y un solo depredador. La población de presas se divide en adultos y juveniles. El depredador
 exhibe diferentes tasas de depredación para adultos e inmaduros. Se utilizan respuestas funcionales de
@@ -177,24 +178,24 @@ cuarto orden y un análisis de bifurcación para estudiar la posible existencia 
 
 \section{Modelo Propuesto}
 
-El artículo analiza previamente tres modelos matemáticos que abordan las interacciones presa-depredador con diferentes enfoques. El 
-primer modelo propuesto por Huenchucona considera dos presas y un depredador, utilizando una 
-función de respuesta de tipo Beddington-DeAngelis \cite{falconi_stability_2015}. El modelo de Savitri y Abadi tiene en cuenta la estructura 
-por etapas de la presa, utilizando funciones de respuesta diferentes para presas inmaduras y maduras \cite{savitri_dynamics_2018}. Luego, el 
-modelo de Castellanos y Chan-López estudia una cadena trófica de tres niveles, donde la presencia del depredador 
-superior afecta la estabilidad del sistema \cite{castellanos_existence_2017}. Los sistemas de ecuaciones de dichos modelos (\ref{twoPreyonePredator_Falconi}, \ref{Holling1y2_Abadi}, 
+El artículo analiza previamente tres modelos matemáticos que abordan las interacciones presa-depredador con diferentes enfoques. El
+primer modelo propuesto por Huenchucona considera dos presas y un depredador, utilizando una
+función de respuesta de tipo Beddington-DeAngelis \cite{falconi_stability_2015}. El modelo de Savitri y Abadi tiene en cuenta la estructura
+por etapas de la presa, utilizando funciones de respuesta diferentes para presas inmaduras y maduras \cite{savitri_dynamics_2018}. Luego, el
+modelo de Castellanos y Chan-López estudia una cadena trófica de tres niveles, donde la presencia del depredador
+superior afecta la estabilidad del sistema \cite{castellanos_existence_2017}. Los sistemas de ecuaciones de dichos modelos (\ref{twoPreyonePredator_Falconi}, \ref{Holling1y2_Abadi},
 \ref{Holling1y2_Castellanos} respectivamente) pueden ser consultadas en los Anexos \ref{app:Anexos}.\par
 
-Estos modelos constituyen una base para el análisis 
-del sistema propuesto que está dado por los siguientes sistemas de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la 
+Estos modelos constituyen una base para el análisis
+del sistema propuesto que está dado por los siguientes sistemas de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la
 densidad de la poblaci\'on de presas j\'ovenes, presas adultas y depredadores respectivamente.
-La primera ecuación describe las presas juveniles crece con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente la tasa de crecimiento de la población de 
-presas juveniles. La tasa de depredación para ambas poblaciones de presas es diferente. Se asume que el depredador puede asechar 
+La primera ecuación describe las presas juveniles crece con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente la tasa de crecimiento de la población de
+presas juveniles. La tasa de depredación para ambas poblaciones de presas es diferente. Se asume que el depredador puede asechar
 tanto a las presas juveniles como a las presas adultas en el modelo estructurado. La tasa de depredación del depredador utiliza el Holling tipo II
-para la especie de presa adulta y el Holling tipo I para la presa juvenil. La tasa de depredación se da en la forma original de la respuesta funcional 
-de tipo II de Holling, donde $\eta$  y \emph{m} son el valor máximo de la tasa de reducción per cápita de \emph{y} debido a \emph{z} y el coeficiente 
-de protección ambiental para la presa adulta, respectivamente. La tasa de cambio en las densidades de población de presas juveniles por las tasas de crecimiento intrínsecas se 
-reducen por la tasa a la que las presas juveniles son consumidas por los depredadores. Las poblaciones de presas juveniles crecen con ecuaciones logísticas 
+para la especie de presa adulta y el Holling tipo I para la presa juvenil. La tasa de depredación se da en la forma original de la respuesta funcional
+de tipo II de Holling, donde $\eta$  y \emph{m} son el valor máximo de la tasa de reducción per cápita de \emph{y} debido a \emph{z} y el coeficiente
+de protección ambiental para la presa adulta, respectivamente. La tasa de cambio en las densidades de población de presas juveniles por las tasas de crecimiento intrínsecas se
+reducen por la tasa a la que las presas juveniles son consumidas por los depredadores. Las poblaciones de presas juveniles crecen con ecuaciones logísticas
 que se ven limitadas por la capacidad de carga \emph{(k)} para mantener sus poblaciones.\par
 
 \begin{equation} \label{twoPreyonePredatorEDO}
@@ -205,22 +206,22 @@ que se ven limitadas por la capacidad de carga \emph{(k)} para mantener sus pobl
 	\end{gathered}
 \end{equation}
 \par
-El índice de depredación de presas juveniles es proporcional a la tasa de encuentro entre depredadores y presas juveniles, también conocido como la ecuación de Lotka-Volterra. Los parámetros $r, \beta, \alpha, \rho, m, \mu, \eta , \alpha_1, \eta_1$ son positivos. 
-Los cambios en la densidad de población de las presas adultas representan el crecimiento de presas j\'ovenes a presas adultas. 
-El parámetro $\eta$ en el proceso de depredación provoca una disminución en la población de presas adultas, lo que se interpreta 
-como la tasa de encuentros con presas adultas por unidad de densidad de depredadores. Sin depredación, las presas adultas experimentan un proceso natural 
-de muerte. La tasa de depredación de los depredadores sigue la respuesta funcional del tipo II de Holling. La relación $\frac{m}{\eta}$ es el tiempo promedio de 
-procesamiento de alimentos para el depredador. El parámetro $\rho$ es la tasa de crecimiento de la población de depredadores. Se asume que la tasa de cambio 
-en la población de depredadores disminuye siguiendo el modelo de Leslie-Gower \emph{despues citar aqui habia un error buscar}, donde \emph{m} representa la pérdida de residuos de depredadores debido a la 
-falta de su alimento favorito. El parámetro $\eta_1$ es la relación del crecimiento intrínseco dividido por el factor de conversión de depredación a presas adultas. 
-Esto afecta la disponibilidad de alimentos favoritos por individuo, que está determinada por la capacidad de los recursos ambientales y es proporcional a la 
+El índice de depredación de presas juveniles es proporcional a la tasa de encuentro entre depredadores y presas juveniles, también conocido como la ecuación de Lotka-Volterra. Los parámetros $r, \beta, \alpha, \rho, m, \mu, \eta , \alpha_1, \eta_1$ son positivos.
+Los cambios en la densidad de población de las presas adultas representan el crecimiento de presas j\'ovenes a presas adultas.
+El parámetro $\eta$ en el proceso de depredación provoca una disminución en la población de presas adultas, lo que se interpreta
+como la tasa de encuentros con presas adultas por unidad de densidad de depredadores. Sin depredación, las presas adultas experimentan un proceso natural
+de muerte. La tasa de depredación de los depredadores sigue la respuesta funcional del tipo II de Holling. La relación $\frac{m}{\eta}$ es el tiempo promedio de
+procesamiento de alimentos para el depredador. El parámetro $\rho$ es la tasa de crecimiento de la población de depredadores. Se asume que la tasa de cambio
+en la población de depredadores disminuye siguiendo el modelo de Leslie-Gower \emph{despues citar aqui habia un error buscar}, donde \emph{m} representa la pérdida de residuos de depredadores debido a la
+falta de su alimento favorito. El parámetro $\eta_1$ es la relación del crecimiento intrínseco dividido por el factor de conversión de depredación a presas adultas.
+Esto afecta la disponibilidad de alimentos favoritos por individuo, que está determinada por la capacidad de los recursos ambientales y es proporcional a la
 abundancia de sus alimentos favoritos. Se tiene además que $\rho - \frac{\eta_1}{m} < 0$ con $x=y=0$, es decir, los depredadores disminuyen en el tiempo a falta de alimento.
 
 \subsection{Respuestas funcionales de Holling utilizadas}
-Holling tipo I: expresa la existencia de un aumento lineal en la tasa de captura del depredador con respecto a la densidad de presas, hasta alcanzar el valor en 
+Holling tipo I: expresa la existencia de un aumento lineal en la tasa de captura del depredador con respecto a la densidad de presas, hasta alcanzar el valor en
 el que la tasa máxima de depredación permanece constante. Esta respuesta funcional es una función continua por partes, con una sección lineal y una sección constante.\par
-Holling tipo II: expresa un aumento en el consumo que se desacelera a medida que aumentan las presas consumidas, alcanzando la tasa máxima de consumo de 
-depredadores de forma asintótica. La respuesta funcional de Holling tipo II es monotóna creciente, lo que significa que la tasa de consumo 
+Holling tipo II: expresa un aumento en el consumo que se desacelera a medida que aumentan las presas consumidas, alcanzando la tasa máxima de consumo de
+depredadores de forma asintótica. La respuesta funcional de Holling tipo II es monotóna creciente, lo que significa que la tasa de consumo
 de los depredadores aumenta con la densidad de presas.
 
 \subsection{Puntos de Equilibrio y Estabilidad Local}
@@ -242,50 +243,49 @@ Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobi
 \end{equation}
 
 Dicha ecuación fue además verificada mediante la implementascion de un script en Python vease en los Anexos (poner).
-Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios 
-de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores 
-propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva, 
-entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa, 
+Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios
+de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores
+propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva,
+entonces el punto de equilibrio es inestable. Si hay valores propios con parte real positiva y otros con parte real negativa,
 entonces se debe realizar un análisis más profundos para determinar la estabilidad de los puntos de equilibrio. \par
-Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri. 
+Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri.
 Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
 \begin{center}
-\begin{tabular}{ c c }
-	\toprule
-	\textbf{Resultados obtenidos} & \textbf{Resultado de Savitri}\\
-	\midrule\\
-	\addlinespace[-2ex]
-	$J(E_1) =\label{Characteristic000t} \begin{bmatrix} 
-	\Circled[outer color=green]{r-\beta} & 0            & 0         \\
-	\beta          & -\mu         & 0         \\
-	0              & 0            & 0 
-    \end{bmatrix}$ &
-	$J(E_1) =\label{Characteristic000f} \begin{bmatrix} 
-	\Circled[outer color=red]{(-1+ r) } & 0            & 0         \\
-	\beta          & -\mu & 0         \\
-	0              & 0            & 0 
-	\end{bmatrix}$\\
-	\addlinespace[1.5ex]
+	\begin{tabular}{ c c }
+		\toprule
+		\textbf{Resultados obtenidos}                        & \textbf{Resultado de Savitri} \\
+		\midrule                                                                             \\
+		\addlinespace[-2ex]
+		$J(E_1) =\label{Characteristic000t} \begin{bmatrix}
+				                                    \Circled[outer color=green]{r-\beta} & 0    & 0 \\
+				                                    \beta                                & -\mu & 0 \\
+				                                    0                                    & 0    & 0
+			                                    \end{bmatrix}$ &
+		$J(E_1) =\label{Characteristic000f} \begin{bmatrix}
+				                                    \Circled[outer color=red]{(-1+ r) } & 0    & 0 \\
+				                                    \beta                               & -\mu & 0 \\
+				                                    0                                   & 0    & 0
+			                                    \end{bmatrix}$   \\
+		\addlinespace[1.5ex]
 
-	\bottomrule
-\end{tabular}
+		\bottomrule
+	\end{tabular}
 \end{center}
 
 
 Luego calculamos las raíces del polinomio característico de  $J(E_1)$:
 \begin{center}
-	
 
-	$\left|\begin{array}{c c c} 
-	r-\beta-\lambda &  0  & 0 \\
-	\beta   & -\mu-\lambda& 0 \\
-	0  &  0   &  0-\lambda\\
-	
-	\end{array}	\right|
-	=
-	(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0
+
+	$\left|\begin{array}{c c c}
+			r-\beta-\lambda & 0            & 0         \\
+			\beta           & -\mu-\lambda & 0         \\
+			0               & 0            & 0-\lambda \\
+		\end{array}	\right|
+		=
+		(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0
 	$
-\end{center}	
+\end{center}
 
 Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual puede ser negativo si $\beta>r$), $\lambda_2= -\mu$ y $\lambda_3 = 0$. Por lo tanto, el punto de equilibrio $E_1$ es inestable.\par
 
@@ -316,80 +316,80 @@ Para $E_3$ tenemos la siguiente matriz jacobiana:
 
 Hallando los coeficientes del polinomio característico aplicando el criterio de Routh-Horwitz (ver Apéndice D en \cite{castellanos_existence_2017}) se obtienen:
 
-	
+
 \begin{itemize}
 	\item[] $A_0 = 1$
-	
+
 	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu + \frac{\eta y^*}{y^*+m} - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
-	
+
 	\item[] $A_{2} = -\frac{2\eta z^*}{y^*+m} + \frac{\eta z^{2}}{(y^*+m)^{2}} + \frac{\eta z^* \alpha}{(y^*+m) x^*} - \frac{\eta y^*(y^*+m)^{2}}{(y^*+m)^{2}\alpha y^*z^*} - \frac{\eta y^*z^*}{\alpha y^*} + \frac{\eta y^*z^*}{\beta y^*+m\eta z^*} - \frac{\eta z^*}{\beta} - \frac{\eta(y^*+m)}{\mu y^*+m\eta z^*}$
-	
+
 	\item[] $A_{3} = -2\rho\alpha z^{2} + 2\eta_{1} z^*\alpha z^*y^*+m + \frac{\alpha x^*\eta_{1} z^{2}}{(y^*+m)^{2}} - \frac{\alpha x^*\eta_{1} z^*y^*+m}{y^*+m} + \frac{\beta\eta z^*y^*+m\alpha x^*}{\eta_{1} z^*y^*+m\alpha x^*} - \frac{\beta y^*z^*\alpha x^*}{\eta_{1} (y^*+m)^{2}} + \frac{\alpha x^*y^*+m\eta y^*}{\eta y^*y^*+m\eta z^*}$
 \end{itemize}
 donde $A_0$, $A_1$, $A_2$  y $A_3$ satisfacen:
 
 $$P(\lambda) = A_0\lambda^3 + A_1\lambda^2 + A_2\lambda + A_3$$
 
-y $A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$ son las condiciones necesarias y suficientes 
-para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Aqui hay que explicar si en verdad 
+y $A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$ son las condiciones necesarias y suficientes
+para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Aqui hay que explicar si en verdad
 son mayores que ceros esos valores y arreglar A2 y A3.
 
 \section{Simluaciones Numéricas}
-Para las simulaciones numéricas se utilizaron los mismos parámetros propuestos por el artículo para comparar los resultados obtenidos. 
+Para las simulaciones numéricas se utilizaron los mismos parámetros propuestos por el artículo para comparar los resultados obtenidos.
 Dichos valores están dados por la Tabla \ref{tab:first}.
 
 
 \begin{longtable}{rcccccccccc}
-	\caption{Par\'ametros\label{tab:first}} \\
+	\caption{Par\'ametros\label{tab:first}}                                                                \\
 	\hline
-	& r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
+	            & r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
 	\endfirsthead
 	\hline
-	& r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
+	            & r    & $\beta$ & $\alpha$ & $\alpha_1$ & $\eta$ & $\eta_1$ & K   & $\rho$ & m    & $\mu$ \\ \hline
 	\endhead
 	\hline
-	\multicolumn{11}{|r|}{{Continúa en la siguiente página}} \\ \hline
+	\multicolumn{11}{|r|}{{Continúa en la siguiente página}}                                               \\ \hline
 	\endfoot
 	\hline
 	\endlastfoot
-	\textbf{S1} & 0.82 & 0.87    & 1.56     & 1.12       & 2.41   & 1.83     & 12  & 1.38   & 0.13 & 0.11 \\
-	\textbf{S2} & 1.32 & 0.87    & 1.16     & 0.72       & 1.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
-	\textbf{S3} & 1.32 & 0.87    & 0.76     & 0.72       & 0.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
-	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.12   & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
-	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.3095 & 0.41     & 2.8 & 0.78   & 0.23 & 0.11 \\
+	\textbf{S1} & 0.82 & 0.87    & 1.56     & 1.12       & 2.41   & 1.83     & 12  & 1.38   & 0.13 & 0.11  \\
+	\textbf{S2} & 1.32 & 0.87    & 1.16     & 0.72       & 1.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
+	\textbf{S3} & 1.32 & 0.87    & 0.76     & 0.72       & 0.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
+	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.12   & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
+	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.3095 & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
 \end{longtable}
 
 \subsection{Comparativas}
 
 \begin{figure}[h]
-  \centering
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{Imagenes/Figure_1.png}
-    \caption{i}
-    \label{fig:imagen1}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{Imagenes/Figure_2.png}
-    \caption{Imagen 2}
-    \label{fig:imagen2}
-  \end{subfigure}
-  \caption{Comparativa entre imagen 1 y imagen 2}
-  \label{fig:comparativa}
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Imagenes/Figure_1.png}
+		\caption{i}
+		\label{fig:imagen1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{Imagenes/Figure_2.png}
+		\caption{Imagen 2}
+		\label{fig:imagen2}
+	\end{subfigure}
+	\caption{Comparativa entre imagen 1 y imagen 2}
+	\label{fig:comparativa}
 \end{figure}
 
 
 
-% \subsection{M\'etodos y algoritmos utilizados}
-% Aqui pseudo codigos explicacion de euler y Runge Kutta
+\subsection{M\'etodos y algoritmos utilizados}
+Aqui pseudo codigos explicacion de euler y Runge Kutta
 
-% \begin{figure}[htb]
+% \begin{figure}[htp]
 % 	{
-% 	\centering
-% 	\includegraphics[width=0.50\textwidth]{alg_rk4}
-% 	\caption{Figura-I.\label{fig: tahi}}
+% 		\centering
+% 		\includegraphics[width=0.50\textwidth]{Imagenes/alg_rk4.png}
+% 		\caption{Figura-I.\label{fig: tahi}}
 % 	}
-% 	\end{figure}
+% \end{figure}
 
 % 	Poner implementacion en pseudo codigo
 % \begin{verbatim}
@@ -422,18 +422,18 @@ Este estudio proporciona una comprensi\'on más profunda de las complejas intera
 los ecosistemas naturales. Los resultados obtenidos pueden ser \'utiles para predecir y manejar las poblaciones de presas y
 depredadores en diferentes entornos y para comprender mejor los efectos del cambio clim\'atico y otros factores ambientales
 en estas interacciones. \par
-Durante este trabajo hemos aprendido sobre varios temas relacionados con las ecuaciones diferenciales 
-y el modelado matemático. Hemos aprendido a resolver sistemas de ecuaciones diferenciales utilizando diferentes 
-métodos numéricos, como el método de Euler o el método de Runge-Kutta. Además, hemos aprendido a modelar la interacción entre 
-dos especies, analizando la dinámica de este modelo y estudiando su estabilidad. También hemos aprendido a utilizar las matemáticas 
-para modelar problemas del mundo real y la importancia de los modelos matemáticos en varias disciplinas. Hemos utilizado diferentes 
-programas de simulación numérica, como Python, para resolver ecuaciones diferenciales y visualizar los resultados, lo que 
-nos ha ayudado a entender mejor los modelos matemáticos y hacer predicciones sobre el comportamiento de los sistemas. Hemos estudiado 
-la estabilidad de sistemas dinámicos, utilizando técnicas como el análisis de estabilidad lineal y el método de Routh-Hurwitz, y hemos 
-desarrollado habilidades investigativas, como la capacidad de buscar y analizar información relevante, trabajar en equipo, elaborar y 
+Durante este trabajo hemos aprendido sobre varios temas relacionados con las ecuaciones diferenciales
+y el modelado matemático. Hemos aprendido a resolver sistemas de ecuaciones diferenciales utilizando diferentes
+métodos numéricos, como el método de Euler o el método de Runge-Kutta. Además, hemos aprendido a modelar la interacción entre
+dos especies, analizando la dinámica de este modelo y estudiando su estabilidad. También hemos aprendido a utilizar las matemáticas
+para modelar problemas del mundo real y la importancia de los modelos matemáticos en varias disciplinas. Hemos utilizado diferentes
+programas de simulación numérica, como Python, para resolver ecuaciones diferenciales y visualizar los resultados, lo que
+nos ha ayudado a entender mejor los modelos matemáticos y hacer predicciones sobre el comportamiento de los sistemas. Hemos estudiado
+la estabilidad de sistemas dinámicos, utilizando técnicas como el análisis de estabilidad lineal y el método de Routh-Hurwitz, y hemos
+desarrollado habilidades investigativas, como la capacidad de buscar y analizar información relevante, trabajar en equipo, elaborar y
 presentar informes técnicos, y utilizar herramientas matemáticas y de programación para resolver problemas. \par
-Creemos que es importante seguir explorando los modelos matemáticos y las técnicas de simulación numérica para entender mejor 
-los sistemas dinámicos y predecir su comportamiento en diferentes áreas, como la biología, la física, la ingeniería y 
+Creemos que es importante seguir explorando los modelos matemáticos y las técnicas de simulación numérica para entender mejor
+los sistemas dinámicos y predecir su comportamiento en diferentes áreas, como la biología, la física, la ingeniería y
 la economía. Este trabajo nos ha dado una buena base para continuar explorando estos temas en el futuro y desarrollar
 nuevas investigaciones en este campo.
 
