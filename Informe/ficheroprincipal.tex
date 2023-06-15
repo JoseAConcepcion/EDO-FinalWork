@@ -238,11 +238,11 @@ Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobi
 	J\left(x, y, z\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
 			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
-			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
 		\end{array}\right]
 \end{equation}
 
-Dicha ecuación fue además verificada mediante la implementación de un script en Python vease en los Anexos (poner).
+Dicha ecuación fue además verificada mediante la implementascion de un script en Python vease en los Anexos (poner).
 Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios
 de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva,
@@ -322,7 +322,7 @@ Hallando los coeficientes del polinomio característico aplicando el criterio de
 
 	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
 
-	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu +2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
+	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
 
 	\item[] $A_3 = -\alpha x^* ((-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(\alpha_1 z^* ) - (\beta) (\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) ) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*) ((-\frac{\eta y^*}{y^*+m} )(\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) - (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*))	$
 	
@@ -332,9 +332,8 @@ donde $A_0$, $A_1$, $A_2$  y $A_3$ satisfacen:
 $$P(\lambda) = A_0\lambda^3 + A_1\lambda^2 + A_2\lambda + A_3$$
 
 y $A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$ son las condiciones necesarias y suficientes
-para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Aqui hay que explicar si en verdad
-son mayores que ceros esos valores y arreglar A2 y A3.
-
+para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Por lo tanto podemos 
+concluir que el punto $E_3$ es asimptoticamente estable.
 \section{Simulaciones Numéricas}
 Para las simulaciones numéricas se utilizaron los mismos parámetros propuestos por el artículo para comparar los resultados obtenidos.
 Dichos valores están dados por la Tabla \ref{tab:first}.
@@ -364,22 +363,289 @@ Dichos valores están dados por la Tabla \ref{tab:first}.
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}
-		\includegraphics[width=\linewidth]{Imagenes/Figure_1.png}
-		\caption{i}
-		\label{fig:imagen1}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S1[3.01 5.05 4.28].pdf}
+		\label{fig:grafica1}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:grafica12}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\linewidth}
-		\includegraphics[width=\linewidth]{Imagenes/Figure_2.png}
-		\caption{Imagen 2}
-		\label{fig:imagen2}
-	\end{subfigure}
-	\caption{Comparativa entre imagen 1 y imagen 2}
-	\label{fig:comparativa}
+	\caption{S1 con valores iniciales [3.01 5.05 4.28]}
+	\label{fig:comparacion1}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S1[4.6 5.9 3.1].pdf}
+	
+		\label{fig:comparativa21}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa22}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
 
+	\label{fig:comparacion2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S1[12.2 22.1 21.1].pdf}
+	
+		\label{fig:comparativa31}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa32}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion3}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion4}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S2[0.3 2.4 3.9].pdf}
+	
+		\label{fig:comparativa41}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa42}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion5}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S2[0.6 2.4 4.1].pdf}
+	
+		\label{fig:comparativa51}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa52}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion6}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S2[2.1 1.2 1.1].pdf}
+	
+		\label{fig:comparativa61}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa62}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion7}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S23d.pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion8}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S3[0.3 2.4 3.9].pdf}
+	
+		\label{fig:comparativa71}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa72}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion9}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S33d.pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion10}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S4[1.2 2.1 2.4].pdf}
+	
+		\label{fig:comparativa81}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa82}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion11}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S43d.pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion12}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S5[0.3 2.4 3.9].pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion13}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S5[2.1 1.2 1.1].pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion14}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S5[4.1 2.2 5.1].pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion15}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S53d.pdf}
+	
+		\label{fig:comparativa91}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Simulations/S13d.pdf}
+		\label{fig:comparativa92}
+	\end{subfigure}
+	\caption{S2 con valores iniciales}
+
+	\label{fig:comparacion16}
+\end{figure}
 
 \subsection{M\'etodos y algoritmos utilizados}
 Aqui pseudo codigos explicacion de euler y Runge Kutta
