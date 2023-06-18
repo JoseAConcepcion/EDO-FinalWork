@@ -25,9 +25,34 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{pgfplots}
-\pgfplotsset{compat = 1.18}
+\pgfplotsset{compat = 1.16}
 \usepackage[T1]{fontenc}
 \usepackage{float}
+\usepackage[section]{placeins}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=Python,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true
+	tabsize=3
+}
+
 \usepackage[style=numeric,backend=biber,defernumbers=true, sorting=none]{biblatex}
 \addbibresource{EDO Final Work.bib}
 
@@ -239,7 +264,7 @@ Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobi
 	J\left(x, y, z\right)=\left[\begin{array}{ccc}
 			\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                        \\
 			\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                     \\
-			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 p z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+			\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
 		\end{array}\right]
 \end{equation}
 
@@ -323,7 +348,7 @@ Hallando los coeficientes del polinomio característico aplicando el criterio de
 
 	\item[] $A_1 = -r + \frac{2rx^*}{k} + \beta + \alpha z^*  + \frac{\eta z^*}{y^*+m} - \frac{\eta y^*z^*}{(y^*+m)^2} + \mu - 2 \rho z^* + \frac{2\eta_1 z^*}{y^*+m} - \alpha_1 x^*$
 
-	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
+	\item[] $A_2 = \alpha \alpha_1 x^* z^* + \frac{\eta \eta_1 (z^*)^{2} y}{(y^*+m)^3} + (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu )(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*)(-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu +2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*)$
 
 	\item[] $A_3 = -\alpha x^* ((-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(\alpha_1 z^* ) - (\beta) (\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) ) + (\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^*) ((-\frac{\eta y^*}{y^*+m} )(\frac{\eta_1 z^{* 2}}{(y^*+m)^2}) - (-\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{(y^*+m)^2}-\mu)(2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*))	$
 	
@@ -648,8 +673,81 @@ Dichos valores están dados por la Tabla \ref{tab:first}.
 	\label{fig:comparacion16}
 \end{figure}
 
+\FloatBarrier
 \subsection{M\'etodos y algoritmos utilizados}
-Aqui pseudo codigos explicacion de euler y Runge Kutta
+Códigos del método de Euler y de Runge-Kutta utilizados para la solución del sistema:
+\begin{lstlisting}
+	def euler(f1, f2, f3, a, b, N, c1, c2, c3):
+		h = (b-a)/N
+		x = np.zeros((b-a)*N)
+		y = np.zeros(len(x))
+		z = np.zeros(len(y))
+		x[0] = c1
+		y[0] = c2
+		z[0] = c3
+		for i in range(len(x)-1):
+			x[i+1] = x[i] + f1(x[i], y[i], z[i])
+			y[i+1] = y[i] + f2(x[i], y[i], z[i])
+			z[i+1] = z[i] + f3(x[i], y[i], z[i])
+		return x, y, z
+	
+	def Runge_Kutta(stop, N, c1, c2, c3):
+		h = stop/N
+		t = np.linspace(0, stop, stop*N+1)
+		x = np.zeros(stop*N+1)
+		y = np.zeros(stop*N+1)
+		z = np.zeros(stop*N+1)
+		x[0] = c1
+		y[0] = c2
+		z[0] = c3
+		for i in range(stop*N):
+			k1 = h*f1(x[i], y[i], z[i])
+			l1 = h*f2(x[i], y[i], z[i])
+			m1 = h*f3(x[i], y[i], z[i])
+			#
+			k2 = h*f1(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
+			l2 = h*f2(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
+			m2 = h*f3(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
+			#
+			k3 = h*f1(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
+			l3 = h*f2(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
+			m3 = h*f3(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
+			#
+			k4 = h*f1(x[i]+k3, y[i]+l3, z[i]+m3)
+			l4 = h*f2(x[i]+k3, y[i]+l3, z[i]+m3)
+			m4 = h*f3(x[i]+k3, y[i]+l3, z[i]+m3)
+			#
+			x[i+1] = x[i]+(k1+2*k2+2*k3+k4)/6
+			y[i+1] = y[i]+(l1+2*l2+2*l3+l4)/6
+			z[i+1] = z[i]+(m1+2*m2+2*m3+m4)/6
+		return t, x, y, z
+	
+	
+	# Parámetros del sistema (positivos)
+	r = 0.82
+	alpha = 1.56
+	beta = 0.87
+	rho = 1.38
+	m = 0.13
+	mu = 0.11
+	eta = 2.41
+	alpha1 = 1.12
+	eta1 = 1.83
+	k = 12
+	
+	
+	def f1(x, y, z):
+		return x*(r*(k-x)/k-beta-alpha*z)
+	
+	
+	def f2(x, y, z):
+		return beta*x-y*((eta*z)/(y+m)-mu)
+	
+	
+	def f3(x, y, z):
+		return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
+	
+\end{lstlisting}
 
 % \begin{figure}[htp]
 % 	{
@@ -659,8 +757,8 @@ Aqui pseudo codigos explicacion de euler y Runge Kutta
 % 	}
 % \end{figure}
 
-% 	Poner implementacion en pseudo codigo
-% \begin{verbatim}
+%	Poner implementacion en pseudo codigo
+%\begin{verbatim}
 % y_{n+1}=y_n+hf(x_n,y_n}
 % \end{verbatim}
 
