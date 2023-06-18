@@ -1,17 +1,3 @@
-%**************************************************************************
-%*
-%*  Instrucciones para la platilla del informe final
-%*
-%*  
-%*
-%*  Filename: platillapaper.tex
-%*
-%*
-%*  
-%*  
-%*
-%**************************************************************************
-
 
 \documentclass{wscpaperproc}
 \usepackage[spanish]{babel}
@@ -69,34 +55,6 @@
 %****************************************************************************
 
 
-%
-%****************************************************************************
-% AUTHOR: If you do not wish to use hyperlinks, then just comment
-% out the hyperref usepackage commands below.
-
-%% This version of the command is used if you use pdflatex. In this case you
-%% cannot use ps or eps files for graphics, but pdf, jpeg, png etc are fine.
-
-%% The next versions of the hyperref command are used if you adopt the
-%% outdated latex-dvips-ps2pdf route in generating your pdf file. In
-%% this case you can use ps or eps files for graphics, but not pdf, jpeg, png etc.
-%% However, the final pdf file should embed all fonts required which means that you have to use file
-%% formats which can embed fonts. Please note that the final PDF file will not be generated on your computer!
-%% If you are using WinEdt or PCTeX, then use the following. If you are using
-%% Y&Y TeX then replace "dvips" with "dvipsone"
-
-%%\usepackage[dvips,colorlinks=true,urlcolor=blue,citecolor=black,%
-%% anchorcolor=black,linkcolor=black]{hyperref}
-%****************************************************************************
-
-
-%
-%****************************************************************************
-%*
-%* AUTHOR: YOUR CALL!  Document-specific macros can come here.
-%*
-%****************************************************************************
-
 % If you use theoremes
 \newtheoremstyle{wsc}% hnamei
 {3pt}% hSpace abovei
@@ -123,18 +81,11 @@
 %*
 \begin{document}
 
-%***************************************************************************
-% AUTHOR: AUTHOR NAMES GO HERE
-% FORMAT AUTHORS NAMES Like: Author1, Author2 and Author3 (last names)
-%
-%		You need to change the author listing below!
-%               Please list ALL authors using last name only, separate by a comma except
-%               for the last author, separate with "and"
-%
+
 \WSCpagesetup{Machado, Toledo, Moreno, Concepci\'on, Navarro}
 
 % AUTHOR: Enter the title, all letters in upper case
-\title{Estabilidad y simulaci\'on num\'erica del sistema presa-depredador con respuestas funcionales de tipo II de Holling para presas adultas}
+\title{An\'alisi de estabilidad y simulaci\'on num\'erica del sistema presa-depredador con respuestas funcionales de tipo II de Holling para presas adultas}
 
 % AUTHOR: Enter the authors of the article, see end of the example document for further examples
 \author{
@@ -176,31 +127,34 @@
 \maketitle
 
 \section*{Resumen}
-Este documento presenta un análisis local exhaustivo del modelo depredador-presa con estructura de
+El artículo "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling
+Type Functional Responses" realiza un análisis local exhaustivo del modelo depredador-presa con estructura de
 etapas en la población de presa y respuestas funcionales de Holling de tipo II y I. Los autores determinan
 los tres posibles equilibrios, analizan la estabilidad local a través de la matriz jacobiana, realizan
 simulaciones numéricas y obtienen varios resultados clave. El equilibrio trivial siempre es inestable,
 el equilibrio con predadores extintos es estable bajo ciertas condiciones y el equilibrio interior puede
 ser estable o inestable dependiendo de los parámetros. Las simulaciones numéricas corroboran estos resultados
 y muestran cómo las poblaciones evolucionan hacia uno de los tres puntos de equilibrio dependiendo de las
-condiciones iniciales y los valores de parámetros.
+condiciones iniciales y los valores de parámetros. En este trabajo se realiza un análisis crítico de 
+los resultados obtenidos y se realizan sugerencias para mejorar artículo.
+
 
 \section{INTRODUCCI\'ON}
 \label{sec:intro}
 El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling
 Type Functional Responses" por Dian Savitri fue publicado en 2019
 en el Journal of Physics: Conference Series. Su factor de impacto tiene una puntuaci\'on de 0.227 en el año de
-publicación según el "SCImago Journal Rank". El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura
+publicación según el \href{https://www.scimagojr.com/}{SCImago Journal Rank}. El artículo analiza el modelo depredador-presa con dos tipos de presa en estructura
 de etapas y un solo depredador. La población de presas se divide en adultos y juveniles. El depredador
 exhibe diferentes tasas de depredación para adultos e inmaduros. Se utilizan respuestas funcionales de
-Holling tipo II \cite{holling_functional_1965} para adultos y tipo I para juveniles. El estudio tuvo los siguientes objetivos:
+Holling \cite{holling_functional_1965} tipo II  para adultos y tipo I para juveniles. El estudio tuvo los siguientes objetivos:
 determinar los puntos de equilibrio del modelo, analizar la estabilidad local de los puntos de equilibrio
 utilizando la matriz jacobiana y autovalores y observar el comportamiento dinámico del modelo mediante
-simulaciones numéricas y diagramas de fase. Además utilizaron las siguientes técnicas para obtener resultados
+simulaciones numéricas. Además utilizaron las siguientes técnicas para obtener resultados
 más rigurosos: análisis matemático para determinar los puntos de equilibrio y condiciones de estabilidad,
 cálculo de la matriz jacobiana y autovalores en cada punto de equilibrio, aplicación del Criterio de Routh-Hurwitz
 para analizar la estabilidad del equilibrio interior, simulaciones numéricas utilizando el método Runge-Kutta de
-cuarto orden y un análisis de bifurcación para estudiar la posible existencia de ciclos límite. (no estoy seguro de esta traduccion revisar despues)
+cuarto orden y el bifurcación lo proponen para su estudiio posterior. 
 
 \section{Modelo Propuesto}
 
@@ -215,9 +169,9 @@ superior afecta la estabilidad del sistema \cite{castellanos_existence_2017}. Lo
 Estos modelos constituyen una base para el análisis
 del sistema propuesto que está dado por los siguientes sistemas de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la
 densidad de la poblaci\'on de presas j\'ovenes, presas adultas y depredadores respectivamente.
-La primera ecuación describe las presas juveniles crece con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente la tasa de crecimiento de la población de
-presas juveniles. La tasa de depredación para ambas poblaciones de presas es diferente. Se asume que el depredador puede asechar
-tanto a las presas juveniles como a las presas adultas en el modelo estructurado. La tasa de depredación del depredador utiliza el Holling tipo II
+La primera ecuación describe como las presas juveniles crecen con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente su población. La tasa de depredación para ambas 
+poblaciones de presas es diferente. Se asume que el depredador puede asechar tanto a las presas juveniles como a las presas adultas en el modelo estructurado. 
+La tasa de depredación del depredador utiliza el Holling tipo II
 para la especie de presa adulta y el Holling tipo I para la presa juvenil. La tasa de depredación se da en la forma original de la respuesta funcional
 de tipo II de Holling, donde $\eta$  y \emph{m} son el valor máximo de la tasa de reducción per cápita de \emph{y} debido a \emph{z} y el coeficiente
 de protección ambiental para la presa adulta, respectivamente. La tasa de cambio en las densidades de población de presas juveniles por las tasas de crecimiento intrínsecas se
@@ -238,8 +192,7 @@ El parámetro $\eta$ en el proceso de depredación provoca una disminución en l
 como la tasa de encuentros con presas adultas por unidad de densidad de depredadores. Sin depredación, las presas adultas experimentan un proceso natural
 de muerte. La tasa de depredación de los depredadores sigue la respuesta funcional del tipo II de Holling. La relación $\frac{m}{\eta}$ es el tiempo promedio de
 procesamiento de alimentos para el depredador. El parámetro $\rho$ es la tasa de crecimiento de la población de depredadores. Se asume que la tasa de cambio
-en la población de depredadores disminuye siguiendo el modelo de Leslie-Gower \emph{despues citar aqui habia un error buscar}, donde \emph{m} representa la pérdida de residuos de depredadores debido a la
-falta de su alimento favorito. El parámetro $\eta_1$ es la relación del crecimiento intrínseco dividido por el factor de conversión de depredación a presas adultas.
+en la población de depredadores disminuye siguiendo el modelo de Leslie-Gower \cite{leslie_properties_1960}. El parámetro $\eta_1$ es la relación del crecimiento intrínseco dividido por el factor de conversión de depredación a presas adultas.
 Esto afecta la disponibilidad de alimentos favoritos por individuo, que está determinada por la capacidad de los recursos ambientales y es proporcional a la
 abundancia de sus alimentos favoritos. Se tiene además que $\rho - \frac{\eta_1}{m} < 0$ con $x=y=0$, es decir, los depredadores disminuyen en el tiempo a falta de alimento.
 
@@ -268,7 +221,7 @@ Para realizar el análisis de los puntos de equilibrio hallamos la matriz Jacobi
 		\end{array}\right]
 \end{equation}
 
-Dicha ecuación fue además verificada mediante la implementascion de un script en Python vease en los Anexos (poner).
+Dicha ecuación fue además verificada mediante la implementaci\'on de un script en Python (v\'ease en los Anexos \ref{Jacobian}).
 Para determinar los puntos de equilibrios y clasificarlos en estables o inestables, es necesario encontrar los valores propios
 de la matriz jacobiana. Estos valores propios son los que determinan la estabilidad del punto de equilibrio. Si todos los valores
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva,
@@ -359,7 +312,7 @@ $$P(\lambda) = A_0\lambda^3 + A_1\lambda^2 + A_2\lambda + A_3$$
 
 y $A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$ son las condiciones necesarias y suficientes
 para que las raíces de la ecuación $P(\lambda) = 0$ sean negativas o tengan partes reales negativas. Por lo tanto podemos 
-concluir que el punto $E_3$ es asimptoticamente estable.
+concluir que el punto $E_3$ es asint\'oticamente estable.
 \section{Simulaciones Numéricas}
 Para las simulaciones numéricas se utilizaron los mismos parámetros propuestos por el artículo para comparar los resultados obtenidos.
 Dichos valores están dados por la Tabla \ref{tab:first}.
@@ -639,13 +592,12 @@ Dichos valores están dados por la Tabla \ref{tab:first}.
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Simulations/S5[4.1 2.2 5.1].pdf}
-	
 		\label{fig:comparativa111}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{GraficasPaper/Mistery3D2.png}
 		\label{fig:comparativa112}
@@ -676,54 +628,39 @@ Dichos valores están dados por la Tabla \ref{tab:first}.
 \FloatBarrier
 \subsection{M\'etodos y algoritmos utilizados}
 Códigos del método de Euler y de Runge-Kutta utilizados para la solución del sistema:
-\begin{lstlisting}
-	def euler(f1, f2, f3, a, b, N, c1, c2, c3):
-		h = (b-a)/N
-		x = np.zeros((b-a)*N)
-		y = np.zeros(len(x))
-		z = np.zeros(len(y))
-		x[0] = c1
-		y[0] = c2
-		z[0] = c3
-		for i in range(len(x)-1):
-			x[i+1] = x[i] + f1(x[i], y[i], z[i])
-			y[i+1] = y[i] + f2(x[i], y[i], z[i])
-			z[i+1] = z[i] + f3(x[i], y[i], z[i])
-		return x, y, z
+\begin{verbatim}
+	def euler(f, c, h, time):
+    x = [c]
+    t = [0]
+    n = int(time//h)
+
+    for i in range(n):
+        x.append(x[i] + h*f(t, x[i]))
+        t.append(t[i]+h)
+    
+    x = np.array(x)
+    return t, x
+
+
 	
-	def Runge_Kutta(stop, N, c1, c2, c3):
-		h = stop/N
-		t = np.linspace(0, stop, stop*N+1)
-		x = np.zeros(stop*N+1)
-		y = np.zeros(stop*N+1)
-		z = np.zeros(stop*N+1)
-		x[0] = c1
-		y[0] = c2
-		z[0] = c3
-		for i in range(stop*N):
-			k1 = h*f1(x[i], y[i], z[i])
-			l1 = h*f2(x[i], y[i], z[i])
-			m1 = h*f3(x[i], y[i], z[i])
-			#
-			k2 = h*f1(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
-			l2 = h*f2(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
-			m2 = h*f3(x[i]+k1/2, y[i]+l1/2, z[i]+m1/2)
-			#
-			k3 = h*f1(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
-			l3 = h*f2(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
-			m3 = h*f3(x[i]+k2/2, y[i]+l2/2, z[i]+m2/2)
-			#
-			k4 = h*f1(x[i]+k3, y[i]+l3, z[i]+m3)
-			l4 = h*f2(x[i]+k3, y[i]+l3, z[i]+m3)
-			m4 = h*f3(x[i]+k3, y[i]+l3, z[i]+m3)
-			#
-			x[i+1] = x[i]+(k1+2*k2+2*k3+k4)/6
-			y[i+1] = y[i]+(l1+2*l2+2*l3+l4)/6
-			z[i+1] = z[i]+(m1+2*m2+2*m3+m4)/6
-		return t, x, y, z
+	def runge_kutta(f, c, h, time):
+    x = [c]
+    t = [0]
+    n = int(time//h)
+    
+    for i in range(n):
+        k1 = f(t[i], x[i])
+        k2 = f(t[i] + h/2, x[i] + 0.5*h*k1)
+        k3 = f(t[i] + h/2, x[i] + 0.5*h*k2)
+        k4 = f(t[i] + h, x[i] + h*k3)
+        t.append(t[i] + h)
+        x.append(x[i] + h/6*(k1 + 2*k2 + 2*k3 + k4))
+
+    x = np.array(x)
+    return t, x
 	
 	
-	# Parámetros del sistema (positivos)
+	# Parametros del sistema (positivos)
 	r = 0.82
 	alpha = 1.56
 	beta = 0.87
@@ -747,41 +684,7 @@ Códigos del método de Euler y de Runge-Kutta utilizados para la solución del 
 	def f3(x, y, z):
 		return z*(alpha1*x+rho*z-(eta1*y)/(y+m))
 	
-\end{lstlisting}
-
-% \begin{figure}[htp]
-% 	{
-% 		\centering
-% 		\includegraphics[width=0.50\textwidth]{Imagenes/alg_rk4.png}
-% 		\caption{Figura-I.\label{fig: tahi}}
-% 	}
-% \end{figure}
-
-%	Poner implementacion en pseudo codigo
-%\begin{verbatim}
-% y_{n+1}=y_n+hf(x_n,y_n}
-% \end{verbatim}
-
-%*mausqueherramientas para mas tarde 
-% \begin{itemize}
-%! 	\item Utilice vi\~netas est\'andar en lugar de tildes, flechas, etc WTF???
-% \end{itemize}
-% \begin{enumerate}
-%! 	\item En las listas numeradas, las etiquetas no deben ser n\'umeros ar\'abigos encerrados entre par\'entesis,
-% \end{enumerate}
-
-% \begin{definition}
-
-% \end{definition}
-
-% \begin{theorem}
-
-% \end{theorem}
-
-% \begin{corollary}
-% 	aslkjdfkl;asjdfk;ljasd;lkfjal;ksjgklasjkgajsf
-% \end{corollary}
-
+\end{verbatim}
 
 \section*{Conclusiones}
 Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
@@ -859,10 +762,58 @@ Agradecemos al claustro de profesores de la asignatura por su esfuerzo y tiempo 
 	\end{gathered}
 \end{equation}
 
+\begin{center}
+	Script en Python para calcular la Jacobiana.
+\end{center}
+\begin{verbatim}
+# Define the variables
+x, y, z, r, k, b, a, n, m, u, a1, p, n1 = symbols('x y z r k b a n m u a1 p n1')
 
-\begin{equation} \label{eq:quadraticsol}
-	x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \mbox{ si } a \ne 0.
-\end{equation}
+# Define the equations
+eq1 = r*x*(1-x/k) - b*x - a*x*z
+eq2 = b*x - (n*y*z)/(y+m) - u*y
+eq3 = a1*x*z + p*z**2 - (n1*z**2)/(y+m)
+
+# Verify if E2 is an equilibrium point
+dx = sp.simplify(sp.Subs(eq1, (x,y,z), (((k*(r-b))/r), (b*k*(r-b))/(u*r), 0)).doit())
+dy = sp.simplify(sp.Subs(eq2, (x,y,z), (((k*(r-b))/r), (b*k*(r-b))/(u*r), 0)).doit())
+dz = sp.simplify(sp.Subs(eq3, (x,y,z), (((k*(r-b))/r), (b*k*(r-b))/(u*r), 0)).doit())
+print("E2 is an equilibrium point:", {dx==0 and dy==0 and dz==0})
+
+separator = '- - '*25
+print(separator)
+
+# Define the variables as a list
+variables = [x, y, z]
+
+# Define the equations as a list
+equations = [eq1, eq2, eq3]
+
+# Create the Jacobian matrix
+Jacobian = Matrix(equations).jacobian(variables)
+
+print("Jacobian matrix:")
+print(Jacobian)
+
+print(separator)
+
+# Verify the local stability of the equilibrium point E1
+E1=sp.Subs(Jacobian, (x,y,z), (0,0,0)).doit()
+E1=sp.simplify(E1)
+eigenvaluesE1 = list(sp.Matrix.eigenvals(E1, simplify=True, multiple=True))
+print(f"Jacobian(E1): {E1}")
+print(f"Eigenvalues of Jacobian(E1): {eigenvaluesE1}")
+
+print(separator)
+
+# Verify the local stability of the equilibrium point E2
+E2=sp.Subs(Jacobian, (x,y,z), (((k*(r-b))/r), (b*k*(r-b))/(u*r), 0)).doit()
+E2=sp.simplify(E2)
+eigenvaluesE2 = list(sp.Matrix.eigenvals(E2).keys())
+print(f"Jacobian(E2): {E2}")
+print(f"Eigenvalues of Jacobian(E2): {eigenvaluesE2}")
+\end{verbatim}
+\label{Jacobian}
 
 \end{document}
 
