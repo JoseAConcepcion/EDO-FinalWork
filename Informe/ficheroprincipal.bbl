@@ -1,0 +1,318 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{holling_functional_1965}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b9c24232241f1d914c44897497ec62e8}{%
+           family={Holling},
+           familyi={H\bibinitperiod},
+           given={C.\bibnamedelimi S.},
+           giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{fullhash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{bibnamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authorbibnamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authornamehash}{b9c24232241f1d914c44897497ec62e8}
+      \strng{authorfullhash}{b9c24232241f1d914c44897497ec62e8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0071-075X}
+      \field{journaltitle}{Memoirs of the Entomological Society of Canada}
+      \field{number}{S45}
+      \field{title}{The {Functional} {Response} of {Predators} to {Prey} {Density} and its {Role} in {Mimicry} and {Population} {Regulation}}
+      \field{volume}{97}
+      \field{year}{1965}
+      \field{pages}{5\bibrangedash 60}
+      \range{pages}{56}
+      \verb{doi}
+      \verb 10.4039/entm9745fv
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/S0071075X00000862/type/journal_article
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/S0071075X00000862/type/journal_article
+      \endverb
+    \endentry
+    \entry{falconi_stability_2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=90dece9b6fa88323fbfb1602debabe1b}{%
+           family={Falconi},
+           familyi={F\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8786fd123049eb79ddfa3dd9bc284fe9}{%
+           family={Huenchucona},
+           familyi={H\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e10d8fa3800ea9ddfc3d0e98274e6bcc}{%
+           family={Vidal},
+           familyi={V\bibinitperiod},
+           given={Claudio},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{39c67691bd5033e7e640f6db11cf184e}
+      \strng{fullhash}{39c67691bd5033e7e640f6db11cf184e}
+      \strng{bibnamehash}{39c67691bd5033e7e640f6db11cf184e}
+      \strng{authorbibnamehash}{39c67691bd5033e7e640f6db11cf184e}
+      \strng{authornamehash}{39c67691bd5033e7e640f6db11cf184e}
+      \strng{authorfullhash}{39c67691bd5033e7e640f6db11cf184e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00963003}
+      \field{journaltitle}{Applied Mathematics and Computation}
+      \field{month}{11}
+      \field{title}{Stability and global dynamic of a stage-structured predator–prey model with group defense mechanism of the prey}
+      \field{volume}{270}
+      \field{year}{2015}
+      \field{pages}{47\bibrangedash 61}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1016/j.amc.2015.07.109
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0096300315010310
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0096300315010310
+      \endverb
+    \endentry
+    \entry{savitri_dynamics_2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8a17f417953f3b77b9d08436272a23c1}{%
+           family={Savitri},
+           familyi={S\bibinitperiod},
+           given={Dian},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cb7724031b4975b3073d90b0c4c7736f}{%
+           family={Abadi},
+           familyi={A\bibinitperiod},
+           given={Abadi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Bali, Indonesia}%
+      }
+      \list{publisher}{1}{%
+        {Atlantis Press}%
+      }
+      \strng{namehash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \strng{fullhash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \strng{bibnamehash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \strng{authorbibnamehash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \strng{authornamehash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \strng{authorfullhash}{e295ca51f3c667cd7f1778dca5efa4b9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the {International} {Conference} on {Science} and {Technology} ({ICST} 2018)}
+      \field{isbn}{978-94-6252-650-1}
+      \field{title}{Dynamics and {Numerical} {Simulation} of {Stage} {Structure} {Prey}-{Predator} {Models}}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.2991/icst-18.2018.168
+      \endverb
+      \verb{file}
+      \verb Texto completo:/home/antonio/Zotero/storage/RASTVY6V/Savitri y Abadi - 2018 - Dynamics and Numerical Simulation of Stage Structu.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.atlantis-press.com/article/55910953
+      \endverb
+      \verb{url}
+      \verb https://www.atlantis-press.com/article/55910953
+      \endverb
+    \endentry
+    \entry{castellanos_existence_2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2b4c41ef02c38124e47e6000743f0bc6}{%
+           family={Castellanos},
+           familyi={C\bibinitperiod},
+           given={Víctor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=0a2f020311b82c8ddab4a84ef8901369}{%
+           family={Chan-López},
+           familyi={C\bibinithyphendelim L\bibinitperiod},
+           given={Ramón\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \strng{fullhash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \strng{bibnamehash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \strng{authorbibnamehash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \strng{authornamehash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \strng{authorfullhash}{21afb59cc5e9fba7d14cd3d034ba1139}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{09600779}
+      \field{journaltitle}{Chaos, Solitons \& Fractals}
+      \field{month}{2}
+      \field{title}{Existence of limit cycles in a three level trophic chain with {Lotka}–{Volterra} and {Holling} type {II} functional responses}
+      \field{volume}{95}
+      \field{year}{2017}
+      \field{pages}{157\bibrangedash 167}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.chaos.2016.12.011
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0960077916303708
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0960077916303708
+      \endverb
+    \endentry
+    \entry{leslie_properties_1960}{article}{}
+      \name{author}{2}{}{%
+        {{hash=64b554d94d1acaddf4e3341af5df2f8d}{%
+           family={Leslie},
+           familyi={L\bibinitperiod},
+           given={P.\bibnamedelimi H.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=13e4bbaff31f451d377768a0f584a528}{%
+           family={Gower},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{aa35af5b16dd339821a94f323f55c223}
+      \strng{fullhash}{aa35af5b16dd339821a94f323f55c223}
+      \strng{bibnamehash}{aa35af5b16dd339821a94f323f55c223}
+      \strng{authorbibnamehash}{aa35af5b16dd339821a94f323f55c223}
+      \strng{authornamehash}{aa35af5b16dd339821a94f323f55c223}
+      \strng{authorfullhash}{aa35af5b16dd339821a94f323f55c223}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0006-3444, 1464-3510}
+      \field{journaltitle}{Biometrika}
+      \field{number}{3-4}
+      \field{title}{The properties of a stochastic model for the predator-prey type of interaction between two species}
+      \field{volume}{47}
+      \field{year}{1960}
+      \verb{doi}
+      \verb 10.1093/biomet/47.3-4.219
+      \endverb
+      \verb{urlraw}
+      \verb https://academic.oup.com/biomet/article-lookup/doi/10.1093/biomet/47.3-4.219
+      \endverb
+      \verb{url}
+      \verb https://academic.oup.com/biomet/article-lookup/doi/10.1093/biomet/47.3-4.219
+      \endverb
+    \endentry
+    \entry{edwards_differential_2008}{book}{}
+      \name{author}{3}{}{%
+        {{hash=3e6c797eae21f6cff0edbb98a5c99102}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={C.\bibnamedelimi Henry},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=3b8706e1b683870b4ffc80c2fe47a506}{%
+           family={Penney},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=d477e98172313fb6bec655691fd4fb8e}{%
+           family={Calvis},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River, NJ}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{fullhash}{e141281696a9640480527e0d46ae5f57}
+      \strng{bibnamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authorbibnamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authornamehash}{e141281696a9640480527e0d46ae5f57}
+      \strng{authorfullhash}{e141281696a9640480527e0d46ae5f57}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{4th ed}
+      \field{isbn}{978-0-13-156107-6}
+      \field{shorttitle}{Differential equations and boundary value problems}
+      \field{title}{Differential equations and boundary value problems: computing and modeling}
+      \field{year}{2008}
+    \endentry
+    \entry{upadhyay_introduction_2013}{book}{}
+      \name{author}{2}{}{%
+        {{hash=5cc25b77590cbae82a1965e4fb73355a}{%
+           family={Upadhyay},
+           familyi={U\bibinitperiod},
+           given={Ranjit\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=2ed964d0f73d59139688e70f7939ea35}{%
+           family={Iyengar},
+           familyi={I\bibinitperiod},
+           given={Satteluri\bibnamedelimb R.\bibnamedelimi K.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{381be5400de9029968db78ca1e151266}
+      \strng{fullhash}{381be5400de9029968db78ca1e151266}
+      \strng{bibnamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authorbibnamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authornamehash}{381be5400de9029968db78ca1e151266}
+      \strng{authorfullhash}{381be5400de9029968db78ca1e151266}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4398-9887-1 978-1-4398-9886-4}
+      \field{title}{Introduction to mathematical modeling and chaotic dynamics}
+      \field{year}{2013}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
