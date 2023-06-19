@@ -14,12 +14,13 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs}
 \usepackage{amssymb}
+\usepackage{circledsteps}
 \usepackage{multimedia}
 \usepackage{pifont,pgfcore}
 \usepackage{tcolorbox}
 \usepackage{animate}
 \usepackage{ucs}
-\renewcommand\tabularxcolumn[1]{m{#1}}  % for vertical centering of X cell contents
+  % for vertical centering of X cell contents
 \setlength\tabcolsep{12pt}              % increase horizontal space around cell         \begin{table}
 \bfseries
 \usepackage{cellspace, tabularx}    % for adding vertical space around cells' contents
@@ -196,30 +197,32 @@
 	\end{minipage}
 \end{frame}
 
-% \begin{frame}
-% 	\frametitle{Puntoss de Esquilibrio y Estabilidad Local}
-% 	\begin{center}
-% 		\resizebox{\linewidth}{!}{%
-% 			\begin{tabular}{ c c }
-% 				\toprule
-% 				\textbf{Resultados obtenidos}                      & \textbf{Resultado de Savitri} \
-% 				\midrule
-% 				$J(E_1) = \begin{bmatrix}
-% 						          \Circled[outer color=green]{r-\beta} & 0    & 0 \
-% 						          \beta                                & -\mu & 0 \
-% 						          0                                    & 0    & 0
-% 					          \end{bmatrix}$ &
-% 				$J(E_1) = \begin{bmatrix}
-% 						          \Circled[outer color=red]{(-1+ r) } & 0    & 0 \
-% 						          \beta                               & -\mu & 0 \
-% 						          0                                   & 0    & 0
-% 					          \end{bmatrix}$ \
-% 				\bottomrule
-% 			\end{tabular}%
-% 		}
-% 	\end{center}
-% \end{frame}
-
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
+	Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
+	\begin{center}
+		\begin{tabular}{ c c }
+			\toprule
+			\textbf{Resultados obtenidos}                        & \textbf{Resultado de Savitri} \\
+			\midrule                                                                             \\
+			\addlinespace[-2ex]
+			$J(E_1) =\label{Characteristic000t} \begin{bmatrix}
+			\Circled[outer color=green]{r-\beta} & 0    & 0 \\
+			\beta                                & -\mu & 0 \\
+			0                                    & 0    & 0
+			\end{bmatrix}$ &
+			$J(E_1) =\label{Characteristic000f} \begin{bmatrix}
+			\Circled[outer color=red]{(-1+ r) } & 0    & 0 \\
+			\beta                               & -\mu & 0 \\
+			0                                   & 0    & 0
+			\end{bmatrix}$   \\
+			\addlinespace[1.5ex]
+			
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+\end{frame}
 
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
