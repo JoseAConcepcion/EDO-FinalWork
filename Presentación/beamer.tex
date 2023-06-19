@@ -19,6 +19,16 @@
 \usepackage{tcolorbox}
 \usepackage{animate}
 \usepackage{ucs}
+\renewcommand\tabularxcolumn[1]{m{#1}}  % for vertical centering of X cell contents
+\setlength\tabcolsep{12pt}              % increase horizontal space around cell         \begin{table}
+\bfseries
+\usepackage{cellspace, tabularx}    % for adding vertical space around cells' contents
+\setlength\cellspacetoplimit{7pt}
+\setlength\cellspacebottomlimit{7pt}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\addparagraphcolumntypes{C}
+\usepackage{ragged2e}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 %-----------------------------------------------------Nuevos Ambientes----------------------------------%
 
 \newtheorem*{Theorem*}{Teorema}
@@ -173,13 +183,16 @@
 \begin{frame}
 	\frametitle{Matriz Jacobiana}
 	\begin{minipage}{10cm}
-		\begin{equation} \label{JacobianoEstability}
-			J\left(x, y, z\right)=\left[\begin{array}{ccc}
+\setlength{\arraycolsep}{2.5pt}
+\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
+		
+		
+		$	J\left(x, y, z\right)=\left[\begin{array}{ccc}
 					\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                           \\
 					\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                        \\
 					\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
-				\end{array}\right]
-		\end{equation}
+				\end{array}\right]$
+		
 	\end{minipage}
 \end{frame}
 
@@ -208,41 +221,44 @@
 % \end{frame}
 
 
-% \begin{frame}
-% 	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
-% 	\begin{center}
-% 		$\left|\begin{array}{c c c}
-% 				r-\beta-\lambda & 0            & 0 \
-% 				\beta           & -\mu-\lambda & 0 \
-% 				0               & 0            & 0-\lambda \
-% 			\end{array} \right|
-% 			=
-% 			(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0$
-% 	\end{center}
-% \end{frame}
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
+	\begin{center}
+		$\left|\begin{array}{c c c}
+				r-\beta-\lambda & 0            & 0 \\
+				\beta           & -\mu-\lambda & 0 \\
+				0               & 0            & 0-\lambda \
+			\end{array} \right|
+			=
+			(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0$
+	\end{center}
+\end{frame}
 
 
-% \begin{frame}
-% 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
-% 	\begin{minipage}{10cm}
-% 		Para el punto $E_2$ tenemos:
-% 		\begin{equation} \label{Equilibrium}
-% 			\begin{aligned}
-% 				%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
-% 				 & J\left(E_2\right)=\left|\begin{array}{ccc}
-% 					                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
-% 					                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
-% 					                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r} - \lambda
-% 				                           \end{array}\right|=0
-% 			\end{aligned}
-% 		\end{equation}
-% 	\end{minipage}
-% \end{frame}
+ \begin{frame}
+ 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
+ 	\begin{minipage}{10cm}
+ 		Para el punto $E_2$ tenemos:\\
+ 		
+ 			\begin{center}
+ 				
+ 			
+ 				%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+ 				                        $ \left|\begin{array}{ccc}
+ 					                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
+ 					                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
+ 					                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r} - \lambda
+ 				                           \end{array}\right|=0$
+ 		
+ 		\end{center}
+ 	\end{minipage}
+ \end{frame}
 
 
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
 	\begin{minipage}{10cm}
+		
 		Los valores propios de la matriz $J(E_2)$ son $\lambda_1 = \beta-r$, $\lambda_2=-\mu$ y $\lambda_3=-\frac{\alpha_1 k(\beta-r)}{r}$.
 		El autor plantea que $E_2$ es estable bajo la condición $r>\beta$.
 		Sin embargo, si $r>\beta$ entonces $-\frac{\alpha_1 k(\beta-r)}{r} > 0$ por lo que el punto de equilibrio $E_2$ es inestable. \par
@@ -252,22 +268,40 @@
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local E3}
 	\begin{minipage}{10cm}
-		Para $E_3$ tenemos la siguiente matriz jacobiana:
+		\setlength{\arraycolsep}{2.5pt}
+		\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
+		Para $E_3$ tenemos la siguiente matriz jacobiana:\\
 
-		\begin{equation} \label{CharacteristicPolynomial}
-			J\left(x^*, y^*, z^*\right)=\left[\begin{array}{ccc}
+		
+			$J\left(x^*, y^*, z^*\right)=\left[\scalemath{0.8}{\begin{array}{ccc}
 					\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                        \\
 					\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                            \\
 					\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
-				\end{array}\right]
-		\end{equation}
+				\end{array}}\right]$
+		
 	\end{minipage}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Puntos de Equilibrio y Estabilidad Local E3}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local}
 	\begin{minipage}{10cm}
-		Tabla con los tres valores
+		\
+
+\begin{block}{}
+	\begin{center}
+	\begin{tabular}{|c|c|}
+			\hline
+		\textbf{Puntos de Equilibrio} & \textbf{Estabilidad Local}\\
+		\hline
+		\\
+		\addlinespace[-2ex]
+		$E_1=(0,0,0)$ & Inestable\\ \hline
+		$E_2=(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ & Inestable\\ \hline  
+		$E_3 = (x^*,y^*,z^*)$ & Asint\'oticamente estable 
+		 
+	\end{tabular}
+	\end{center}
+\end{block}
 	\end{minipage}
 \end{frame}
 
