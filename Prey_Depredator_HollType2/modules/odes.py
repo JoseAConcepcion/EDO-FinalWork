@@ -56,16 +56,26 @@ class prey_depredator_hollingTypeII:
         return jacobian
 
     def eigvalues(self): # probleams en los valores propios
-        #x1, x2 , x3 = self.jacobi_matrix().eigenvals(multiple = False)
         t ,x , y ,z = sy.symbols('t x y z')
         J = self.jacobi_matrix()
+        sy.assumptions()
         return sy.Matrix.eigenvals(J)
         
-    def jacobi_matrix_symbolic(eigvalues=False) -> sy.Matrix:
+    def jacobi_matrix_symbolic() -> sy.Matrix:
         params = [sy.Symbol('r'), sy.Symbol('beta'), sy.Symbol('alpha'),
                   sy.Symbol('alpha1'), sy.Symbol('eta'), sy.Symbol('eta1'),
                   sy.Symbol('k'), sy.Symbol('rho'), sy.Symbol('m'), sy.Symbol('mu')]
         system = prey_depredator_hollingTypeII(params, True)
+
+        # t , x ,y ,z = sy.symbols('t x y z')
+        # dx = sy.Eq(system.f1(t,x,y,z), 0)
+        # dy = sy.Eq(system.f2(t,x,y,z), 0)
+        # dz = sy.Eq(system.f3(t,x,y,z), 0)
+
+        # solution = sy.solve([dx, dy, dz], [x, y, z])
+
+        print(solution)
+        
         return system.jacobi_matrix()
 
     def __str__(self) -> str:

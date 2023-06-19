@@ -3,6 +3,7 @@ from modules.odes import *
 from modules.plot import *
 from math import *
 import numpy as np
+import sympy as sp
 from scipy.integrate import odeint  
 
 
@@ -12,7 +13,8 @@ def S1():  # first simulation
     system = prey_depredator_hollingTypeII(params)
     
     h = 0.001
-
+    print(system.eigvalues())
+    return
     def f(t, v):
         x, y, z = v[0], v[1], v[2]
         return np.array([system.f1(t, x, y, z), system.f2(t, x, y, z), system.f3(t, x, y, z)])
@@ -219,7 +221,7 @@ def misterius_simulation2(): # 3.1.5 n = a
 
 def print_jacobian_symbolic() -> None:
 
-    jacobian = prey_depredator_hollingTypeII.jacobi_matrix_symbolic
+    jacobian = prey_depredator_hollingTypeII.jacobi_matrix_symbolic()
     representation = "\n"
     for i in range(3):
         for j in range(3):
@@ -232,9 +234,11 @@ def print_jacobian_symbolic() -> None:
 
 
 #S1()
-S2()
+#S2()
 #S3()
 #S4()
 #S5()
 #misterius_simulation()
 #misterius_simulation2()
+
+print_jacobian_symbolic()
