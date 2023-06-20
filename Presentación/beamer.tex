@@ -18,6 +18,7 @@
 \usepackage{multimedia}
 \usepackage{pifont,pgfcore}
 \usepackage{tcolorbox}
+\usepackage{graphicx}
 \usepackage{animate}
 \usepackage{ucs}
   % for vertical centering of X cell contents
@@ -157,7 +158,6 @@
 	\end{block}
 \end{frame}
 
-\section{Modelo Propuesto}
 
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local}
@@ -315,25 +315,32 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 %----------------------------------
 \section{Simulaciones Num\'ericas}
 
+
+
 \begin{frame}
 	\frametitle{Simulaciones Num\'ericas}
 	\begin{minipage}{10cm}
-		\begin{figure}[h]
-			\centering
-			\begin{subfigure}[b]{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{Simulations/S1[3.01 5.05 4.28].pdf}
-				\label{fig:grafica1}
-			\end{subfigure}%
-			\begin{subfigure}[b]{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{GraficasPaper/S1[1].png}
-				\label{fig:grafica12}
-			\end{subfigure}
-			\caption{S1 con valores iniciales [3.01 5.05 4.28]}
-			\label{fig:comparacion1}
-		\end{figure}
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.1.png}
+		
+	\end{minipage}
+\end{frame}
 
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.2.png}
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.3.png}
+		
 	\end{minipage}
 \end{frame}
 
@@ -413,11 +420,23 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \end{frame}
 %----------------------------------
 \section{Bibliograf\'ia del tema}
+%\begin{frame}
+%	\frametitle{Bibliograf\'ia}
+%	\begin{thebibliography}{99}
+%
+%		\bibitem[Sanjuan,2016]{sanjuan2016} M. A. Fern\'andez Sanju\'an (2016). Din\'amica No Lineal, Teor\'ia del Caos y Sistemas Complejos: una perspectiva hist\'orica. {\em Rev. R. Acad. Cienc. Exact. F\'is .Nat.} \textbf{Vol}. 109, N. 1?2, pp. 107-126.
+%	\end{thebibliography}
+%\end{frame}
+
 \begin{frame}
 	\frametitle{Bibliograf\'ia}
 	\begin{thebibliography}{99}
-
-		\bibitem[Sanjuan,2016]{sanjuan2016} M. A. Fern\'andez Sanju\'an (2016). Din\'amica No Lineal, Teor\'ia del Caos y Sistemas Complejos: una perspectiva hist\'orica. {\em Rev. R. Acad. Cienc. Exact. F\'is .Nat.} \textbf{Vol}. 109, N. 1?2, pp. 107-126.
+		
+		\bibitem [Sanjuan,2016]{sanjuan2016}  C. Henry Edwards, David E. Penney y David Calvis.\hspace{0.1cm}\textit{Differential equations and boundary value
+			problems: computing and modeling} . 4th ed. Upper Saddle River, NJ: Pearson Education, 2008.
+		ISBN : 978-0-13-156107-6.
+		\bibitem [Sanjuan,2016]{sanjuan2016} Ranjit Kumar Upadhyay y Satteluri R. K. Iyengar.\hspace{0.1cm}\textit {Introduction to mathematical modeling and chaotic dynamics}. eng. 2013. ISBN : 978-1-4398-9887-1 978-1-4398-9886-4.
+	
 	\end{thebibliography}
 \end{frame}
 
