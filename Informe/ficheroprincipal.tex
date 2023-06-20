@@ -292,7 +292,7 @@ Para $E_3$ tenemos la siguiente matriz jacobiana:
 		\end{array}\right]
 \end{equation}
 
-Hallando los coeficientes del polinomio característico aplicando el criterio de Routh-Horwitz (ver Apéndice D en \cite{castellanos_existence_2017}) se obtienen:
+Hallando los coeficientes del polinomio característico aplicando el criterio de Routh-Hurwitz (ver Apéndice D en \cite{castellanos_existence_2017}) se obtienen:
 
 
 \begin{itemize}
@@ -338,8 +338,8 @@ Dichos valores están dados por la Tabla \ref{tab:first}.
 	\textbf{S1} & 0.82 & 0.87    & 1.56     & 1.12       & 2.41   & 1.83     & 12  & 1.38   & 0.13 & 0.11  \\
 	\textbf{S2} & 1.32 & 0.87    & 1.16     & 0.72       & 1.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
 	\textbf{S3} & 1.32 & 0.87    & 0.76     & 0.72       & 0.6    & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
-	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.12   & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
-	\textbf{S3} & 1.32 & 0.87    & 1.16     & 0.72       & 0.3095 & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
+	\textbf{S4} & 1.32 & 0.87    & 1.16     & 0.72       & 0.12   & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
+	\textbf{S5} & 1.32 & 0.87    & 1.16     & 0.72       & 0.3095 & 0.41     & 2.8 & 0.78   & 0.23 & 0.11  \\
 \end{longtable}
 
 \subsection{Comparativas}
@@ -716,8 +716,8 @@ Agradecemos al claustro de profesores de la asignatura por su esfuerzo y tiempo 
 	\end{gathered}
 \end{equation}
 
-\begin{center}
-	Script en Python para calcular la Jacobiana.
+\begin{center} 
+	Script en Python para calcular la Jacobiana y Routh-Hurwitz.
 \end{center}
 \begin{verbatim}
 	# Define the variables
