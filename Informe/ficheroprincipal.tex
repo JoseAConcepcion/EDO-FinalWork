@@ -84,7 +84,7 @@
 \WSCpagesetup{Machado, Toledo, Moreno, Concepci\'on, Navarro}
 
 % AUTHOR: Enter the title, all letters in upper case
-\title{An\'alisi de estabilidad y simulaci\'on num\'erica del sistema presa-depredador con respuestas funcionales de tipo II de Holling para presas adultas}
+\title{An\'alisis de estabilidad y simulaci\'on num\'erica del sistema presa-depredador con respuestas funcionales de tipo II de Holling para presas adultas}
 
 % AUTHOR: Enter the authors of the article, see end of the example document for further examples
 \author{
@@ -127,7 +127,7 @@
 
 \section*{Resumen}
 El artículo "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling
-Type Functional Responses" realiza un análisis local exhaustivo del modelo depredador-presa con estructura de
+Type Functional Responses"\hspace{0.1cm}realiza un análisis local exhaustivo del modelo presa-depredador con estructura de
 etapas en la población de presa y respuestas funcionales de Holling de tipo II y I. Los autores determinan los tres 
 posibles equilibrios, analizan la estabilidad local a través de la matriz jacobiana, realizan simulaciones numéricas y 
 obtienen varios resultados clave. Concluyen que el equilibrio trivial siempre es inestable, el equilibrio con predadores 
@@ -135,7 +135,7 @@ extintos es estable bajo ciertas condiciones y el equilibrio interior puede ser 
 Las simulaciones numéricas corroboran estos resultados
 y muestran cómo las poblaciones evolucionan hacia uno de los tres puntos de equilibrio dependiendo de las
 condiciones iniciales y los valores de parámetros. En este trabajo se realiza un análisis crítico de 
-los resultados obtenidos y se realizan sugerencias para mejorar artículo.
+los resultados obtenidos y se realizan sugerencias para mejorar el artículo.
 
 
 \section{INTRODUCCI\'ON}
@@ -166,7 +166,7 @@ superior afecta la estabilidad del sistema \cite{castellanos_existence_2017}. Lo
 \ref{Holling1y2_Castellanos} respectivamente) pueden ser consultadas en los Anexos \ref{app:Anexos}.\par
 
 Estos modelos constituyen una base para el análisis
-del sistema propuesto que está dado por los siguientes sistemas de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la
+del sistema propuesto que está dado por el siguiente sistema de ecuaciones diferenciales donde se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la
 densidad de la poblaci\'on de presas j\'ovenes, presas adultas y depredadores respectivamente.
 La primera ecuación describe como las presas juveniles crecen con la tasa de crecimiento intrínseca \emph{r} haciendo que aumente su población. La tasa de depredación para ambas 
 poblaciones de presas es diferente. Se asume que el depredador puede asechar tanto a las presas juveniles como a las presas adultas en el modelo estructurado. 
@@ -203,7 +203,7 @@ depredadores de forma asintótica. La respuesta funcional de Holling tipo II es 
 de los depredadores aumenta con la densidad de presas.
 
 \section{Puntos de Equilibrio y Estabilidad Local}
-Los puntos de equilibrio estan dados por aquellos que satisfagan la igualdad:
+Los puntos de equilibrio están dados por aquellos que satisfagan la igualdad:
 \begin{center}
 	$\frac{dx}{dt} = \frac{dy}{dt} = \frac{dz}{dt} = 0$
 \end{center}
@@ -226,7 +226,7 @@ de la matriz jacobiana. Estos valores propios son los que determinan la estabili
 propios tienen parte real negativa, entonces el punto de equilibrio es estable. Si al menos uno de los valores propios tiene parte real positiva,
 entonces el punto de equilibrio es inestable. \par
 Al realizar el c\'alculo de los auto valores en los distintos puntos de equilibrio obtenemos resultados discrepantes a los obtenidos por Savitri.
-Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
+Al evaluar la matriz jacobiana en $E_1$ obtuvimos:\\
 \begin{center}
 	\begin{tabular}{ c c }
 		\toprule
@@ -248,7 +248,7 @@ Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
 		\bottomrule
 	\end{tabular}
 \end{center}
-
+\bigskip
 
 Luego calculamos las raíces del polinomio característico de  $J(E_1)$:
 \begin{center}
