@@ -40,14 +40,14 @@
 %-----------------------------------------------------Titulo--------------------------------------------%
 
 \vspace*{-0.8cm}
-\title[T\'itulo del trabajo]{T\'itulo de la presentaci\'on del trabajo}
+\title[T\'itulo del trabajo]{\tiny{ANÁLISIS DE ESTABILIDAD Y SIMULACIÓN NUMÉRICA DEL SISTEMA PRESA-DEPREDADOR CON RESPUESTAS FUNCIONALES DE TIPO II DE HOLLING PARA PRESAS ADULTAS}}
 \author[Machado, Toledo, Moreno, Concepci\'on, Navarro]
 		{
-			Daniel Machado \\
-			Daniel Toledo \\
-			Osvaldo Moreno \\
-			Jos\'e A. Concepci\'on \\
-			Adri\'an Navarro \\
+			Daniel Machado
+			% Daniel Toledo \\
+			% Osvaldo Moreno \\
+			% Jos\'e A. Concepci\'on \\
+			% Adri\'an Navarro \\
 			{\small C211}
 		}
 			
@@ -58,17 +58,17 @@
 \definecolor{green}{rgb}{0.1,0.5,0.3}
 \definecolor{vio}{rgb}{0.8,0.5,0.2}
 \definecolor{g}{rgb}{0.93,0.93,0.93}
-\begin{frame}
+% \begin{frame}
 
-	\titlepage
-	\vspace*{-0.65cm}
-	\begin{center}
-		\colorbox{black}{\textbf{\begin{large}\textcolor{white}{Defensa del proyecto final.}\end{large}}}\\\ \\
-		\vspace*{-0.3cm}
-		\scriptsize \textbf{\textcolor{blue}{Facultad Matem\'atica Computaci\'on}}\\
-		\textbf{\textcolor{blue}{Universidad de La Habana}}
-	\end{center}
-\end{frame}
+% 	\titlepage
+% 	\vspace*{-0.65cm}
+% 	\begin{center}
+% 		\colorbox{black}{\textbf{\begin{large}\textcolor{white}{Defensa del proyecto final.}\end{large}}}\\\ \\
+% 		\vspace*{-0.3cm}
+% 		\scriptsize \textbf{\textcolor{blue}{Facultad Matem\'atica Computaci\'on}}\\
+% 		\textbf{\textcolor{blue}{Universidad de La Habana}}
+% 	\end{center}
+% \end{frame}
 %-----------------------------------------------
 
 %-------------------------------------------------
@@ -184,16 +184,16 @@
 \begin{frame}
 	\frametitle{Matriz Jacobiana}
 	\begin{minipage}{10cm}
-\setlength{\arraycolsep}{2.5pt}
-\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
-		
-		
+		\setlength{\arraycolsep}{2.5pt}
+		\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
+
+
 		$	J\left(x, y, z\right)=\left[\begin{array}{ccc}
 					\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                           \\
 					\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                        \\
 					\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
 				\end{array}\right]$
-		
+
 	\end{minipage}
 \end{frame}
 
@@ -203,67 +203,67 @@
 	\begin{center}
 		\begin{tabular}{ c c }
 			\toprule
-			\textbf{Resultados obtenidos}                        & \textbf{Resultado de Savitri} \\
-			\midrule                                                                             \\
+			\textbf{Resultados obtenidos}                       & \textbf{Resultado de Savitri} \\
+			\midrule                                                                            \\
 			\addlinespace[-2ex]
 			$J(E_1) =\label{Characteristic000t} \begin{bmatrix}
-			\Circled[outer color=green]{r-\beta} & 0    & 0 \\
-			\beta                                & -\mu & 0 \\
-			0                                    & 0    & 0
-			\end{bmatrix}$ &
+					                                    \Circled[outer color=green]{r-\beta} & 0    & 0 \\
+					                                    \beta                                & -\mu & 0 \\
+					                                    0                                    & 0    & 0
+				                                    \end{bmatrix}$ &
 			$J(E_1) =\label{Characteristic000f} \begin{bmatrix}
-			\Circled[outer color=red]{(-1+ r) } & 0    & 0 \\
-			\beta                               & -\mu & 0 \\
-			0                                   & 0    & 0
-			\end{bmatrix}$   \\
+					                                    \Circled[outer color=red]{(-1+ r) } & 0    & 0 \\
+					                                    \beta                               & -\mu & 0 \\
+					                                    0                                   & 0    & 0
+				                                    \end{bmatrix}$  \\
 			\addlinespace[1.5ex]
-			
+
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	
+
 \end{frame}
 
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
 	\begin{center}
 		$\left|\begin{array}{c c c}
-				r-\beta-\lambda & 0            & 0 \\
-				\beta           & -\mu-\lambda & 0 \\
+				r-\beta-\lambda & 0            & 0           \\
+				\beta           & -\mu-\lambda & 0           \\
 				0               & 0            & 0-\lambda \
 			\end{array} \right|
 			=
 			(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0$
 	\end{center}
-\bigskip
-Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual puede ser negativo si $\beta>r$), $\lambda_2= -\mu$ y $\lambda_3 = 0$. Por lo tanto, el punto de equilibrio $E_1$ es inestable.
+	\bigskip
+	Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual puede ser negativo si $\beta>r$), $\lambda_2= -\mu$ y $\lambda_3 = 0$. Por lo tanto, el punto de equilibrio $E_1$ es inestable.
 \end{frame}
-
-
- \begin{frame}
- 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
- 	\begin{minipage}{10cm}
- 		Para el punto $E_2$ tenemos:\\
- 		
- 			\begin{center}
- 				
- 			
- 				%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
- 				                        $ \left|\begin{array}{ccc}
- 					                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
- 					                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
- 					                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r} - \lambda
- 				                           \end{array}\right|=0$
- 		
- 		\end{center}
- 	\end{minipage}
- \end{frame}
 
 
 \begin{frame}
 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
 	\begin{minipage}{10cm}
-		
+		Para el punto $E_2$ tenemos:\\
+
+		\begin{center}
+
+
+			%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+			$ \left|\begin{array}{ccc}
+					(\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
+					\beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
+					0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r} - \lambda
+				\end{array}\right|=0$
+
+		\end{center}
+	\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
+	\begin{minipage}{10cm}
+
 		Los valores propios de la matriz $J(E_2)$ son $\lambda_1 = \beta-r$, $\lambda_2=-\mu$ y $\lambda_3=-\frac{\alpha_1 k(\beta-r)}{r}$.
 		El autor plantea que $E_2$ es estable bajo la condición $r>\beta$.
 		Sin embargo, si $r>\beta$ entonces $-\frac{\alpha_1 k(\beta-r)}{r} > 0$ por lo que el punto de equilibrio $E_2$ es inestable. \par
@@ -277,13 +277,13 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 		\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
 		Para $E_3$ tenemos la siguiente matriz jacobiana:\\
 
-		
-			$J\left(x^*, y^*, z^*\right)=\left[\scalemath{0.8}{\begin{array}{ccc}
-					\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                        \\
-					\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                            \\
-					\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
-				\end{array}}\right]$
-		
+
+		$J\left(x^*, y^*, z^*\right)=\left[\scalemath{0.8}{\begin{array}{ccc}
+						\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                        \\
+						\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                            \\
+						\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
+					\end{array}}\right]$
+
 	\end{minipage}
 \end{frame}
 
@@ -292,56 +292,49 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 	\begin{minipage}{10cm}
 		\
 
-\begin{block}{}
-	\begin{center}
-	\begin{tabular}{|c|c|}
-			\hline
-		\textbf{Puntos de Equilibrio} & \textbf{Estabilidad Local}\\
-		\hline
-		\\
-		\addlinespace[-2ex]
-		$E_1=(0,0,0)$ & Inestable\\ \hline
-		$E_2=(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ & Inestable\\ \hline  
-		$E_3 = (x^*,y^*,z^*)$ & Asint\'oticamente estable 
-		 
-	\end{tabular}
-	\end{center}
-\end{block}
+		\begin{block}{}
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					\textbf{Puntos de Equilibrio}                                   & \textbf{Estabilidad Local} \\
+					\hline
+					\\
+					\addlinespace[-2ex]
+					$E_1=(0,0,0)$                                                   & Inestable                  \\ \hline
+					$E_2=(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ & Inestable                  \\ \hline
+					$E_3 = (x^*,y^*,z^*)$                                           & Asint\'oticamente estable
+				\end{tabular}
+			\end{center}
+		\end{block}
 	\end{minipage}
 \end{frame}
 
 
 
-\begin{frame}
-	\frametitle{Puntos de Equilibrio y Estabilidad Local E3}
-	\begin{minipage}{10cm}
-		Tabla con los tres valores
-	\end{minipage}
-\end{frame}
 %----------------------------------
 \section{Simulaciones Num\'ericas}
 
-\begin{frame}
-	\frametitle{Simulaciones Num\'ericas}
-	\begin{minipage}{10cm}
-		\begin{figure}[h]
-			\centering
-			\begin{subfigure}[b]{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{Simulations/S1[3.01 5.05 4.28].pdf}
-				\label{fig:grafica1}
-			\end{subfigure}%
-			\begin{subfigure}[b]{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{GraficasPaper/S1[1].png}
-				\label{fig:grafica12}
-			\end{subfigure}
-			\caption{S1 con valores iniciales [3.01 5.05 4.28]}
-			\label{fig:comparacion1}
-		\end{figure}
+% \begin{frame}
+% 	\frametitle{Simulaciones Num\'ericas}
+% 	\begin{minipage}{10cm}
+% 		\begin{figure}[h]
+% 			\centering
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{Simulations/S1[3.01 5.05 4.28].pdf}
+% 				\label{fig:grafica1}
+% 			\end{subfigure}%
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{GraficasPaper/S1[1].png}
+% 				\label{fig:grafica12}
+% 			\end{subfigure}
+% 			\caption{S1 con valores iniciales [3.01 5.05 4.28]}
+% 			\label{fig:comparacion1}
+% 		\end{figure}
 
-	\end{minipage}
-\end{frame}
+% 	\end{minipage}
+% \end{frame}
 
 
 % \begin{frame}
@@ -389,12 +382,10 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \begin{frame}
 	\frametitle{Conclusiones}
 	\begin{minipage}{10cm}
-		Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
-		los ecosistemas naturales. Durante este trabajo hemos aprendido sobre varios temas relacionados con las ecuaciones diferenciales
-		y el modelado matemático. Hemos aprendido a resolver sistemas de ecuaciones diferenciales utilizando diferentes
-		métodos numéricos, como el método de Euler o el método de Runge-Kutta. Además, hemos aprendido a modelar la interacción entre
-		dos especies, analizando la dinámica de este modelo y estudiando su estabilidad. También hemos aprendido a utilizar las matemáticas
-		para modelar problemas del mundo real y la importancia de los modelos matemáticos en varias disciplinas.
+		\begin{itemize}
+			\item Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
+			      los ecosistemas naturales.
+		\end{itemize}
 	\end{minipage}
 \end{frame}
 
@@ -422,4 +413,3 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \end{frame}
 
 \end{document}
-
