@@ -19,6 +19,7 @@
 \usepackage{pifont,pgfcore}
 \usepackage{tcolorbox}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage{animate}
 \usepackage{ucs}
   % for vertical centering of X cell contents
@@ -110,8 +111,7 @@
 			\item Aplicación del Criterio de Routh-Hurwitz
 			      para analizar la estabilidad del equilibrio interior.
 			\item Simulaciones numéricas utilizando el método Runge-Kutta de
-			      cuarto orden.
-			\item Análisis de bifurcación para estudiar la posible existencia de ciclos límite.
+			      cuarto orden y el método de Euler.
 		\end{itemize}
 	\end{minipage}
 \end{frame}
@@ -320,8 +320,9 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \begin{frame}
 	\frametitle{Simulaciones Num\'ericas}
 	\begin{minipage}{10cm}
+		S1 con valores iniciales [3.01 5.05 4.28]
 		\centering
-		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.1.png}
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.png}
 		
 	\end{minipage}
 \end{frame}
@@ -329,8 +330,9 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \begin{frame}
 	\frametitle{Simulaciones Num\'ericas}
 	\begin{minipage}{10cm}
+		S2 con valores iniciales [0.3 2.4 3.9]
 		\centering
-		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.2.png}
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S2.png}
 		
 	\end{minipage}
 \end{frame}
@@ -338,12 +340,33 @@ Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual pu
 \begin{frame}
 	\frametitle{Simulaciones Num\'ericas}
 	\begin{minipage}{10cm}
+		S4 3D
 		\centering
-		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.3.png}
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S4.png}
 		
 	\end{minipage}
 \end{frame}
 
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		Código del método de Euler en Python:
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/euler.png}
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		Código del método de Runge-Kutta en Python:
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/rungekutta.png}
+		
+	\end{minipage}
+\end{frame}
 
 % \begin{frame}
 % 	\frametitle{Simulaciones Num\'ericas}
