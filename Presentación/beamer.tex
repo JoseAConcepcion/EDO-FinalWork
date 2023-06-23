@@ -14,33 +14,46 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs}
 \usepackage{amssymb}
+\usepackage{circledsteps}
 \usepackage{multimedia}
 \usepackage{pifont,pgfcore}
 \usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{listings}
 \usepackage{animate}
 \usepackage{ucs}
+  % for vertical centering of X cell contents
+\setlength\tabcolsep{12pt}              % increase horizontal space around cell         \begin{table}
+\bfseries
+\usepackage{cellspace, tabularx}    % for adding vertical space around cells' contents
+\setlength\cellspacetoplimit{7pt}
+\setlength\cellspacebottomlimit{7pt}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\addparagraphcolumntypes{C}
+\usepackage{ragged2e}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 %-----------------------------------------------------Nuevos Ambientes----------------------------------%
 
 \newtheorem*{Theorem*}{Teorema}
-\newtheorem*{Definition*}{Definici'on}
+\newtheorem*{Definition*}{Definici\'on}
 \newtheorem*{Example*}{Ejemplo}
 
 %-----------------------------------------------------Nuevos Comandos-----------------------------------%
 %-----------------------------------------------------Titulo--------------------------------------------%
 
 \vspace*{-0.8cm}
-\title[Título del trabajo]{Título de la presentación del trabajo}
-\author[Machado, Toledo, Moreno, Concepción, Navarro]
+\title[T\'itulo del trabajo]{\tiny{ANÁLISIS DE ESTABILIDAD Y SIMULACIÓN NUMÉRICA DEL SISTEMA PRESA-DEPREDADOR CON RESPUESTAS FUNCIONALES DE TIPO II DE HOLLING PARA PRESAS ADULTAS}}
+\author[Machado, Toledo, Moreno, Concepci\'on, Navarro]
 		{
 			Daniel Machado \\
 			Daniel Toledo \\
 			Osvaldo Moreno \\
-			José A. Concepción \\
-			Adrián Navarro \\
+			Jos\'e A. Concepci\'on \\
+			Adri\'an Navarro \\
 			{\small C211}
 		}
 			
-\date{Mayo 2023}
+\date{}
 
 \begin{document}
 %-----Redefiniendo colores----------%
@@ -48,81 +61,453 @@
 \definecolor{vio}{rgb}{0.8,0.5,0.2}
 \definecolor{g}{rgb}{0.93,0.93,0.93}
 \begin{frame}
-    
-    \titlepage
-    \vspace*{-0.65cm}
-    \begin{center}
-        \colorbox{black}{\textbf{\begin{large}\textcolor{white}{Defensa del proyecto final.}\end{large}}}\\\ \\
-        \vspace*{-0.3cm}
-        \scriptsize \textbf{\textcolor{blue}{Facultad Matem\'atica Computaci\'on}}\\
-        \textbf{\textcolor{blue}{Universidad de La Habana}}
-    \end{center}
+
+	\titlepage
+	\vspace*{-0.90cm}
+	\begin{center}
+		\colorbox{black}{\textbf{\begin{large}\textcolor{white}{Defensa del proyecto final.}\end{large}}}\\\ \\
+		\vspace*{-0.3cm}
+		\scriptsize \textbf{\textcolor{blue}{Facultad Matem\'atica Computaci\'on}}\\
+		\textbf{\textcolor{blue}{Universidad de La Habana}}
+	\end{center}
 \end{frame}
 %-----------------------------------------------
 
 %-------------------------------------------------
 \begin{frame}
-	\frametitle{Temas a tratar} 
-	\tableofcontents 
+	\frametitle{Temas a tratar}
+	\tableofcontents
 \end{frame}
 %------------------------------------
 
 %-------------------------------------
 \section{Introducci\'on}
 \begin{frame}
-\begin{minipage}{10cm}
-	Los m\'etodos de Taylor tienen la propiedad de un error local de truncamiento de orden superior, pero la desventaja de requerir el c\'alculo y la evaluaci\'on de las derivadas de f.
-\end{minipage}
-\end{frame}
-
-\section{Desarrollo}
-\begin{frame}
-\begin{minipage}{10cm}
-	Aqui iria el comienzo del desarrollo con el tema a tratar
-\end{minipage}
+	\begin{minipage}{10cm}
+		El artículo titulado "Local Analysis of the Prey-Predator Model with Stage-Structure Prey and Holling
+		Type-II Functional Responses" por Dian Savitri analiza el modelo presa-depredador utilizando respuestas funcionales de Holling de tipo II para presas adultas y tipo I para presas j\'ovenes.
+	\end{minipage}
 \end{frame}
 
 \begin{frame}
-\frametitle{Motivaci\'on}
-\begin{minipage}{10cm}
-Esto resulta algo lento y complicado, en la mayor\'ia de los problemas, raz\'on por la cual, en la pr\'actica casi no se utilizan. El método de Euler, lamentablemente requiere de un paso muy pequeño para una precisi\'on razonable. 
-\end{minipage}
-\end{frame}	
-
-\begin{frame}
-	\frametitle{Modelado matem\'atico }
-\begin{alertblock}{\begin{dinglist}{45}
-			\item Postulados
-	\end{dinglist}}
-    \begin{minipage}{10cm}
-	Los m\'etodos de Runge-Kutta tienen el error local de truncamiento del mismo orden que los m\'etodos de Taylor, pero prescinden del c\'alculo y evaluaci\'on de las derivadas de la funci\'on f
-     \end{minipage}
-\end{alertblock}
+	\frametitle{Objetivos}
+	\begin{minipage}{10cm}
+		\begin{itemize}
+			\item Analizar los resultados del art\'iculo
+			\item Determinar los puntos de equilibrio del modelo.
+			\item Analizar la estabilidad local de los puntos de equilibrio utilizando la matriz jacobiana y valores propios.
+			\item Observar el comportamiento dinámico del modelo mediante
+			      simulaciones numéricas.
+		\end{itemize}
+	\end{minipage}
 \end{frame}
 
-\section{Formulaci\'on matem\'atica.}
+\begin{frame}
+	\frametitle{T\'ecnicas utilizadas}
+	\begin{minipage}{10cm}
+		\begin{itemize}
+			\item Análisis matemático para determinar los puntos de equilibrio y condiciones de estabilidad.
+			\item Cálculo de la matriz jacobiana y valores propios en cada punto de equilibrio.
+			\item Aplicación del Criterio de Routh-Hurwitz
+			      para analizar la estabilidad del equilibrio interior.
+			\item Simulaciones numéricas utilizando el método Runge-Kutta de
+			      cuarto orden y el método de Euler.
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+
+\section{Modelo Propuesto}
+\begin{frame}
+	\frametitle{Modelo Propuesto}
+	\begin{minipage}{10cm}
+		El artículo analiza previamente tres modelos matemáticos que abordan las interacciones presa-depredador con diferentes enfoques.
+		Se definen \emph{x(t)}, \emph{y(t)} y \emph{z(t)} como la densidad de la poblaci\'on de presas j\'ovenes, presas adultas y depredadores respectivamente.
+
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Modelo Propuesto}
+	\begin{minipage}{10cm}
+		\begin{block}{Modelo Matem\'atico}
+			\begin{equation} \label{twoPreyonePredatorEDO}
+				\begin{gathered}
+					\frac{d x}{d t}=r x\left(1-\frac{x}{k}\right)-\beta x-\alpha x z \\
+					\frac{d y}{d t}=\beta x-\frac{\eta y z}{y+m}-\mu y \\
+					\frac{d z}{d t}=\alpha_1 x z + \rho z^2-\frac{\eta_1 z^2}{y+m}
+				\end{gathered}
+			\end{equation}
+		\end{block}
+
+	\end{minipage}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Respuestas funcionales de Holling}
+	\begin{block}{Holling Tipo I}
+		Expresa la existencia de un aumento lineal en la tasa de captura del depredador con respecto a la densidad de presas, hasta alcanzar el valor en
+		el que la tasa máxima de depredación permanece constante. Esta respuesta funcional es una función continua por partes, con una sección lineal y una sección constante.
+	\end{block}
+
+	\begin{block}{Holling Tipo II}
+		Expresa un aumento en el consumo que se desacelera a medida que aumentan las presas consumidas, alcanzando la tasa máxima de consumo de
+		depredadores de forma asintótica. La respuesta funcional de Holling tipo II es monotóna creciente, lo que significa que la tasa de consumo
+		de los depredadores aumenta con la densidad de presas.
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local}
+	\begin{minipage}{10cm}
+		Los puntos de equilibrio estan dados por aquellos que satisfagan la igualdad:
+		\begin{center}
+			$\frac{dx}{dt} = \frac{dy}{dt} = \frac{dz}{dt} = 0$
+		\end{center}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local}
+	\begin{alertblock}{\begin{dinglist}{45}
+				\item Postulados
+			\end{dinglist}}
+		\begin{minipage}{10cm}
+			Haciendo los c\'alculos pertinentes se obtienen como resultado los siguientes valores.
+			$E_1$ = (0,0,0), $E_2$ = $(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ y $E_3$ = ($x^*,y^*,z^*$).
+		\end{minipage}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Matriz Jacobiana}
+	\begin{minipage}{10cm}
+\setlength{\arraycolsep}{2.5pt}
+\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
+		
+		
+		$	J\left(x, y, z\right)=\left[\begin{array}{ccc}
+					\mathrm{r}-\frac{2 r x}{k}-\beta-\alpha z & 0                                                                  & -\alpha x                                           \\
+					\beta                                     & -\frac{\eta \mathrm{z}}{y+m}+\frac{\eta y \mathrm{z}}{(y+m)^2}-\mu & -\frac{\eta \mathrm{y}}{y+m}                        \\
+					\alpha_1 z                                & \frac{\eta_1 \mathrm{z}^2}{(y+m)^2}                                & 2 \rho z-\frac{2 \eta_1 \mathrm{z}}{y+m}+\alpha_1 x
+				\end{array}\right]$
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
+	Al evaluar la matriz jacobiana en $E_1$ obtuvimos:
+	\begin{center}
+		\begin{tabular}{ c c }
+			\toprule
+			\textbf{Resultados obtenidos}                        & \textbf{Resultado de Savitri} \\
+			\midrule                                                                             \\
+			\addlinespace[-2ex]
+			$J(E_1) =\label{Characteristic000t} \begin{bmatrix}
+			\Circled[outer color=green]{r-\beta} & 0    & 0 \\
+			\beta                                & -\mu & 0 \\
+			0                                    & 0    & 0
+			\end{bmatrix}$ &
+			$J(E_1) =\label{Characteristic000f} \begin{bmatrix}
+			\Circled[outer color=red]{(-1+ r) } & 0    & 0 \\
+			\beta                               & -\mu & 0 \\
+			0                                   & 0    & 0
+			\end{bmatrix}$   \\
+			\addlinespace[1.5ex]
+			
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E1}
+	\begin{center}
+		$\left|\begin{array}{c c c}
+				r-\beta-\lambda & 0            & 0 \\
+				\beta           & -\mu-\lambda & 0 \\
+				0               & 0            & 0-\lambda \
+			\end{array} \right|
+			=
+			(r-\beta-\lambda)(\mu-\lambda)(\lambda) = 0$
+	\end{center}
+\bigskip
+Los valores propios de la matriz $J(E_1)$ son: $\lambda_1 = r-\beta$ (el cual puede ser negativo si $\beta>r$), $\lambda_2= -\mu$ y $\lambda_3 = 0$. Por lo tanto, el punto de equilibrio $E_1$ es inestable.
+\end{frame}
+
+
+ \begin{frame}
+ 	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
+ 	\begin{minipage}{10cm}
+ 		Para el punto $E_2$ tenemos:\\
+ 		
+ 			\begin{center}
+ 				
+ 			
+ 				%  & \operatorname{det}\left(J\left(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0\right)-\lambda I\right)=0                            \\
+ 				                        $ \left|\begin{array}{ccc}
+ 					                           (\beta-r)-\lambda & 0            & \frac{\alpha k(\beta-r)}{r}                                                      \\
+ 					                           \beta             & -\mu-\lambda & \frac{\eta \beta k(\beta-r)}{r \mu\left(\frac{\beta k(r-\beta)}{\mu r}+m\right)} \\
+ 					                           0                 & 0            & -\frac{\alpha_1 k(\beta-r)}{r} - \lambda
+ 				                           \end{array}\right|=0$
+ 		
+ 		\end{center}
+ 	\end{minipage}
+ \end{frame}
+
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E2}
+	\begin{minipage}{10cm}
+		
+		Los valores propios de la matriz $J(E_2)$ son $\lambda_1 = \beta-r$, $\lambda_2=-\mu$ y $\lambda_3=-\frac{\alpha_1 k(\beta-r)}{r}$.
+		El autor plantea que $E_2$ es estable bajo la condición $r>\beta$.
+		Sin embargo, si $r>\beta$ entonces $-\frac{\alpha_1 k(\beta-r)}{r} > 0$ por lo que el punto de equilibrio $E_2$ es inestable. \par
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E3}
+	\begin{minipage}{10cm}
+		\setlength{\arraycolsep}{2.5pt}
+		\medmuskip = 1mu % default: 4mu plus 2mu minus 4mu
+		Para $E_3$ tenemos la siguiente matriz jacobiana:\\
+
+		
+			$J\left(x^*, y^*, z^*\right)=\left[\scalemath{0.8}{\begin{array}{ccc}
+					\mathrm{r}-\frac{2 r x^*}{k}-\beta-\alpha z^* & 0                                                                   & -\alpha x^*                                        \\
+					\beta                                         & -\frac{\eta z^*}{y^*+m}+\frac{\eta y z^*}{\left(y^*+m\right)^2}-\mu & -\frac{\eta y^*}{y^*+m}                            \\
+					\alpha_1 z^*                                  & \frac{\eta_1 z^{* 2}}{\left(y^*+m\right)^2}                         & 2 \rho z^*-\frac{2 \eta_1 z^*}{y^*+m}+\alpha_1 x^*
+				\end{array}}\right]$
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\begin{minipage}{10cm}
+		\begin{block}{Criterio de Routh-Hurwitz}
+			Dado el polinomio característico de la matriz Jacobiana:\\
+			$$P(\lambda) = A_0\lambda^3 + A_1\lambda^2 + A_2\lambda + A_3$$
+			asociado a la matriz de Hurwitz:
+			$H=
+			\begin{pmatrix}
+				A_1 & A_3 & 0\\
+				A_0 & A_2 & 0\\
+				0 & A_1 & A3
+			\end{pmatrix}$.\\
+			Si satisface las siguientes condiciones:\\
+			$H_1>0$, $H_2>0$, y $H_3>0$,\\
+			donde $H_1$, $H_2$ y $H_3$ son los menores principales de la diagonal entonces la matriz es Hurwitz estable.
+			
+			
+			
+			
+			
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local E3}
+	\begin{minipage}{10cm}
+		Para analizar la estabilidad del punto interior se utiliza el criterio de Routh-Hurwitz que consiste en analizar los coeficientes del polinomio característico de $J(E_3)$:\\
+		$$P(\lambda) = A_0\lambda^3 + A_1\lambda^2 + A_2\lambda + A_3$$\\
+		los cuales en caso de cumplir las condiciones necesarias y suficientes:\\
+		$A_0 > 0$, $A_1 > 0$, $A_2 > 0$, $A_3 > 0$ y $A_1 A_2 - A_0 A_3 > 0$\\
+		podemos afirmar que las raíces de $P(\lambda)$ tienen parte real negativa y por tanto el punto interior es asint\'oticamente estable.
+		
+		
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Puntos de Equilibrio y Estabilidad Local}
+	\begin{minipage}{10cm}
+		\
+
+\begin{block}{}
+	\begin{center}
+	\begin{tabular}{|c|c|}
+			\hline
+		\textbf{Puntos de Equilibrio} & \textbf{Estabilidad Local}\\
+		\hline
+		\\
+		\addlinespace[-2ex]
+		$E_1=(0,0,0)$ & Inestable\\ \hline
+		$E_2=(\frac{k(r-\beta)}{r}, \frac{\beta k(r-\beta)}{\mu r}, 0)$ & Inestable\\ \hline  
+		$E_3 = (x^*,y^*,z^*)$ & Asint\'oticamente estable 
+		 
+	\end{tabular}
+	\end{center}
+\end{block}
+	\end{minipage}
+\end{frame}
+
+
+
 %----------------------------------
+\section{Simulaciones Num\'ericas}
+
+
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		S1 con valores iniciales [3.01 5.05 4.28]
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S1.png}
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		S2 con valores iniciales [0.3 2.4 3.9]
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S2.png}
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		S2 3D
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/S23d.png}
+		
+	\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		Código del método de Euler en Python:
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/euler.png}
+		
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Simulaciones Num\'ericas}
+	\begin{minipage}{10cm}
+		Código del método de Runge-Kutta en Python:
+		\centering
+		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{Comparativas/rungekutta.png}
+		
+	\end{minipage}
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{Simulaciones Num\'ericas}
+% 	\begin{minipage}{10cm}
+% 		\begin{figure}[H]
+% 			\centering
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{Simulations/S1[4.6 5.9 3.1].pdf}
+
+% 			\end{subfigure}%
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{GraficasPaper/S1[2].png}
+% 			\end{subfigure}
+% 			\caption{S1 con valores iniciales [4.6 5.9 3.1]}
+% 		\end{figure}
+
+% 	\end{minipage}
+% \end{frame}
+
+% \begin{frame}
+% 	\frametitle{Simulaciones Num\'ericas}
+% 	\begin{minipage}{10cm}
+% 		\begin{figure}[H]
+% 			\centering
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{Simulations/S1[4.6 5.9 3.1].pdf}
+
+% 			\end{subfigure}%
+% 			\begin{subfigure}[b]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=\textwidth]{GraficasPaper/S1[2].png}
+% 			\end{subfigure}
+% 			\caption{S1 con valores iniciales [4.6 5.9 3.1]}
+
+% 		\end{figure}
+
+% 	\end{minipage}
+% \end{frame}
+
+\section{Conclusiones}
 \begin{frame}
 	\frametitle{Conclusiones}
 	\begin{minipage}{10cm}
-	Se ha demostrado para el sistema 
+	\begin{itemize}
+		\item Este estudio proporciona una comprensi\'on más profunda de las complejas interacciones entre los depredadores y sus presas en
+		los ecosistemas naturales.
+		\item Hemos aprendido a resolver sistemas de ecuaciones diferenciales utilizando diferentes
+		métodos numéricos, como el método de Euler o el método de Runge-Kutta.
+	
+	\end{itemize}	
 	\end{minipage}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Conclusiones}
+	\begin{minipage}{10cm}
+		\begin{itemize}
+			\item  Hemos estudiado
+			la estabilidad de sistemas dinámicos, utilizando técnicas como el análisis de estabilidad lineal y el método de Routh-Hurwitz, y hemos
+			desarrollado habilidades investigativas, como la capacidad de buscar y analizar información relevante, trabajar en equipo, elaborar y
+			presentar informes técnicos, y utilizar herramientas matemáticas y de programación para resolver problemas.
+		\end{itemize}	
+	\end{minipage}
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{Conclusiones}
+% 	\begin{minipage}{10cm}
+% 		Se ha demostrado para el sistema
+% 	\end{minipage}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Recomendaciones}
 	\begin{minipage}{10cm}
-		Se puede extender los resultados a modelos... 
+		Creemos que es importante seguir explorando los modelos matemáticos y las técnicas de simulación numérica para entender mejor
+		los sistemas dinámicos y predecir su comportamiento en diferentes áreas, como la biología, la física, la ingeniería y
+		la economía.
 	\end{minipage}
 \end{frame}
 %----------------------------------
 \section{Bibliograf\'ia del tema}
-\begin{frame}
-\frametitle{Bibliograf\'ia}
-\begin{thebibliography}{99}
+%\begin{frame}
+%	\frametitle{Bibliograf\'ia}
+%	\begin{thebibliography}{99}
+%
+%		\bibitem[Sanjuan,2016]{sanjuan2016} M. A. Fern\'andez Sanju\'an (2016). Din\'amica No Lineal, Teor\'ia del Caos y Sistemas Complejos: una perspectiva hist\'orica. {\em Rev. R. Acad. Cienc. Exact. F\'is .Nat.} \textbf{Vol}. 109, N. 1?2, pp. 107-126.
+%	\end{thebibliography}
+%\end{frame}
 
-\bibitem[Sanjuan,2016]{sanjuan2016} M. A. Fern\'andez Sanju\'an (2016). Din\'amica No Lineal, Teor\'ia del Caos y Sistemas Complejos: una perspectiva hist\'orica. {\em Rev. R. Acad. Cienc. Exact. F\'is .Nat.} \textbf{Vol}. 109, N. 1?2, pp. 107-126.
-\end{thebibliography}	
+\begin{frame}
+	\frametitle{Bibliograf\'ia}
+	\begin{thebibliography}{99}
+		
+		\bibitem [Sanjuan,2016]{sanjuan2016}  C. Henry Edwards, David E. Penney y David Calvis.\hspace{0.1cm}\textit{Differential equations and boundary value
+			problems: computing and modeling} . 4th ed. Upper Saddle River, NJ: Pearson Education, 2008.
+		ISBN : 978-0-13-156107-6.
+		\bibitem [Sanjuan,2016]{sanjuan2016} Ranjit Kumar Upadhyay y Satteluri R. K. Iyengar.\hspace{0.1cm}\textit {Introduction to mathematical modeling and chaotic dynamics}. eng. 2013. ISBN : 978-1-4398-9887-1 978-1-4398-9886-4.
+	
+	\end{thebibliography}
 \end{frame}
 
 \end{document}
